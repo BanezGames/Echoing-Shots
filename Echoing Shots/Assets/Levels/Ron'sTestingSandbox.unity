@@ -221,6 +221,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!143 &271227173 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 4082681679887406920, guid: 0f58346d9703aa04b97036a189f5d546, type: 3}
+  m_PrefabInstance: {fileID: 1427207405261079017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &599353948
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &599353949
 RectTransform:
   m_ObjectHideFlags: 0
@@ -816,6 +821,22 @@ PrefabInstance:
     - target: {fileID: 3509294679197021035, guid: 0f58346d9703aa04b97036a189f5d546, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478864536497638149, guid: 0f58346d9703aa04b97036a189f5d546, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 271227173}
+    - target: {fileID: 5478864536497638149, guid: 0f58346d9703aa04b97036a189f5d546, type: 3}
+      propertyPath: gravity
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478864536497638149, guid: 0f58346d9703aa04b97036a189f5d546, type: 3}
+      propertyPath: jumpSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478864536497638149, guid: 0f58346d9703aa04b97036a189f5d546, type: 3}
+      propertyPath: jumpCountMax
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
