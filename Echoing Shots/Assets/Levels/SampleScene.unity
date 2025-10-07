@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e72d3c715625e44ab0e12dcd4d645f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerController
-  agent: {fileID: 1062415620}
+  controller: {fileID: 1062415620}
   speed: 10
   jumpSpeed: 15
   jumpCountMax: 2
