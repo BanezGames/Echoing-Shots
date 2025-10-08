@@ -48,7 +48,7 @@ public class enemyAI : MonoBehaviour , IDamage
             roamTimer += Time.deltaTime;
         }
 
-        if(playerInRange && canSeePlayer())
+        if(playerInRange && !canSeePlayer())
         {
             checkRoam();
         }
@@ -82,7 +82,7 @@ public class enemyAI : MonoBehaviour , IDamage
     bool canSeePlayer()
     {
         playerDir = gameManager.instance.player.transform.position - headPos.position;
-        angleToPlayer = Vector3.Angle(transform.forward, playerDir);
+        angleToPlayer = Vector3.Angle(playerDir, transform.forward);
         Debug.DrawRay(headPos.position, playerDir, Color.red);
 
         RaycastHit hit;
@@ -134,7 +134,7 @@ public class enemyAI : MonoBehaviour , IDamage
     void shoot() 
     {
         shootTimer = 0;
-        Instantiate(bullet, shootPos.position, Quaternion.identity);
+        Instantiate(bullet, shootPos.position, transform.rotation);
     }
 
     public void takeDamage(int amount)

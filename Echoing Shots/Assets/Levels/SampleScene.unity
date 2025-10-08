@@ -894,6 +894,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558992990}
   m_CullTransparentMesh: 1
+--- !u!1 &614719750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 614719752}
+  - component: {fileID: 614719751}
+  m_Layer: 0
+  m_Name: NavMesh Surface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &614719751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614719750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: abb4a7388b9cfdf4ca442e734de5bb89, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!4 &614719752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614719750}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.14003, y: 0, z: -15.57495}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &667379962
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,12 +2824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3880bcbb35ed8084187a9201d1a93def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::damage
-  type: 2
-  rb: {fileID: 0}
-  damageAmount: 1
-  damageRate: 0.5
-  speed: 0
-  destroyTime: 0
 --- !u!4 &2025281348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4814865125857390892, guid: 8b189fa52d0d857409642c070a2ac50d, type: 3}
@@ -3424,6 +3482,8 @@ GameObject:
   - component: {fileID: 5866666020060913978}
   - component: {fileID: 5866666020060913976}
   - component: {fileID: 5866666020060913977}
+  - component: {fileID: 5866666020060913979}
+  - component: {fileID: 5866666020060913980}
   m_Layer: 7
   m_Name: cultist 1
   m_TagString: Untagged
@@ -5254,10 +5314,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemyAI
   model: {fileID: 6992461295891897707}
+  agent: {fileID: 5866666020060913980}
+  headPos: {fileID: 6170895285309814861}
   HP: 5
+  faceTargetSpeed: 0
+  FOV: 45
+  roamDist: 25
+  roamPauseTime: 3
   shootPos: {fileID: 159132321}
   bullet: {fileID: 5751844053204205236, guid: cecb040342661a04abea1e38244c483d, type: 3}
   shootRate: 1
+--- !u!135 &5866666020060913979
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147784638968}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 25
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &5866666020060913980
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147784638968}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!4 &6074123599026742111
 Transform:
   m_ObjectHideFlags: 0
@@ -6603,3 +6712,4 @@ SceneRoots:
   - {fileID: 1062415622}
   - {fileID: 2021012721}
   - {fileID: 543450651723053890}
+  - {fileID: 614719752}
