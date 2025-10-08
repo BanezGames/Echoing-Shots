@@ -5,7 +5,14 @@ public class enemyAI : MonoBehaviour , IDamage
     [SerializeField] Renderer model;
     [SerializeField] int HP;
 
+    [SerializeField] Transform shootPos;
+    [SerializeField] GameObject bullet;
+    [SerializeField] float shootRate;
+
     Color colorOrig;
+
+    float shootTimer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,7 +23,18 @@ public class enemyAI : MonoBehaviour , IDamage
     // Update is called once per frame
     void Update()
     {
+        shootTimer += Time.deltaTime;
 
+        if (shootTimer > shootRate)
+        {
+            shoot();
+        }
+    }
+
+    void shoot() 
+    {
+        shootTimer = 0;
+        Instantiate(bullet, shootPos.position, Quaternion.identity);
     }
 
     public void takeDamage(int amount)
