@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 953432391221388938}
-  - component: {fileID: 1058324572811750312}
+  - component: {fileID: 3760382069009514800}
   - component: {fileID: 3225456395585864420}
   - component: {fileID: 6400397968748422931}
   - component: {fileID: 29995778529205387}
@@ -29,13 +29,13 @@ Transform:
   m_GameObject: {fileID: 5751844053204205236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.372, y: 1.423, z: -15.695}
+  m_LocalPosition: {x: 1.00105, y: 0, z: -13.10128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1058324572811750312
+--- !u!114 &3760382069009514800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,14 +44,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5751844053204205236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3880bcbb35ed8084187a9201d1a93def, type: 3}
+  m_Script: {fileID: 11500000, guid: 500a08448e9fc1f449887a4b3ce467eb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::damage
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
   type: 0
   rb: {fileID: 6400397968748422931}
   damageAmount: 1
   damageRate: 0
-  speed: 25
+  speed: 4
   destroyTime: 3
 --- !u!135 &3225456395585864420
 SphereCollider:
