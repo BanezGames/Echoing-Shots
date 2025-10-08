@@ -1213,11 +1213,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
   m_PrefabInstance: {fileID: 147028849}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &764497536 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6459211734902540805, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-  m_PrefabInstance: {fileID: 2067638115527648733}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &807321883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,54 +1935,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114848546}
   m_CullTransparentMesh: 1
---- !u!1 &1121516588 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4924989395540904198, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-  m_PrefabInstance: {fileID: 2067638115527648733}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &1121516593
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121516588}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 10
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!135 &1121516598
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121516588}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 20
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1150621763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,70 +2956,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1597466835181507204, guid: b070955636de2954485bc3b6602dd6c8, type: 3}
   m_PrefabInstance: {fileID: 968306477054130081}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1717413927
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1717413929}
-  - component: {fileID: 1717413928}
-  m_Layer: 0
-  m_Name: NavMesh Surface
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1717413928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717413927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a81e220397f01384cbea6f62446a5b22, type: 2}
-  m_BuildHeightMesh: 0
---- !u!4 &1717413929
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717413927}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1729697291
 Transform:
   m_ObjectHideFlags: 0
@@ -3910,37 +3793,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 951656507773509140, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-      propertyPath: FOV
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 951656507773509140, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-      propertyPath: agent
-      value: 
-      objectReference: {fileID: 1121516593}
-    - target: {fileID: 951656507773509140, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
       propertyPath: bullet
       value: 
       objectReference: {fileID: 5751844053204205236, guid: 6d165324d0009374685e8df48663357d, type: 3}
-    - target: {fileID: 951656507773509140, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-      propertyPath: headPos
-      value: 
-      objectReference: {fileID: 764497536}
-    - target: {fileID: 951656507773509140, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-      propertyPath: roamDist
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 951656507773509140, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-      propertyPath: shootRate
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 951656507773509140, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-      propertyPath: roamPauseTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 951656507773509140, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-      propertyPath: faceTargetSpeed
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 4924989395540904198, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
       propertyPath: m_Name
       value: cultist 1
@@ -3988,13 +3843,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4924989395540904198, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1121516593}
-    - targetCorrespondingSourceObject: {fileID: 4924989395540904198, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1121516598}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
 --- !u!1001 &8331187055144370357
 PrefabInstance:
@@ -4076,4 +3925,3 @@ SceneRoots:
   - {fileID: 697450786}
   - {fileID: 335164821}
   - {fileID: 2013546650}
-  - {fileID: 1717413929}
