@@ -1127,12 +1127,13 @@ MonoBehaviour:
   model: {fileID: 727900204762579627}
   agent: {fileID: 8331717004378235516}
   headPos: {fileID: 6459211734902540805}
+  Item: {fileID: 5268703701721796798, guid: 8b2dabcba45554f4ba67a9bb1f7ed4dc, type: 3}
   HP: 5
   faceTargetSpeed: 300
   FOV: 45
   roamDist: 15
   roamPauseTime: 3
-  shootPos: {fileID: 7072789310138688115}
+  shootPos: {fileID: 488052004505233985}
   bullet: {fileID: 5751844053204205236, guid: 6d165324d0009374685e8df48663357d, type: 3}
   shootRate: 4
 --- !u!95 &6970759766086338509

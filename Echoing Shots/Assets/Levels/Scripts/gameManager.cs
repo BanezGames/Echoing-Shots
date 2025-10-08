@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
     [SerializeField] GameObject enemy;
+    [SerializeField] TextMeshProUGUI Counter;
 
 
     [SerializeField] int maxItems;
@@ -107,6 +110,7 @@ public class gameManager : MonoBehaviour
     public void updateItemGoal(int items)
     {
         gameItemCount += items;
+        Counter.text = gameItemCount + "/" + maxItems;
         if (gameItemCount >= maxItems)
         {
             statePause();
