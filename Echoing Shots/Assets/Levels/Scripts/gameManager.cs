@@ -10,10 +10,13 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuLose;
     [SerializeField] GameObject enemy;
 
+
+    [SerializeField] int maxItems;
+
     public GameObject player;
     public playerController playerScript;
-    
 
+    int gameItemCount; 
     public bool isPaused;
 
     float timeScaleOrig;
@@ -79,9 +82,7 @@ public class gameManager : MonoBehaviour
 
         if (gameGoalCount <= 0)
         {
-            //statePause();
-            //menuActive = menuWin;
-            //menuActive.SetActive(true);
+            
             gameGoalCount = 0;
             waveCount++;
             spawnEnemies();
@@ -97,6 +98,18 @@ public class gameManager : MonoBehaviour
         {
             int randPos = Random.Range(0, SpawnLocations.Length);
             Instantiate(enemy, SpawnLocations[randPos], Quaternion.identity);
+        }
+    }
+
+    public void updateItemGoal(int items)
+    {
+        gameItemCount += items;
+        if (gameItemCount >= maxItems)
+        {
+            statePause();
+            menuActive = menuWin;
+            menuActive.SetActive(true);
+            gameItemCount = 0;
         }
     }
 
