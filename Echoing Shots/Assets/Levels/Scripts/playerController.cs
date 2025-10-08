@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour , IDamage
 {
@@ -16,6 +17,8 @@ public class playerController : MonoBehaviour , IDamage
     [SerializeField] int shootDist;
     [SerializeField] float shootRate;
 
+    [SerializeField] Slider slider;
+    [SerializeField] Image Reticle;
 
 
     Vector3 playerVel;
@@ -31,6 +34,7 @@ public class playerController : MonoBehaviour , IDamage
     void Start()
     {
         HPOrig = HP;
+        slider.value = HP;
     }
 
     // Update is called once per frame
@@ -61,7 +65,18 @@ public class playerController : MonoBehaviour , IDamage
 
         controller.Move(playerVel * Time.deltaTime);
 
-        if(Input.GetButton("Fire1") && shootTimer >= shootRate) 
+        if(shootTimer >= shootRate)
+        {
+            Reticle.color = Color.red;
+        }
+        else
+        {
+            Reticle.color = Color.gray;
+
+            
+        }
+
+        if (Input.GetButton("Fire1") && shootTimer >= shootRate)
         {
             shoot();
         }
@@ -106,10 +121,15 @@ public class playerController : MonoBehaviour , IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
-
-        if(HP <= 0) 
+        slider.value = HP;
+        if (HP <= 0) 
         {
+            slider.value = 0;
             gameManager.instance.youLose();
+        }
+        else
+        {
+            
         }
     }
 }
