@@ -1085,6 +1085,8 @@ GameObject:
   - component: {fileID: 951656507773509140}
   - component: {fileID: 6970759766086338509}
   - component: {fileID: 3639852821403161953}
+  - component: {fileID: 8331717004378235516}
+  - component: {fileID: 4830539011713067963}
   m_Layer: 7
   m_Name: cultist 1
   m_TagString: Untagged
@@ -1123,10 +1125,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemyAI
   model: {fileID: 727900204762579627}
+  agent: {fileID: 8331717004378235516}
+  headPos: {fileID: 6459211734902540805}
   HP: 5
+  faceTargetSpeed: 300
+  FOV: 45
+  roamDist: 15
+  roamPauseTime: 3
   shootPos: {fileID: 7916143109005191286}
-  bullet: {fileID: 5751844053204205236, guid: cecb040342661a04abea1e38244c483d, type: 3}
-  shootRate: 1
+  bullet: {fileID: 5751844053204205236, guid: 6d165324d0009374685e8df48663357d, type: 3}
+  shootRate: 4
 --- !u!95 &6970759766086338509
 Animator:
   serializedVersion: 7
@@ -1172,6 +1180,49 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!195 &8331717004378235516
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924989395540904198}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 10
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!135 &4830539011713067963
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924989395540904198}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5051027736261304260
 GameObject:
   m_ObjectHideFlags: 0
