@@ -8,15 +8,21 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    [SerializeField] GameObject enemy;
 
     public GameObject player;
     public playerController playerScript;
+    
 
     public bool isPaused;
 
     float timeScaleOrig;
 
     int gameGoalCount;
+
+    [SerializeField]int waveCount;
+
+    [SerializeField] Vector3[] SpawnLocations;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -26,6 +32,8 @@ public class gameManager : MonoBehaviour
 
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+
+        spawnEnemies();
 
     }
 
@@ -71,9 +79,24 @@ public class gameManager : MonoBehaviour
 
         if (gameGoalCount <= 0)
         {
-            statePause();
-            menuActive = menuWin;
-            menuActive.SetActive(true);
+            //statePause();
+            //menuActive = menuWin;
+            //menuActive.SetActive(true);
+            gameGoalCount = 0;
+            waveCount++;
+            spawnEnemies();
+            
+
+
+        }
+    }
+
+    public void spawnEnemies()
+    {
+        for (int i = 0; i < waveCount; i++)
+        {
+            int randPos = Random.Range(0, SpawnLocations.Length);
+            Instantiate(enemy, SpawnLocations[randPos], Quaternion.identity);
         }
     }
 

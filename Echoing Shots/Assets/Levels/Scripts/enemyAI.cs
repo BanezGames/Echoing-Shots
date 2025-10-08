@@ -29,6 +29,7 @@ public class enemyAI : MonoBehaviour , IDamage
     Vector3 playerDir;
     Vector3 startingPos;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
