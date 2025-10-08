@@ -62,7 +62,7 @@ public class enemyAI : MonoBehaviour , IDamage
     {
         if(roamTimer >= roamPauseTime && agent.remainingDistance < 0.01f)
         {
-            checkRoam();
+            roam();
         }
     }
 
