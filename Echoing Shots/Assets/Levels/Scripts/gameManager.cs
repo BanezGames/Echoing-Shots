@@ -17,6 +17,9 @@ public class gameManager : MonoBehaviour
     public playerController playerScript;
 
     int gameItemCount; 
+   
+    
+    
     public bool isPaused;
 
     float timeScaleOrig;
