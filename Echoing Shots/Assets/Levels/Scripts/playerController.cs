@@ -17,9 +17,6 @@ public class playerController : MonoBehaviour , IDamage
     [SerializeField] int shootDist;
     [SerializeField] float shootRate;
 
-    [SerializeField] Slider slider;
-    [SerializeField] Image Reticle;
-
 
 
     Vector3 playerVel;
@@ -35,7 +32,7 @@ public class playerController : MonoBehaviour , IDamage
     void Start()
     {
         HPOrig = HP;
-        slider.value = HP;
+        gameManager.instance.getHealthBar().value = HP;
     }
 
     // Update is called once per frame
@@ -68,11 +65,11 @@ public class playerController : MonoBehaviour , IDamage
 
         if(shootTimer >= shootRate)
         {
-            Reticle.color = Color.red;
+            gameManager.instance.getReticle().color = Color.red;
         }
         else
         {
-            Reticle.color = Color.gray;
+            gameManager.instance.getReticle().color = Color.gray;
 
             
         }
@@ -122,10 +119,10 @@ public class playerController : MonoBehaviour , IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
-        slider.value = HP;
+        gameManager.instance.getHealthBar().value = HP;
         if (HP <= 0) 
         {
-            slider.value = 0;
+            gameManager.instance.getHealthBar().value = 0;
             gameManager.instance.youLose();
         }
         else

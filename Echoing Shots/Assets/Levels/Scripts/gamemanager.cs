@@ -12,6 +12,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuLose;
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
+    [SerializeField] Slider HealthBar;
+    [SerializeField] Image Reticle;
 
 
     [SerializeField] int maxItems;
@@ -129,4 +131,15 @@ public class gameManager : MonoBehaviour
         menuActive = menuLose;
         menuActive.SetActive(true);
     }
+
+    public Image getReticle()
+    {
+        return Reticle;
+    }
+
+    public Slider getHealthBar()
+    {
+        return HealthBar;
+    }
+
 }
