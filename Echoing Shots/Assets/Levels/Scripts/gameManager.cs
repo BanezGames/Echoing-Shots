@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -86,7 +87,7 @@ public class gameManager : MonoBehaviour
     {
         gameGoalCount += amount;
 
-        if (gameGoalCount <= 1)
+        if (gameGoalCount <= 1 && amount < 0)
         {
             
             if(gameGoalCount <= 0)
