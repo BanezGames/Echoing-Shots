@@ -61,8 +61,6 @@ MonoBehaviour:
   shootDamage: 1
   shootDist: 25
   shootRate: 0.75
-  slider: {fileID: 0}
-  Reticle: {fileID: 0}
 --- !u!143 &1425898397513980404
 CharacterController:
   m_ObjectHideFlags: 0

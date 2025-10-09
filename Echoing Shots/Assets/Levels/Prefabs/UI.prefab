@@ -2748,7 +2748,9 @@ MonoBehaviour:
   menuLose: {fileID: 6322922672557144648}
   enemy: {fileID: 4924989395540904198, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
   Counter: {fileID: 7925322404709175321}
-  maxItems: 10
+  HealthBar: {fileID: 8826785036249232505}
+  Reticle: {fileID: 719817378755034}
+  maxItems: 1
   player: {fileID: 3509294679197021035, guid: 0f58346d9703aa04b97036a189f5d546, type: 3}
   playerScript: {fileID: 0}
   isPaused: 0
