@@ -77,12 +77,13 @@ public class gameManager : MonoBehaviour
     {
         gameGoalCount += amount;
 
-        if (gameGoalCount <= 0)
+        if (gameGoalCount <= 1)
         {
-            //statePause();
-            //menuActive = menuWin;
-            //menuActive.SetActive(true);
-            gameGoalCount = 0;
+            
+            if(gameGoalCount <= 0)
+            {
+                gameGoalCount = 0;
+            }
             waveCount++;
             spawnEnemies();
             
