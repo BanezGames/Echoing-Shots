@@ -54,13 +54,15 @@ MonoBehaviour:
   controller: {fileID: 1425898397513980404}
   HP: 5
   speed: 4
-  sprintMod: 10
-  jumpSpeed: 15
+  sprintMod: 6
+  jumpSpeed: 10
   jumpCountMax: 2
   gravity: 30
   shootDamage: 1
-  shootDist: 15
-  shootRate: 1
+  shootDist: 25
+  shootRate: 0.75
+  slider: {fileID: 0}
+  Reticle: {fileID: 0}
 --- !u!143 &1425898397513980404
 CharacterController:
   m_ObjectHideFlags: 0
