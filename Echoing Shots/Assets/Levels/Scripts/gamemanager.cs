@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -9,11 +11,18 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
     [SerializeField] GameObject enemy;
+    [SerializeField] TextMeshProUGUI Counter;
+
+
+    [SerializeField] int maxItems;
 
     public GameObject player;
     public playerController playerScript;
-    
 
+    int gameItemCount; 
+   
+    
+    
     public bool isPaused;
 
     float timeScaleOrig;
@@ -98,6 +107,19 @@ public class gameManager : MonoBehaviour
         {
             int randPos = Random.Range(0, SpawnLocations.Length);
             Instantiate(enemy, SpawnLocations[randPos], Quaternion.identity);
+        }
+    }
+
+    public void updateItemGoal(int items)
+    {
+        gameItemCount += items;
+        Counter.text = gameItemCount + "/" + maxItems;
+        if (gameItemCount >= maxItems)
+        {
+            statePause();
+            menuActive = menuWin;
+            menuActive.SetActive(true);
+            gameItemCount = 0;
         }
     }
 

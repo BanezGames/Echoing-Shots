@@ -6,6 +6,7 @@ public class enemyAI : MonoBehaviour , IDamage
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
+    [SerializeField] GameObject Item;
 
     [SerializeField] int HP;
     [SerializeField] int faceTargetSpeed;
@@ -89,7 +90,7 @@ public class enemyAI : MonoBehaviour , IDamage
         RaycastHit hit;
         if(Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            Debug.Log(hit.collider.name);
+            
 
             if (angleToPlayer <= FOV && hit.collider.CompareTag("Player"))
             {
@@ -147,6 +148,13 @@ public class enemyAI : MonoBehaviour , IDamage
         {
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
+            int rand = Random.Range(0, 2);
+            Debug.Log(rand);
+            if(rand == 0)
+            {
+                Instantiate(Item, transform.position, Quaternion.identity);
+            }
+            
         }
         else
         {

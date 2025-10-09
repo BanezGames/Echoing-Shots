@@ -21,6 +21,7 @@ public class playerController : MonoBehaviour , IDamage
     [SerializeField] Image Reticle;
 
 
+
     Vector3 playerVel;
     Vector3 moveDir;
 
