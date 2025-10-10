@@ -44,7 +44,7 @@ public class enemyAI : MonoBehaviour , IDamage
     void Update()
     {
         shootTimer += Time.deltaTime;
-
+        
         if (agent.remainingDistance < 0.01f)
         {
             roamTimer += Time.deltaTime;

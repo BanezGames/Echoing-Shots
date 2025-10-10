@@ -44,7 +44,7 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
 
-        spawnEnemies();
+        //spawnEnemies();
 
     }
 
