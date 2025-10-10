@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -8,15 +10,30 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    [SerializeField] GameObject enemy;
+    [SerializeField] TextMeshProUGUI Counter;
+    [SerializeField] Slider HealthBar;
+    [SerializeField] Image Reticle;
+
+
+    [SerializeField] int maxItems;
 
     public GameObject player;
     public playerController playerScript;
 
+    int gameItemCount; 
+   
+    
+    
     public bool isPaused;
 
     float timeScaleOrig;
 
     int gameGoalCount;
+
+    [SerializeField]int waveCount;
+
+    [SerializeField] Vector3[] SpawnLocations;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -26,6 +43,8 @@ public class gameManager : MonoBehaviour
 
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+
+        spawnEnemies();
 
     }
 
@@ -69,11 +88,40 @@ public class gameManager : MonoBehaviour
     {
         gameGoalCount += amount;
 
-        if (gameGoalCount <= 0)
+        if (gameGoalCount <= 1 && amount < 0)
+        {
+            
+            if(gameGoalCount <= 0)
+            {
+                gameGoalCount = 0;
+            }
+            waveCount++;
+            spawnEnemies();
+            
+
+
+        }
+    }
+
+    public void spawnEnemies()
+    {
+        for (int i = 0; i < waveCount; i++)
+        {
+            int randPos = Random.Range(0, SpawnLocations.Length);
+            Instantiate(enemy, SpawnLocations[randPos], Quaternion.identity);
+        }
+    }
+
+    public void updateItemGoal(int items)
+    {
+        gameItemCount += items;
+        Counter.text = gameItemCount + "/" + maxItems;
+        if (gameItemCount >= maxItems)
         {
             statePause();
             menuActive = menuWin;
             menuActive.SetActive(true);
+            gameItemCount = 0;
         }
     }
 
@@ -83,4 +131,15 @@ public class gameManager : MonoBehaviour
         menuActive = menuLose;
         menuActive.SetActive(true);
     }
+
+    public Image getReticle()
+    {
+        return Reticle;
+    }
+
+    public Slider getHealthBar()
+    {
+        return HealthBar;
+    }
+
 }

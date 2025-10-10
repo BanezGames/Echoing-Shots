@@ -43,6 +43,7 @@ public class Damage : MonoBehaviour
 
         if (dmg != null && (type == damageType.moving || type == damageType.stationary || type == damageType.homing))
         {
+            Debug.Log("Take Damage");
             dmg.takeDamage(damageAmount);
         }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour , IDamage
 {
@@ -31,6 +32,7 @@ public class playerController : MonoBehaviour , IDamage
     void Start()
     {
         HPOrig = HP;
+        gameManager.instance.getHealthBar().value = HP;
     }
 
     // Update is called once per frame
@@ -61,7 +63,18 @@ public class playerController : MonoBehaviour , IDamage
 
         controller.Move(playerVel * Time.deltaTime);
 
-        if(Input.GetButton("Fire1") && shootTimer >= shootRate) 
+        if(shootTimer >= shootRate)
+        {
+            gameManager.instance.getReticle().color = Color.red;
+        }
+        else
+        {
+            gameManager.instance.getReticle().color = Color.gray;
+
+            
+        }
+
+        if (Input.GetButton("Fire1") && shootTimer >= shootRate)
         {
             shoot();
         }
@@ -106,10 +119,15 @@ public class playerController : MonoBehaviour , IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
-
-        if(HP <= 0) 
+        gameManager.instance.getHealthBar().value = HP;
+        if (HP <= 0) 
         {
+            gameManager.instance.getHealthBar().value = 0;
             gameManager.instance.youLose();
+        }
+        else
+        {
+            
         }
     }
 }
