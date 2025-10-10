@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class gameManager : MonoBehaviour
 {
@@ -33,7 +34,8 @@ public class gameManager : MonoBehaviour
 
     [SerializeField]int waveCount;
 
-    [SerializeField] Vector3[] SpawnLocations;
+    [SerializeField] GameObject[] EnemiesList;
+    [SerializeField] GameObject[] Spawners;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -41,10 +43,12 @@ public class gameManager : MonoBehaviour
         instance = this;
         timeScaleOrig = Time.timeScale;
 
+        Spawners = GameObject.FindGameObjectsWithTag("Spawner");
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
 
-        //spawnEnemies();
+        spawnEnemies();
+        
 
     }
 
@@ -105,10 +109,14 @@ public class gameManager : MonoBehaviour
 
     public void spawnEnemies()
     {
-        for (int i = 0; i < waveCount; i++)
+        //for (int i = 0; i < waveCount; i++)
+        //{
+            //int randPos = Random.Range(0, SpawnLocations.Length);
+            //Instantiate(enemy, SpawnLocations[randPos], Quaternion.identity);
+        //}
+        for(int i = 0; i < Spawners.Length; i++)
         {
-            int randPos = Random.Range(0, SpawnLocations.Length);
-            Instantiate(enemy, SpawnLocations[randPos], Quaternion.identity);
+            Spawners[i].GetComponent<Spawner>().Spawning(1, 0, 0);
         }
     }
 
@@ -140,6 +148,11 @@ public class gameManager : MonoBehaviour
     public Slider getHealthBar()
     {
         return HealthBar;
+    }
+
+    public GameObject[] getEnemyList()
+    {
+        return EnemiesList;
     }
 
 }

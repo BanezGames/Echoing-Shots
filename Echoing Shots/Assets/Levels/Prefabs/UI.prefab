@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/10
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2750,7 +2750,7 @@ MonoBehaviour:
   Counter: {fileID: 7925322404709175321}
   HealthBar: {fileID: 8826785036249232505}
   Reticle: {fileID: 719817378755034}
-  maxItems: 1
+  maxItems: 10
   player: {fileID: 3509294679197021035, guid: 0f58346d9703aa04b97036a189f5d546, type: 3}
   playerScript: {fileID: 0}
   isPaused: 0
@@ -2766,6 +2766,8 @@ MonoBehaviour:
   - {x: 42, y: 33, z: -56}
   - {x: 42, y: 33, z: -56}
   - {x: 63, y: 11, z: -15}
+  EnemiesList: []
+  Spawners: []
 --- !u!1 &7148028317486446821
 GameObject:
   m_ObjectHideFlags: 0
