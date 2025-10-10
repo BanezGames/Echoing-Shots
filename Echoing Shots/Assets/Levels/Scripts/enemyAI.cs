@@ -17,6 +17,7 @@ public class enemyAI : MonoBehaviour , IDamage
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
     [SerializeField] float shootRate;
+    [SerializeField] int dropChance;
 
     Color colorOrig;
 
@@ -44,7 +45,7 @@ public class enemyAI : MonoBehaviour , IDamage
     void Update()
     {
         shootTimer += Time.deltaTime;
-
+        
         if (agent.remainingDistance < 0.01f)
         {
             roamTimer += Time.deltaTime;
@@ -148,7 +149,7 @@ public class enemyAI : MonoBehaviour , IDamage
         {
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
-            int rand = Random.Range(0, 2);
+            int rand = Random.Range(0, dropChance);
             Debug.Log(rand);
             if(rand == 0)
             {
