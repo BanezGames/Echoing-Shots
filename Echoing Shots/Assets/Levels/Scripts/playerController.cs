@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class playerController : MonoBehaviour , IDamage
@@ -27,6 +29,9 @@ public class playerController : MonoBehaviour , IDamage
 
     float shootTimer;
     bool isSprinting;
+
+    bool isInvincible;
+    int damageOrig;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -114,6 +119,33 @@ public class playerController : MonoBehaviour , IDamage
             }
             Debug.Log(hit.collider.name);
         }
+    }
+
+    public void Heal(int amount)
+    {
+        HP += amount;
+
+        if (HP > HPOrig)
+        {
+            HP = HPOrig;
+        }
+
+        gameManager.instance.getHealthBar().value = HP;
+    }
+
+    public IEnumerator Shield(int duration)
+    {
+        bool original = isInvincible;
+        isInvincible = true;
+        yield return new WaitForSeconds(duration);
+        isInvincible = original;
+    }
+
+    public IEnumerator DamageBoost(int amount, int duration)
+    {
+        shootDamage = damageOrig * amount;
+        yield return new WaitForSeconds(duration);
+        shootDamage = damageOrig;
     }
 
     public void takeDamage(int amount)
