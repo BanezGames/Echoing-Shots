@@ -6904,6 +6904,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019224082}
   serializedVersion: 2
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -7585,6 +7586,66 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+=======
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1385171761172621444, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -632.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385171761172621444, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385171761172621444, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385171761172621444, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385171761172621444, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385171761172621444, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385171761172621444, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385171761172621444, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385171761172621444, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385171761172621444, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1761697780413821502, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_Name
+      value: RockMid_002 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413052017875096816, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
+<<<<<<< HEAD
+>>>>>>> main
 --- !u!1 &174773337915137154
 GameObject:
   m_ObjectHideFlags: 0
@@ -33265,6 +33326,8 @@ Transform:
   - {fileID: 6289909964191676432}
   m_Father: {fileID: 3742407836155680571}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of 4ae16c0 (Cave map Update)
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -33273,6 +33336,16 @@ SceneRoots:
   - {fileID: 1814973046}
   - {fileID: 685610824}
   - {fileID: 1956310501}
+<<<<<<< HEAD
   - {fileID: 506506157}
   - {fileID: 196373730}
   - {fileID: 436443842}
+=======
+<<<<<<< HEAD
+  - {fileID: 543450651824252022}
+  - {fileID: 506506157}
+  - {fileID: 836203548}
+  - {fileID: 1743887122}
+=======
+>>>>>>> parent of 4ae16c0 (Cave map Update)
+>>>>>>> main
