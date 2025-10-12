@@ -2,7 +2,7 @@
 - Project name: Echoing Shots
 - Unity version: Unity 6000.2.6f2
 - Active game object:
-  - Name: GoalCount
+  - Name: cultist 1
   - Tag: Untagged
-  - Layer: UI
+  - Layer: Enemy
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
