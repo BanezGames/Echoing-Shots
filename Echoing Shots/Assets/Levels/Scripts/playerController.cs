@@ -14,6 +14,7 @@ public class playerController : MonoBehaviour , IDamage
     [SerializeField] int jumpSpeed;
     [SerializeField] int jumpCountMax;
     [SerializeField] int gravity;
+    [SerializeField] int swimMod;
 
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
@@ -25,10 +26,15 @@ public class playerController : MonoBehaviour , IDamage
     Vector3 moveDir;
 
     int jumpCount;
+
     int HPOrig;
+    int gravityOrig;
+
 
     float shootTimer;
     bool isSprinting;
+
+    public bool isSwimming;
 
     bool isInvincible;
     int damageOrig;
@@ -37,6 +43,7 @@ public class playerController : MonoBehaviour , IDamage
     void Start()
     {
         HPOrig = HP;
+        gravityOrig = gravity;
         gameManager.instance.getHealthBar().value = HP;
     }
 
@@ -64,9 +71,16 @@ public class playerController : MonoBehaviour , IDamage
         moveDir = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
         controller.Move(moveDir * speed * Time.deltaTime);
 
-        jump();
+        if (!isSwimming)
+        {
+            jump();
+        }
+        else
+        {
+            swim();
+        }
 
-        controller.Move(playerVel * Time.deltaTime);
+            controller.Move(playerVel * Time.deltaTime);
 
         if(shootTimer >= shootRate)
         {
@@ -92,6 +106,16 @@ public class playerController : MonoBehaviour , IDamage
             playerVel.y = jumpSpeed;
             jumpCount++;
         }
+    }
+
+    void swim()
+    {
+        if(Input.GetButtonDown("Jump"))
+        {
+            playerVel.y = jumpSpeed;
+        }
+
+
     }
 
     void sprint() 
