@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &73031339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2231291806526426327, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+  m_PrefabInstance: {fileID: 6878757268623021272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &377274223
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +267,11 @@ Transform:
   - {fileID: 2379925933256094444}
   m_Father: {fileID: 4822337556572187124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &764412292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5370321695937370243, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+  m_PrefabInstance: {fileID: 6878757268623021272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &885923118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1011,16 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &1920821257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2137728214455728477, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+  m_PrefabInstance: {fileID: 6878757268623021272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2097293296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6214115897452747103, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+  m_PrefabInstance: {fileID: 6878757268623021272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1083653776745309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,6 +1136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4684851619885029}
   - component: {fileID: 4684851619885030}
+  - component: {fileID: 4684851619885031}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -1179,6 +1200,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 2.5, z: 3}
   m_Center: {x: 0, y: 1.25, z: 0}
+--- !u!114 &4684851619885031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921508934115409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10574975b80187243bb533824d52d7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::interact
+  type: 0
 --- !u!4 &4751488389754841
 Transform:
   m_ObjectHideFlags: 0
@@ -1513,7 +1547,7 @@ GameObject:
   - component: {fileID: 2239461663684638906}
   - component: {fileID: 2364957184806626570}
   m_Layer: 0
-  m_Name: Lever
+  m_Name: Lever Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1692,9 +1726,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577609631785991160}
+  - component: {fileID: 2575938328058677741}
   - component: {fileID: 2575938328058677740}
   m_Layer: 0
-  m_Name: Column
+  m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1715,12 +1750,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: -0.5, z: 0.5}
+--- !u!114 &2575938328058677741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2575938328058677739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10574975b80187243bb533824d52d7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::interact
+  type: 2
 --- !u!33 &2851979511288206262
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2026,6 +2074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4822337556572187124}
+  - component: {fileID: 8449801699489326675}
   - component: {fileID: 8449801699489326673}
   - component: {fileID: 5955815522571211419}
   - component: {fileID: 4706920426961070352}
@@ -2200,6 +2249,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6214115897452747103, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840862286657124586, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: interactTip
+      value: 
+      objectReference: {fileID: 2097293296}
+    - target: {fileID: 6840862286657124586, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: interactDoor
+      value: 
+      objectReference: {fileID: 1920821257}
+    - target: {fileID: 6840862286657124586, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: interactChest
+      value: 
+      objectReference: {fileID: 73031339}
+    - target: {fileID: 6840862286657124586, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: interactLever
+      value: 
+      objectReference: {fileID: 764412292}
     - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.47958
@@ -2247,6 +2316,10 @@ PrefabInstance:
     - target: {fileID: 7084875363289602203, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854710454179793751, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2496,6 +2569,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.37352, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 1.25}
+--- !u!114 &8449801699489326675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307407333846086478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10574975b80187243bb533824d52d7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::interact
+  type: 1
 --- !u!1 &8547448563594265466
 GameObject:
   m_ObjectHideFlags: 0

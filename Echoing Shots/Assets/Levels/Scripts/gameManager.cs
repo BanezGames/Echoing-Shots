@@ -11,6 +11,12 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+
+    [SerializeField] GameObject interactTip;
+    [SerializeField] GameObject interactDoor;
+    [SerializeField] GameObject interactChest;
+    [SerializeField] GameObject interactLever;
+
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
     [SerializeField] Slider HealthBar;
@@ -153,6 +159,41 @@ public class gameManager : MonoBehaviour
     public GameObject[] getEnemyList()
     {
         return EnemiesList;
+    }
+
+    public void showInteraction(int action)
+    {
+        switch (action)
+        {
+            case 0:
+                {
+                    interactTip.SetActive(true);
+                    interactDoor.SetActive(true);
+                    break;
+                }
+            case 1:
+                {
+                    interactTip.SetActive(true);
+                    interactChest.SetActive(true);
+                    break;
+                }
+            case 2:
+                {
+                    interactTip.SetActive(true);
+                    interactLever.SetActive(true);
+                    break;
+                }
+            default:
+                break;
+        }
+    }
+
+    public void hideInteraction()
+    {
+        interactTip.SetActive(false);
+        interactDoor.SetActive(false);
+        interactChest.SetActive(false);
+        interactLever.SetActive(false);
     }
 
 }
