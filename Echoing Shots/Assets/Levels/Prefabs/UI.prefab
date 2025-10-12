@@ -2576,7 +2576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7392347334032210768
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3305,6 +3305,10 @@ MonoBehaviour:
   menuPause: {fileID: 7148028317486446821}
   menuWin: {fileID: 6805440527494681824}
   menuLose: {fileID: 6322922672557144648}
+  interactTip: {fileID: 6214115897452747103}
+  interactDoor: {fileID: 2137728214455728477}
+  interactChest: {fileID: 2231291806526426327}
+  interactLever: {fileID: 5370321695937370243}
   enemy: {fileID: 4924989395540904198, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
   Counter: {fileID: 0}
   HealthBar: {fileID: 8826785036249232505}
@@ -4180,7 +4184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7693585045901520180
 RectTransform:
   m_ObjectHideFlags: 0
