@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
-public class playerController : MonoBehaviour , IDamage
+public class playerController : MonoBehaviour , IDamage, IInteract
 {
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
