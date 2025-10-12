@@ -2,7 +2,7 @@
 - Project name: Echoing Shots
 - Unity version: Unity 6000.2.6f2
 - Active game object:
-  - Name: Lever
+  - Name: Chest
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
