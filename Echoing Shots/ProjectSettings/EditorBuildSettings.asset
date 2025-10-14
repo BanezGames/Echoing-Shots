@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Levels/titleScreen.unity
     guid: 117fd0fe1401a1148a97cb9de246ad0a
   - enabled: 1
+    path: Assets/Levels/House Under Hill.unity
+    guid: 206143cb8287246418ded408763cdb28
+  - enabled: 1
     path: Assets/Levels/Cave map nearly complete STay for Gods Sake.unity
     guid: d698b39dccbaa0448bc31d60219cac80
   - enabled: 0

@@ -138,7 +138,26 @@ public class gameManager : MonoBehaviour
             gameItemCount = 0;
         }
     }
+    public int GetCurrentItemCount()
+    {
+        return gameItemCount;
+    }
 
+    public void SetItemCount(int count)
+    {
+        gameItemCount = count;
+        Counter.text = gameItemCount + "/" + maxItems;
+    }
+
+    public int GetCurrentWaveCount()
+    {
+        return waveCount;
+    }
+
+    public void SetWaveCount(int count)
+    {
+        waveCount = count;
+    }
     public void youLose()
     {
         statePause();

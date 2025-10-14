@@ -10,4 +10,18 @@ public class startGame : MonoBehaviour
 
 
     }
+    // method for the load button
+    public void loadGame()
+    {
+        if (SaveManager.instance != null && SaveManager.instance.HasSaveFile())
+        {
+            SaveManager.instance.LoadGame();
+        }
+        else
+        {
+            Debug.Log("No save file found!");
+            // Optionally start a new game instead
+            start();
+        }
+    }
 }

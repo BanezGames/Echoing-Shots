@@ -4290,13 +4290,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 324876487832696329, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4058522479557678819, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668515039660876880, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4345,6 +4345,14 @@ PrefabInstance:
     - target: {fileID: 7084875363289602203, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7148028317486446821, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071327008611564504, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -56,6 +56,19 @@ public class playerController : MonoBehaviour , IDamage, IInteract
         sprint();
     }
 
+    //get current health
+    public int GetHealth()
+    {
+        return HP;
+    }
+
+    //set health for loading
+    public void SetHealth(int health)
+    {
+        HP = health;
+        gameManager.instance.getHealthBar().value = HP;
+    }
+
     void movement()
     {
         if(controller.isGrounded)

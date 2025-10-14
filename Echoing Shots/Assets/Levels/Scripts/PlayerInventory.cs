@@ -37,6 +37,11 @@ public class PlayerInventory : MonoBehaviour
         Coins += amount;
         UpdateUI();
     }
+    public void Setcoins(int amount)
+    {
+        Coins = amount;
+        UpdateUI();
+    }
 
     private void UpdateUI()
     {
