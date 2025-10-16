@@ -28,6 +28,7 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public playerController playerScript;
 
+
     int gameItemCount; 
    
     
