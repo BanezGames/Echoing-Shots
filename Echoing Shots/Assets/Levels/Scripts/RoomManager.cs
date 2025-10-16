@@ -1,11 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] GameObject[] Doors;
 
     [SerializeField] GameObject[] enemyList;
-    [Range(0,10)][SerializeField] int[] maxEnemies;
+    [Range(1,10)][SerializeField] int[] maxEnemies;
     [SerializeField] int spawnRate;
     [SerializeField] Transform[] spawnPos;
 
@@ -15,6 +16,8 @@ public class RoomManager : MonoBehaviour
 
     bool startSpawning;
     bool hasEntered;
+    bool spawnNext;
+    int enemyListIndex, enemyAmount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,34 +27,19 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startSpawning)
-        {
-            Debug.Log("Started");
-            spawnTimer += Time.deltaTime;
-            for(int i = 0;  i < enemyList.Length; i++)
-            {
-                Debug.Log("I: " + i);
-                for(int j = 0; j < maxEnemies[i]; j++)
-                {
-                    Debug.Log("J: " + j);
-                    if (spawnTimer >= spawnRate)
-                    {
-                        spawn(i);
-                    }
-                }
-                
-            }
-            
-        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.CompareTag("Player") && !hasEntered)
         {
-            startSpawning = true;
+            
             hasEntered = true;
-            doorState(true);
+            doorState(true);   
+            StartCoroutine(startSpawningEnemies());
+           
+            
 
         }
 
@@ -83,5 +71,29 @@ public class RoomManager : MonoBehaviour
             doorState(false);
             startSpawning = false;
         }
+    }
+
+    IEnumerator startSpawningEnemies()
+    {
+        yield return new WaitForSeconds(spawnRate);
+        spawn(enemyListIndex);
+        enemyAmount++;
+        if(enemyAmount >= maxEnemies[enemyListIndex])
+        {
+            enemyAmount = 0;
+            enemyListIndex++;
+        }
+        if(enemyListIndex>= enemyList.Length)
+        {
+            startSpawning = false;
+        }
+        else
+        {
+            StartCoroutine(startSpawningEnemies());
+        }
+        
+        
+        
+
     }
 }
