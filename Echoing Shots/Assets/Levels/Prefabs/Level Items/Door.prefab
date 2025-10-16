@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2923670729372873239}
   - component: {fileID: 9138375779317223956}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 5467990619470533218}
   - component: {fileID: 4554982584563338900}
   - component: {fileID: 2658985220652412036}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Door.Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 1664696222323807357}
   - component: {fileID: 6198971694129309170}
   - component: {fileID: 5735613051319791708}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Padlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 4017345695457640386}
   - component: {fileID: 6817498978279371863}
   - component: {fileID: 923058224630693540}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Door.Latch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 5310721184804634465}
   - component: {fileID: 3985214148686070570}
   - component: {fileID: 7750902906630516556}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 1433823708035027877}
   - component: {fileID: 1362527741279010404}
   - component: {fileID: 4858763813788685057}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Door.Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7590736304348251089}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LatchRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4826804898480598974}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RightHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1675849383062062444}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}

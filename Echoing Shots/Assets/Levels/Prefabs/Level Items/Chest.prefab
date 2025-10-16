@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6677472717644997593}
   - component: {fileID: 1831977872892415616}
   - component: {fileID: 5421782119508537801}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Lid_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7826307910431208829}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 3639355501525049550}
   - component: {fileID: 4529373509939594485}
   - component: {fileID: 1515578718061817199}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
