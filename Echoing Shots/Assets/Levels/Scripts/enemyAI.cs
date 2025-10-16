@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.AI;
 public class enemyAI : MonoBehaviour , IDamage
 {
+    [SerializeField] Animator anim;
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
@@ -47,6 +48,8 @@ public class enemyAI : MonoBehaviour , IDamage
     void Update()
     {
         shootTimer += Time.deltaTime;
+
+        anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
         
         if (agent.remainingDistance < 0.01f)
         {
@@ -139,6 +142,8 @@ public class enemyAI : MonoBehaviour , IDamage
     void shoot() 
     {
         shootTimer = 0;
+
+        anim.SetTrigger("Shoot");
         Instantiate(bullet, shootPos.position, transform.rotation);
     }
 
