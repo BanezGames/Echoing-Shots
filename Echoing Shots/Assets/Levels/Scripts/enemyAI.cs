@@ -31,12 +31,14 @@ public class enemyAI : MonoBehaviour , IDamage
     Vector3 playerDir;
     Vector3 startingPos;
 
+    public RoomManager thisRoom;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         colorOrig = model.material.color;
-        gameManager.instance.updateGameGoal(1);
+        thisRoom.updateEnemyCount(1);
         startingPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
     }
@@ -148,7 +150,7 @@ public class enemyAI : MonoBehaviour , IDamage
         if (HP <= 0)
         {
             Destroy(gameObject);
-            gameManager.instance.updateGameGoal(-1);
+            thisRoom.updateEnemyCount(-1);
             int rand = Random.Range(0, dropChance);
             Debug.Log(rand);
             if(rand == 0)
