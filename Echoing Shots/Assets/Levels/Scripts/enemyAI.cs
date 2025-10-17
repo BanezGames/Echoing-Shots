@@ -143,7 +143,9 @@ public class enemyAI : MonoBehaviour , IDamage
     {
         shootTimer = 0;
 
+        
         anim.SetTrigger("Shoot");
+
         Instantiate(bullet, shootPos.position, transform.rotation);
     }
 
