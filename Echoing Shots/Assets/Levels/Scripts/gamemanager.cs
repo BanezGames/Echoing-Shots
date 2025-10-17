@@ -20,6 +20,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
     [SerializeField] Slider HealthBar;
+    public GameObject playerDamageScreen;
     [SerializeField] Image Reticle;
 
 
