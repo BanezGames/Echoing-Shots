@@ -653,6 +653,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: roomManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7091821978054695413, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
+      propertyPath: 'enemyList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3417510075227276294, guid: 96ebe45c50e34ce46beaae32b2f85fb8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
