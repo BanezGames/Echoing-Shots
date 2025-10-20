@@ -103,6 +103,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             shoot();
         }
         selectGun();
+        reload();
     }
 
     void jump()
