@@ -49,6 +49,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         HPOrig = HP;
         gravityOrig = gravity;
         gameManager.instance.getHealthBar().value = HP;
+        updatePlayerUI();
     }
 
     // Update is called once per frame
@@ -138,6 +139,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         shootTimer = 0;
         gunList[gunListPos].ammoCur--;
+        updatePlayerUI();
 
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDist, ~ignoreLayer))
@@ -155,6 +157,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         if(Input.GetButtonDown("Reload"))
         {
             gunList[gunListPos].ammoCur = gunList[gunListPos].ammoMax;
+            updatePlayerUI();
         }
     }
 
@@ -209,6 +212,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     public void getGunStats(gunStats gun) 
     {
         gunList.Add(gun);
+        gunListPos = gunList.Count - 1;
+
         changeGun();
 
     }
@@ -221,6 +226,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[gunListPos].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[gunListPos].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+
+        updatePlayerUI();
     }
     void selectGun()
     {
