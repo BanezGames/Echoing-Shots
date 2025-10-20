@@ -235,4 +235,15 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             changeGun();
         }
     }
+
+    public void updatePlayerUI()
+    {
+        
+
+        if (gunList.Count > 0)
+        {
+            gameManager.instance.ammoCur.text = gunList[gunListPos].ammoCur.ToString("F0");
+            gameManager.instance.ammoMax.text = gunList[gunListPos].ammoMax.ToString("F0");
+        }
+    }
 }
