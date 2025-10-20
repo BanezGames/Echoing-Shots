@@ -21,6 +21,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI Counter;
     [SerializeField] Slider HealthBar;
     public GameObject playerDamageScreen;
+    public TMP_Text gameGoalCountText;
+    public TMP_Text ammoCur, ammoMax;
     [SerializeField] Image Reticle;
 
 
@@ -98,6 +100,7 @@ public class gameManager : MonoBehaviour
     public void updateGameGoal(int amount)
     {
         gameGoalCount += amount;
+        gameGoalCountText.text = gameGoalCount.ToString("F0");
 
         if (gameGoalCount <= 1 && amount < 0)
         {
