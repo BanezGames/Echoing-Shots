@@ -20,6 +20,9 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
     [SerializeField] Slider HealthBar;
+    public GameObject playerDamageScreen;
+    public TMP_Text gameGoalCountText;
+    public TMP_Text ammoCur, ammoMax;
     [SerializeField] Image Reticle;
 
 
