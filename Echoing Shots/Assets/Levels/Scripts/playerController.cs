@@ -172,13 +172,6 @@ public class playerController : MonoBehaviour , IDamage, IInteract
         shootDamage = damageOrig;
     }
 
-    IEnumerator flashPlayerdmg()
-    {
-        gameManager.instance.playerDamageScreen.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        gameManager.instance.playerDamageScreen.SetActive(false);
-    }
-
     public void takeDamage(int amount)
     {
         HP -= amount;
