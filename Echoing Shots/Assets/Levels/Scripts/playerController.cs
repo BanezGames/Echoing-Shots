@@ -43,8 +43,11 @@ public class playerController : MonoBehaviour , IDamage, IInteract
     void Start()
     {
         HPOrig = HP;
+        spawnPlayer();
         gravityOrig = gravity;
         gameManager.instance.getHealthBar().value = HP;
+
+        
     }
 
     // Update is called once per frame
@@ -186,4 +189,53 @@ public class playerController : MonoBehaviour , IDamage, IInteract
             
         }
     }
+<<<<<<< Updated upstream
+=======
+    IEnumerator flashPlayerDmg()
+    {
+        gameManager.instance.playerDamageScreen.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        gameManager.instance.playerDamageScreen.SetActive(false);
+    }
+    public void getGunStats(gunStats gun) 
+    {
+        gunList.Add(gun);
+        changeGun();
+
+    }
+
+    void changeGun()
+    {
+        shootDamage = gunList[gunListPos].shootDamage;
+        shootDist = gunList[gunListPos].shootDist;
+        shootRate = gunList[gunListPos].shootRate;
+
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[gunListPos].gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[gunListPos].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+    }
+    void selectGun()
+    {
+        if(Input.GetAxis("Mouse ScrollWheel") > 0 && gunListPos <gunList.Count - 1)
+        {
+            gunListPos++;
+            changeGun();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && gunListPos > 0)
+        {
+            gunListPos--;
+            changeGun();
+        }
+    }
+
+    //Creating spawnplayer()//
+    public void spawnPlayer()
+    {
+        controller.transform.position = gameManager.instance.PlayerSpawnPos.transform.position;
+
+        HP = HPOrig;
+
+        //TO DO: Create an updatePlayerUi()//
+       
+    }
+>>>>>>> Stashed changes
 }

@@ -11,6 +11,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    public GameObject checkpintPopup;
 
     [SerializeField] GameObject interactTip;
     [SerializeField] GameObject interactDoor;
@@ -27,6 +28,8 @@ public class gameManager : MonoBehaviour
 
     public GameObject player;
     public playerController playerScript;
+    public GameObject PlayerSpawnPos;
+
 
     int gameItemCount; 
    
@@ -53,6 +56,9 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
 
+
+        PlayerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
+        
         spawnEnemies();
         
 

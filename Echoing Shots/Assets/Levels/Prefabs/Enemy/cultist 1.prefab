@@ -1137,6 +1137,7 @@ MonoBehaviour:
   bullet: {fileID: 5751844053204205236, guid: 6d165324d0009374685e8df48663357d, type: 3}
   shootRate: 4
   dropChance: 2
+  thisRoom: {fileID: 0}
 --- !u!95 &6970759766086338509
 Animator:
   serializedVersion: 7
