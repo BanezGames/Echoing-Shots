@@ -48,6 +48,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         HPOrig = HP;
         gravityOrig = gravity;
+        damageOrig = shootDamage;
         gameManager.instance.getHealthBar().value = HP;
         updatePlayerUI();
     }
@@ -191,9 +192,13 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     public void takeDamage(int amount)
     {
+        if (isInvincible)
+            return;
+
         HP -= amount;
         StartCoroutine( flashPlayerDmg());
         gameManager.instance.getHealthBar().value = HP;
+
         if (HP <= 0) 
         {
             gameManager.instance.getHealthBar().value = 0;

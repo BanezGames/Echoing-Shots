@@ -20,7 +20,7 @@ public class powerUp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
             return;
 
         playerController player= other.GetComponent<playerController>();
@@ -37,8 +37,10 @@ public class powerUp : MonoBehaviour
         }
         else if (type == PowerUpType.damageBoost)
         {
-           player.StartCoroutine( player.DamageBoost(damageBoostDuration, damageBoostAmount));
+           player.StartCoroutine( player.DamageBoost(damageBoostAmount, damageBoostDuration));
         }
+
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
