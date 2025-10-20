@@ -28,10 +28,6 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public playerController playerScript;
 
-    public GameObject playerDamageScreen;
-    public TMP_Text gameGoalCountText;
-    public TMP_Text ammoCur, ammoMax;
-
     int gameItemCount; 
    
     
@@ -101,7 +97,6 @@ public class gameManager : MonoBehaviour
     public void updateGameGoal(int amount)
     {
         gameGoalCount += amount;
-        gameGoalCountText.text = gameGoalCount.ToString("F0");
 
         if (gameGoalCount <= 1 && amount < 0)
         {
