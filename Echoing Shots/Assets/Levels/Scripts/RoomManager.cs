@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class RoomManager : MonoBehaviour
+public class RoomManager : MonoBehaviour , IRoomInterface
 {
     [SerializeField] GameObject[] Doors;
 
@@ -51,15 +51,37 @@ public class RoomManager : MonoBehaviour
 
         GameObject tempEnemy = Instantiate(enemyList[index], spawnPos[arrayPos].position, spawnPos[arrayPos].rotation);
         tempEnemy.GetComponent<enemyAI>().thisRoom = this;
-        enemyCount++;
+        //enemyCount++;
         spawnTimer = 0;
 
     }
 
     void doorState(bool state)
     {
-        //door1.SetActive(state);
-        //door2.SetActive(state);
+        if (state)
+        {
+            Debug.Log("Room Started");
+            for(int x = 0; x < Doors.Length; x++)
+            {
+                IRoomInterface roomInt = Doors[x].GetComponent<IRoomInterface>();
+                if(roomInt != null)
+                {
+                    roomInt.roomStarted();
+                }
+            }
+        }
+        else
+        {
+            for (int x = 0; x < Doors.Length; x++)
+            {
+                Debug.Log("Start Next Room");
+                IRoomInterface roomInt = Doors[x].GetComponent<IRoomInterface>();
+                if (roomInt != null)
+                {
+                    roomInt.roomEnded();
+                }
+            }
+        }
     }
 
     public void updateEnemyCount(int amount)
@@ -68,6 +90,7 @@ public class RoomManager : MonoBehaviour
 
         if (enemyCount <= 0)
         {
+            Debug.Log("Enemies Killed");
             doorState(false);
             startSpawning = false;
         }
@@ -96,4 +119,19 @@ public class RoomManager : MonoBehaviour
         
 
     }
+
+    public void roomEnded()
+    {
+        hasEntered = true;
+        doorState(true);
+        StartCoroutine(startSpawningEnemies());
+    }
+
+    public void roomStarted()
+    {
+
+    }
+
+
+
 }

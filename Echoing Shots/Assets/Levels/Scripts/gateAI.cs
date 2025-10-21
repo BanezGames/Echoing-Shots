@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class gateAI : MonoBehaviour
+public class gateAI : MonoBehaviour , IRoomInterface
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,5 +17,22 @@ public class gateAI : MonoBehaviour
     public void openGate()
     {
         this.gameObject.SetActive(false);
+    }
+
+    public void closeGate()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void roomEnded()
+    {
+        openGate();
+      
+
+    }
+
+    public void roomStarted()
+    {
+        closeGate();
     }
 }
