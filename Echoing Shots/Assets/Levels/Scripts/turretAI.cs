@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class turretAI : MonoBehaviour
 {
     [SerializeField] Transform shootPos;
+    [SerializeField] int faceTargetSpeed;
     [SerializeField] GameObject bullet;
     [SerializeField] float shootRate;
 
@@ -10,7 +12,7 @@ public class turretAI : MonoBehaviour
 
     float shootTimer;
 
-    Vector3 player;
+    Vector3 playerDir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,19 +25,43 @@ public class turretAI : MonoBehaviour
     {
         shootTimer += Time.deltaTime;
 
-        if(isActive)
+        if (isActive)
         {
-            player = gameManager.instance.player.transform.position;
-            shoot();
+            canSeePlayer();
         }
+    }
+
+    bool canSeePlayer()
+    {
+        playerDir = gameManager.instance.player.transform.position - shootPos.position;
+        Debug.DrawRay(shootPos.position, playerDir, Color.red);
+
+        RaycastHit hit;
+        if (Physics.Raycast(shootPos.position, playerDir, out hit))
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                faceTarget();
+                if (shootTimer > shootRate)
+                {
+                    shoot();
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     void shoot()
     {
-        //Quaternion heading = Quaternion.LookRotation(new Vector3(player.x, player.y, player.z));
-        Quaternion heading = Quaternion.LookRotation(player, Vector3.up);
-        shootTimer = 0;
-        Instantiate(bullet, shootPos.position, heading);
+            shootTimer = 0;
+            Instantiate(bullet, shootPos.position, shootPos.transform.rotation);
+    }
+
+    void faceTarget()
+    {
+        Quaternion Rot = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y, playerDir.z));
+        shootPos.transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * faceTargetSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
