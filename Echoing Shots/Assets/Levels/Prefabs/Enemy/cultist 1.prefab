@@ -1136,7 +1136,13 @@ MonoBehaviour:
   shootPos: {fileID: 488052004505233985}
   bullet: {fileID: 5751844053204205236, guid: 6d165324d0009374685e8df48663357d, type: 3}
   shootRate: 4
-  dropChance: 2
+  dropChanceItem: 1
+  dropChancePowerUp: 3
+  powerUpPrefabs:
+  - {fileID: 6315063268524054832, guid: c9d3205087bdfd244b6f198465e06ee6, type: 3}
+  - {fileID: 857460445885957466, guid: b6f8dd35f0e5f5241a808d68571013d3, type: 3}
+  - {fileID: 7428177344910553596, guid: 610b070942de67c43988c217e02599f7, type: 3}
+  thisRoom: {fileID: 0}
 --- !u!95 &6970759766086338509
 Animator:
   serializedVersion: 7

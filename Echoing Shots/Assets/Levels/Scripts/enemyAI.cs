@@ -17,7 +17,10 @@ public class enemyAI : MonoBehaviour , IDamage
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
     [SerializeField] float shootRate;
-    [SerializeField] int dropChance;
+    [SerializeField] int dropChanceItem;
+    [SerializeField] int dropChancePowerUp;
+    [SerializeField] GameObject[] powerUpPrefabs;
+
 
     Color colorOrig;
 
@@ -151,13 +154,19 @@ public class enemyAI : MonoBehaviour , IDamage
         {
             Destroy(gameObject);
             thisRoom.updateEnemyCount(-1);
-            int rand = Random.Range(0, dropChance);
+            int rand = Random.Range(0, dropChanceItem);
+            int randPowerUp = Random.Range(0, dropChancePowerUp);
             Debug.Log(rand);
             if(rand == 0)
             {
                 Instantiate(Item, transform.position, Quaternion.identity);
             }
             
+            if(randPowerUp == 0 && powerUpPrefabs.Length > 0)
+            {
+                int randPU = Random.Range(0, powerUpPrefabs.Length);
+                Instantiate(powerUpPrefabs[randPU], transform.position, Quaternion.identity);
+            }
         }
         else
         {
