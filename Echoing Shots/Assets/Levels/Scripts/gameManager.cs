@@ -23,6 +23,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerDamageScreen;
     public TMP_Text gameGoalCountText;
     public TMP_Text ammoCur, ammoMax;
+    public GameObject checkpointPopup;
     [SerializeField] Image Reticle;
 
 
@@ -30,6 +31,7 @@ public class gameManager : MonoBehaviour
 
     public GameObject player;
     public playerController playerScript;
+    public GameObject PlayerSpawnPos;
 
     int gameItemCount; 
    
@@ -55,6 +57,8 @@ public class gameManager : MonoBehaviour
         Spawners = GameObject.FindGameObjectsWithTag("Spawner");
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+
+        PlayerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
 
         spawnEnemies();
         
