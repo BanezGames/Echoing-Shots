@@ -1,0 +1,48 @@
+using UnityEngine;
+using UnityEngine.AI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
+public class weepingAngel : MonoBehaviour
+{
+    public NavMeshAgent AI;
+    public Transform player;
+
+    Vector3 dest;
+
+    public Camera playerCam, jumpscareCam;
+    public float AISpeed, catchDistance, jumpscareTime;
+    public string deathScene;
+
+    private void Update()
+    {
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(playerCam);
+        float distance = Vector3.Distance(player.position, transform.position);
+
+        if (GeometryUtility.TestPlanesAABB(planes,this.gameObject.GetComponent<Renderer>().bounds))
+        {
+            AI.speed = 0;
+            AI.SetDestination(transform.position);
+        }
+        if (!GeometryUtility.TestPlanesAABB(planes, this.gameObject.GetComponent<Renderer>().bounds))
+        {
+            AI.speed = AISpeed;
+            dest = player.position;
+            AI.destination = dest;
+
+            if (distance <= catchDistance)
+            {
+                jumpscareCam.gameObject.SetActive(true);
+                player.gameObject.SetActive(false);
+                StartCoroutine(killPlayer());
+            }
+        }
+    }
+
+    IEnumerator killPlayer()
+    {
+        yield return new WaitForSeconds(jumpscareTime);
+        SceneManager.LoadScene(deathScene);
+    }
+}
