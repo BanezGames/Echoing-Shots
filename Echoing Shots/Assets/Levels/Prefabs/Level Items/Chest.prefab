@@ -180,6 +180,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7826307910431208829}
+  - {fileID: 798947964967459710}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &956683552596494891
@@ -196,6 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::chest
   chestHinge: {fileID: 974760511181951724}
   lidOpenSpeed: 3
+  itemSpawnLocation: {fileID: 7411033517253211413}
+  item: {fileID: 0}
 --- !u!33 &7883151952760504132
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -296,3 +299,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.37352, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 1.25}
+--- !u!1 &7411033517253211413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798947964967459710}
+  m_Layer: 0
+  m_Name: Item Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &798947964967459710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7411033517253211413}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.575, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6203680236236045539}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
