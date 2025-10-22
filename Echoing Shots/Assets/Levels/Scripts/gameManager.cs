@@ -16,14 +16,18 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject interactDoor;
     [SerializeField] GameObject interactChest;
     [SerializeField] GameObject interactLever;
+    [SerializeField] GameObject readPage;
 
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
     [SerializeField] Slider HealthBar;
+    public GameObject interactTipPub;
     public GameObject playerDamageScreen;
     public TMP_Text gameGoalCountText;
     public TMP_Text ammoCur, ammoMax;
     public GameObject checkpointPopup;
+    public GameObject objectivePopup;
+    public GameObject storyPopup;
     [SerializeField] Image Reticle;
 
 
