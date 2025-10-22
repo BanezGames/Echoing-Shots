@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.AI;
 public class enemyAI : MonoBehaviour , IDamage
 {
+    [SerializeField] Animator anim;
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
@@ -13,6 +14,9 @@ public class enemyAI : MonoBehaviour , IDamage
     [SerializeField] int FOV;
     [SerializeField] int roamDist;
     [SerializeField] int roamPauseTime;
+
+    [SerializeField] bool isMelee;
+    [SerializeField] float attackRange;
 
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
@@ -49,6 +53,8 @@ public class enemyAI : MonoBehaviour , IDamage
     // Update is called once per frame
     void Update()
     {
+
+        //anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
         shootTimer += Time.deltaTime;
         
         if (agent.remainingDistance < 0.01f)
@@ -141,8 +147,19 @@ public class enemyAI : MonoBehaviour , IDamage
 
     void shoot() 
     {
-        shootTimer = 0;
-        Instantiate(bullet, shootPos.position, transform.rotation);
+        if(agent.remainingDistance <= attackRange)
+        {
+            shootTimer = 0;
+            anim.SetTrigger("Shoot");
+            Instantiate(bullet, shootPos.position, transform.rotation);
+
+
+        }
+        
+
+
+
+
     }
 
     public void takeDamage(int amount)
@@ -157,13 +174,14 @@ public class enemyAI : MonoBehaviour , IDamage
             int rand = Random.Range(0, dropChanceItem);
             int randPowerUp = Random.Range(0, dropChancePowerUp);
             Debug.Log(rand);
-            if(rand == 0)
-            {
-                Instantiate(Item, transform.position, Quaternion.identity);
-            }
+            //if(rand == 0)
+            //{
+               // Instantiate(Item, transform.position, Quaternion.identity);
+            //}
             
             if(randPowerUp == 0 && powerUpPrefabs.Length > 0)
             {
+                Debug.Log("spawnHealth");
                 int randPU = Random.Range(0, powerUpPrefabs.Length);
                 Instantiate(powerUpPrefabs[randPU], transform.position, Quaternion.identity);
             }

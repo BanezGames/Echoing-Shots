@@ -4434,7 +4434,7 @@ PrefabInstance:
     - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: 'enemyList.Array.data[1]'
       value: 
-      objectReference: {fileID: 8297214150289697499, guid: 96ebe45c50e34ce46beaae32b2f85fb8, type: 3}
+      objectReference: {fileID: 7473591886756983186, guid: 6662205664c8a9343bbf77398910d770, type: 3}
     - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: 'enemyList.Array.data[2]'
       value: 
@@ -7670,7 +7670,7 @@ PrefabInstance:
     - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: 'enemyList.Array.data[1]'
       value: 
-      objectReference: {fileID: 8297214150289697499, guid: 96ebe45c50e34ce46beaae32b2f85fb8, type: 3}
+      objectReference: {fileID: 7473591886756983186, guid: 6662205664c8a9343bbf77398910d770, type: 3}
     - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: 'maxEnemies.Array.data[0]'
       value: 6
@@ -15881,6 +15881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: roomManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7091821978054695413, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: spawnRate
       value: 1
@@ -15894,8 +15898,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 750267166}
     - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
+      propertyPath: 'enemyList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4924989395540904198, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
+    - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: 'maxEnemies.Array.data[0]'
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8538997923546509258, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: m_Size.x
@@ -18763,7 +18771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1535725797
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19189,7 +19197,7 @@ PrefabInstance:
     - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: 'enemyList.Array.data[0]'
       value: 
-      objectReference: {fileID: 8297214150289697499, guid: 96ebe45c50e34ce46beaae32b2f85fb8, type: 3}
+      objectReference: {fileID: 7473591886756983186, guid: 6662205664c8a9343bbf77398910d770, type: 3}
     - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: 'maxEnemies.Array.data[0]'
       value: 5
@@ -19425,7 +19433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1599267484
 BoxCollider:
   m_ObjectHideFlags: 0
