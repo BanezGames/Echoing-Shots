@@ -25,6 +25,13 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] float shootRate;
 
 
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] audSteps;
+    [Range(0, 1)][SerializeField] float audStepsVol;
+    [SerializeField] AudioClip[] audJump;
+    [Range(0, 1)][SerializeField] float audJumpVol;
+    [SerializeField] AudioClip[] audHurt;
+    [Range(0, 1)][SerializeField] float audHurtVol;
 
     Vector3 playerVel;
     Vector3 moveDir;
@@ -37,6 +44,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     float shootTimer;
     bool isSprinting;
+    bool isPlayingSteps;
 
     public bool isSwimming;
 
@@ -66,6 +74,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         if(controller.isGrounded)
         {
+            if (moveDir.normalized.magnitude > 0.3f && !isPlayingSteps)
+            {
+                StartCoroutine(playStep());
+            }
             playerVel = Vector3.zero;
             jumpCount = 0;
         }
@@ -111,6 +123,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         if(Input.GetButtonDown("Jump") && jumpCount < jumpCountMax)
         {
+            aud.PlayOneShot(audJump[Random.Range(0, audJump.Length)], audJumpVol);
             playerVel.y = jumpSpeed;
             jumpCount++;
         }
@@ -141,6 +154,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         shootTimer = 0;
         gunList[gunListPos].ammoCur--;
+        aud.PlayOneShot(gunList[gunListPos].shootSound[Random.Range(0, gunList[gunListPos].shootSound.Length)], gunList[gunListPos].shootSoundVol);
         updatePlayerUI();
 
         RaycastHit hit;
@@ -196,6 +210,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             return;
 
         HP -= amount;
+        aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
         StartCoroutine( flashPlayerDmg());
         gameManager.instance.getHealthBar().value = HP;
 
@@ -258,5 +273,22 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             gameManager.instance.ammoCur.text = gunList[gunListPos].ammoCur.ToString("F0");
             gameManager.instance.ammoMax.text = gunList[gunListPos].ammoMax.ToString("F0");
         }
+    }
+
+    IEnumerator playStep()
+    {
+        isPlayingSteps = true;
+        aud.PlayOneShot(audSteps[Random.Range(0, audSteps.Length)], audStepsVol);
+
+        if (isSprinting)
+        {
+            yield return new WaitForSeconds(0.3f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        isPlayingSteps = false;
     }
 }

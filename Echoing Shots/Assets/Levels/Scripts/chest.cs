@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class chest : MonoBehaviour
@@ -6,6 +5,9 @@ public class chest : MonoBehaviour
 
     [SerializeField] GameObject chestHinge;
     [SerializeField] int lidOpenSpeed;
+
+    [SerializeField] Transform itemSpawnLocation;
+    [SerializeField] GameObject item;
 
     bool canSeePlayer;
 
@@ -44,6 +46,8 @@ public class chest : MonoBehaviour
     {
         Quaternion rot = Quaternion.Euler(-135, 0, 0);
         chestHinge.transform.localRotation = rot;
+
+        Instantiate(item, itemSpawnLocation.position, transform.rotation);
 
         // To Be implemented, not smoothly opening at the moment.
         //chestHinge.transform.rotation = Quaternion.Lerp(chestHinge.transform.rotation, rot, lidOpenSpeed*Time.deltaTime);
