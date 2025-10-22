@@ -3236,7 +3236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &453410928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17487,6 +17487,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+--- !u!1001 &9070508685425347118
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4104547089390384158, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.76175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104547089390384158, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.205902
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104547089390384158, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.32015717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104547089390384158, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.72075737
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104547089390384158, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104547089390384158, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6931875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104547089390384158, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104547089390384158, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104547089390384158, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 87.766
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104547089390384158, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243694226803826774, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
+      propertyPath: m_Name
+      value: KaraKalBoss
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -17495,3 +17552,4 @@ SceneRoots:
   - {fileID: 888015187}
   - {fileID: 1912783914}
   - {fileID: 453410929}
+  - {fileID: 9070508685425347118}

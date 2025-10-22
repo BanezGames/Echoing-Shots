@@ -150,7 +150,11 @@ public class enemyAI : MonoBehaviour , IDamage
         if(agent.remainingDistance <= attackRange)
         {
             shootTimer = 0;
-            anim.SetTrigger("Shoot");
+            if(anim != null)
+            {
+                anim.SetTrigger("Shoot");
+            }
+            
             Instantiate(bullet, shootPos.position, transform.rotation);
 
 
