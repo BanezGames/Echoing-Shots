@@ -194,8 +194,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         bool original = isInvincible;
         isInvincible = true;
+        gameManager.instance.playerShieldScreen.SetActive(true);
         yield return new WaitForSeconds(duration);
         isInvincible = original;
+        gameManager.instance.playerShieldScreen.SetActive(false);
     }
 
     public IEnumerator DamageBoost(int amount, int duration)
