@@ -37,6 +37,8 @@ public class gameManager : MonoBehaviour
     public playerController playerScript;
     public GameObject PlayerSpawnPos;
 
+    public int keyCount;
+
     int gameItemCount; 
    
     
