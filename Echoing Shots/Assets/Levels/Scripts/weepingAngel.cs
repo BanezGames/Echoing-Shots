@@ -35,6 +35,8 @@ public class weepingAngel : MonoBehaviour
             {
                 jumpscareCam.gameObject.SetActive(true);
                 player.gameObject.SetActive(false);
+                gameManager.instance.getHealthBar().value = 0;
+                gameManager.instance.youLose();
                 StartCoroutine(killPlayer());
             }
         }
@@ -44,5 +46,6 @@ public class weepingAngel : MonoBehaviour
     {
         yield return new WaitForSeconds(jumpscareTime);
         SceneManager.LoadScene(deathScene);
+        
     }
 }
