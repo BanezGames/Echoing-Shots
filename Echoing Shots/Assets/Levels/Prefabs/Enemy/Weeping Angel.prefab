@@ -56,7 +56,7 @@ MonoBehaviour:
   jumpscareCam: {fileID: 3900510801189407692}
   AISpeed: 6
   catchDistance: 2
-  jumpscareTime: 10
+  jumpscareTime: 5
 --- !u!33 &5367428209353048064
 MeshFilter:
   m_ObjectHideFlags: 0

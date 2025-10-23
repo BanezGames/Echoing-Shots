@@ -630,7 +630,7 @@ MonoBehaviour:
   agent: {fileID: 1551037614453927990}
   headPos: {fileID: 0}
   Item: {fileID: 0}
-  HP: 50
+  HP: 75
   faceTargetSpeed: 600
   isMelee: 0
   attackRange: 0
@@ -638,7 +638,7 @@ MonoBehaviour:
   spawnerPos: {fileID: 7944376623752967069}
   bullet: {fileID: 0}
   DirectFireBolt: {fileID: 1620881435908363643, guid: dd47cb4517a89d84baaeb6a36ad68912, type: 3}
-  shootRate: 4
+  shootRate: 3
   dropChanceItem: 0
   dropChancePowerUp: 0
   powerUpPrefabs: []

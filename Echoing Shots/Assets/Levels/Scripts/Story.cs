@@ -10,10 +10,12 @@ public class Story : MonoBehaviour
     [SerializeField] GameObject imagePage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     bool canSeePlayer;
+    bool pageShown;
     //// Update is called once per frame
     void Start()
     {
         canSeePlayer = false;
+        pageShown = false;
     }
     void Update()
     {
@@ -24,16 +26,19 @@ public class Story : MonoBehaviour
             removeRead();
             gameManager.instance.storyPopup.SetActive(false);
             showPage();
+            pageShown = true;
             gameManager.instance.statePause();
 
 
 
+
         }
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && pageShown)
         {
             
             showRead();
             removePage();
+            pageShown = false;
             gameManager.instance.stateUnpause();
         }
         

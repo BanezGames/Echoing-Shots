@@ -14,6 +14,7 @@ public class weepingAngel : MonoBehaviour
     public Camera playerCam, jumpscareCam;
     public float AISpeed, catchDistance, jumpscareTime;
 
+    
     private void Update()
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(playerCam);
@@ -33,12 +34,14 @@ public class weepingAngel : MonoBehaviour
             if (distance <= catchDistance)
             {
                 jumpscareCam.gameObject.SetActive(true);
+                //gameManager.instance.playerScript.takeDamage(100);
                 player.gameObject.SetActive(false);
-                gameManager.instance.getHealthBar().value = 0;
+                
                 StartCoroutine(killPlayer());
                 gameManager.instance.youLose();
             }
         }
+        
     }
 
     IEnumerator killPlayer()
