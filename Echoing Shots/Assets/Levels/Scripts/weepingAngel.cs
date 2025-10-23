@@ -13,7 +13,7 @@ public class weepingAngel : MonoBehaviour
 
     public Camera playerCam, jumpscareCam;
     public float AISpeed, catchDistance, jumpscareTime;
-    public string sceneAfterDeath;
+    //public string sceneAfterDeath;
 
     private void Update()
     {
@@ -45,6 +45,6 @@ public class weepingAngel : MonoBehaviour
     IEnumerator killPlayer()
     {
         yield return new WaitForSeconds(jumpscareTime);
-        SceneManager.LoadScene(sceneAfterDeath);
+        //SceneManager.LoadScene(sceneAfterDeath);
     }
 }

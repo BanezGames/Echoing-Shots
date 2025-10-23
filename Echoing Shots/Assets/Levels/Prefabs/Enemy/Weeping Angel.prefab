@@ -57,7 +57,6 @@ MonoBehaviour:
   AISpeed: 6
   catchDistance: 2
   jumpscareTime: 10
-  sceneAfterDeath: 4 Weeping Angels
 --- !u!33 &5367428209353048064
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -251,7 +250,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6857264752329235484}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &1896623707965581275
 MonoBehaviour:
   m_ObjectHideFlags: 0
