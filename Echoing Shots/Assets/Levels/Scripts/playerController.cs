@@ -55,6 +55,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     void Start()
     {
         HPOrig = HP;
+        spawnPlayer();
         gravityOrig = gravity;
         damageOrig = shootDamage;
         gameManager.instance.getHealthBar().value = HP;
@@ -273,6 +274,12 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             gameManager.instance.ammoCur.text = gunList[gunListPos].ammoCur.ToString("F0");
             gameManager.instance.ammoMax.text = gunList[gunListPos].ammoMax.ToString("F0");
         }
+    }
+    public void spawnPlayer()
+    {
+        controller.transform.position = gameManager.instance.PlayerSpawnPos.transform.position;
+        HP = HPOrig;
+        updatePlayerUI();
     }
 
     IEnumerator playStep()

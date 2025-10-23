@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::lever
   traps:
   - {fileID: 0}
+  - {fileID: 0}
   leverHandle: {fileID: 1675375273967678040}
 --- !u!65 &7373096896261742038
 BoxCollider:
