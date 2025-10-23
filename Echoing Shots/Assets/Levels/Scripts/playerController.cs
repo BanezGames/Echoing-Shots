@@ -213,7 +213,6 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         HP -= amount;
         aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
         StartCoroutine( flashPlayerDmg());
-        gameManager.instance.getHealthBar().value = HP;
 
         if (HP <= 0) 
         {
@@ -267,7 +266,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     public void updatePlayerUI()
     {
-        
+
+        gameManager.instance.getHealthBar().value = HP;
 
         if (gunList.Count > 0)
         {
