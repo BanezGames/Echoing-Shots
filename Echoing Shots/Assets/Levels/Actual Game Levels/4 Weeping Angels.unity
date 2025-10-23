@@ -10583,6 +10583,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5217ca3cc01d39439b6edc0e29d2f4b, type: 3}
+--- !u!1 &1109795580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8854710454179793751, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+  m_PrefabInstance: {fileID: 1462407461}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1119565991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4393125519056686, guid: d9701c9a48aaebe40813707f15a57b7d, type: 3}
@@ -13399,6 +13404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6840862286657124586, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: readPage
+      value: 
+      objectReference: {fileID: 1109795580}
     - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 120.35728
@@ -19539,26 +19548,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 485790764172685388, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: sprintMod
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 485790764172685388, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: gunList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 485790764172685388, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: 'gunList.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: a0cfe38f418ebc948ba144095e7e9577, type: 2}
-    - target: {fileID: 485790764172685388, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: 'gunList.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: a8ab6f510528d17468f059f9926f40ff, type: 2}
-    - target: {fileID: 485790764172685388, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: 'gunList.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 4d17b846c18cf8c458f53dee65be4d73, type: 2}
     - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.03527151
