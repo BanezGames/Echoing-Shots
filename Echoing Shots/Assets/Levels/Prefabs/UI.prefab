@@ -4629,7 +4629,7 @@ MonoBehaviour:
   gameGoalCountText: {fileID: 5397623049939924499}
   ammoCur: {fileID: 3446633428402168439}
   ammoMax: {fileID: 8953111570923141909}
-  checkpointPopup: {fileID: 0}
+  checkpointPopup: {fileID: 7017532857208568578}
   objectivePopup: {fileID: 2412798927080793660}
   storyPopup: {fileID: 7233516925480995103}
   Reticle: {fileID: 719817378755034}
