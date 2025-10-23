@@ -23,6 +23,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] Slider HealthBar;
     public GameObject interactTipPub;
     public GameObject playerDamageScreen;
+    public GameObject playerShieldScreen;
     public TMP_Text gameGoalCountText;
     public TMP_Text ammoCur, ammoMax;
     public GameObject checkpointPopup;
