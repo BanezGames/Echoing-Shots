@@ -213,6 +213,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         HP -= amount;
         aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
         StartCoroutine( flashPlayerDmg());
+        updatePlayerUI();
 
         if (HP <= 0) 
         {

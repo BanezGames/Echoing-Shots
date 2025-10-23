@@ -17612,10 +17612,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: KaraKalBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 7494662857959103343, guid: 3c4c866e718bc9e4c8fe758a988e6a6b, type: 3}
-      propertyPath: HP
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

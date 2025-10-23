@@ -2,7 +2,7 @@
 - Project name: Echoing Shots
 - Unity version: Unity 6000.2.6f2
 - Active game object:
-  - Name: KaraKalBoss
-  - Tag: Untagged
-  - Layer: Enemy
+  - Name: Player
+  - Tag: Player
+  - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
