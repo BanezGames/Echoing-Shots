@@ -6617,7 +6617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3307790261986138768, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: text
-      value: Kill the boos to escape
+      value: Kill the boss to escape
       objectReference: {fileID: 0}
     - target: {fileID: 3307790261986138768, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: objective

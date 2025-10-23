@@ -19,19 +19,22 @@ public class Story : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact") && canSeePlayer)
         {
-           
-           
-                removeRead();
+
+            
+            removeRead();
             gameManager.instance.storyPopup.SetActive(false);
             showPage();
-            
-           
+            gameManager.instance.statePause();
+
+
 
         }
         if (Input.GetButton("Fire1"))
         {
+            
             showRead();
             removePage();
+            gameManager.instance.stateUnpause();
         }
         
 

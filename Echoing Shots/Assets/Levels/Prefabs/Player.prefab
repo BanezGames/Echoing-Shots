@@ -144,7 +144,7 @@ MonoBehaviour:
   controller: {fileID: 1425898397513980404}
   HP: 5
   speed: 4
-  sprintMod: 6
+  sprintMod: 5
   jumpSpeed: 10
   jumpCountMax: 2
   gravity: 30

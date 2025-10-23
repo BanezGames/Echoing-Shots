@@ -24,6 +24,8 @@ public class objectiveUpdates : MonoBehaviour
             
             
             
+            
+            
         }
         ///objective.SetActive(false);
     }
