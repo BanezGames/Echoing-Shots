@@ -158,6 +158,8 @@ public class BossAi : MonoBehaviour , IDamage
                 int randPU = Random.Range(0, powerUpPrefabs.Length);
                 Instantiate(powerUpPrefabs[randPU], transform.position, Quaternion.identity);
             }
+
+            gameManager.instance.youWin();
         }
         else
         {
@@ -168,7 +170,7 @@ public class BossAi : MonoBehaviour , IDamage
     IEnumerator flashRed()
     {
         model.material.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         model.material.color = colorOrig;
 
     }
