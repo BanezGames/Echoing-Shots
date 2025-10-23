@@ -158,6 +158,13 @@ public class gameManager : MonoBehaviour
         menuActive.SetActive(true);
     }
 
+    public void youWin()
+    {
+        statePause();
+        menuActive = menuWin;
+        menuActive.SetActive(true);
+    }
+
     public Image getReticle()
     {
         return Reticle;
