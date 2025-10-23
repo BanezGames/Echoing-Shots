@@ -171,7 +171,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     }
     void reload()
     {
-        if(Input.GetButtonDown("Reload"))
+        if(Input.GetButtonDown("Reload") && gunList.Count>1)
         {
             gunList[gunListPos].ammoCur = gunList[gunListPos].ammoMax;
             updatePlayerUI();
