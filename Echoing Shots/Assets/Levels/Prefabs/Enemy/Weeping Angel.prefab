@@ -56,8 +56,8 @@ MonoBehaviour:
   jumpscareCam: {fileID: 3900510801189407692}
   AISpeed: 6
   catchDistance: 2
-  jumpscareTime: 1
-  deathScene: 1 TtileScreen
+  jumpscareTime: 10
+  sceneAfterDeath: 4 Weeping Angels
 --- !u!33 &5367428209353048064
 MeshFilter:
   m_ObjectHideFlags: 0

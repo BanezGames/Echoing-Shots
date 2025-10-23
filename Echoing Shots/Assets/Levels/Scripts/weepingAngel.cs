@@ -13,12 +13,12 @@ public class weepingAngel : MonoBehaviour
 
     public Camera playerCam, jumpscareCam;
     public float AISpeed, catchDistance, jumpscareTime;
-    public string deathScene;
+    public string sceneAfterDeath;
 
     private void Update()
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(playerCam);
-        float distance = Vector3.Distance(player.position, transform.position);
+        float distance = Vector3.Distance(transform.position, player.position);
 
         if (GeometryUtility.TestPlanesAABB(planes,this.gameObject.GetComponent<Renderer>().bounds))
         {
@@ -36,8 +36,8 @@ public class weepingAngel : MonoBehaviour
                 jumpscareCam.gameObject.SetActive(true);
                 player.gameObject.SetActive(false);
                 gameManager.instance.getHealthBar().value = 0;
-                gameManager.instance.youLose();
                 StartCoroutine(killPlayer());
+                gameManager.instance.youLose();
             }
         }
     }
@@ -45,7 +45,6 @@ public class weepingAngel : MonoBehaviour
     IEnumerator killPlayer()
     {
         yield return new WaitForSeconds(jumpscareTime);
-        SceneManager.LoadScene(deathScene);
-        
+        SceneManager.LoadScene(sceneAfterDeath);
     }
 }
