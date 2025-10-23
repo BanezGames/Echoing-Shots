@@ -15,16 +15,25 @@ public class objectiveUpdates : MonoBehaviour
    // }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && gameManager.instance.PlayerSpawnPos.transform.position != transform.position)
         {
+            gameManager.instance.PlayerSpawnPos.transform.position = transform.position;
             objective.text = text;
             
             StartCoroutine(feedback());
             
             
+            
         }
         ///objective.SetActive(false);
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Player")) 
+    //    { Destroy(gameObject); }
+            
+    //}
 
     IEnumerator feedback()
     {
