@@ -1,9 +1,9 @@
 using System.Collections;
-using Unity.VisualScripting;
+
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
+
+//using UnityEngine.UI;
 
 public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 {
