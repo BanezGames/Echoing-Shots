@@ -30,6 +30,7 @@ public class gameManager : MonoBehaviour
     public GameObject checkpointPopup;
     public GameObject objectivePopup;
     public GameObject storyPopup;
+    public itemStats[] itemInventory;
     [SerializeField] Image Reticle;
 
 
@@ -68,7 +69,8 @@ public class gameManager : MonoBehaviour
         playerScript = player.GetComponent<playerController>();
 
         PlayerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
-
+        selectedIndex = 0;
+        itemInventory = new itemStats[3];
         spawnEnemies();
         
 
