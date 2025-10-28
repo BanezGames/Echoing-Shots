@@ -1,9 +1,9 @@
 using System.Collections;
-using Unity.VisualScripting;
+
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
+
+//using UnityEngine.UI;
 
 public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 {
@@ -55,6 +55,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     void Start()
     {
         HPOrig = HP;
+        spawnPlayer();
         gravityOrig = gravity;
         damageOrig = shootDamage;
         gameManager.instance.getHealthBar().value = HP;
@@ -170,7 +171,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     }
     void reload()
     {
-        if(Input.GetButtonDown("Reload"))
+        if(Input.GetButtonDown("Reload") && gunList.Count>1)
         {
             gunList[gunListPos].ammoCur = gunList[gunListPos].ammoMax;
             updatePlayerUI();
@@ -193,8 +194,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         bool original = isInvincible;
         isInvincible = true;
+        gameManager.instance.playerShieldScreen.SetActive(true);
         yield return new WaitForSeconds(duration);
         isInvincible = original;
+        gameManager.instance.playerShieldScreen.SetActive(false);
     }
 
     public IEnumerator DamageBoost(int amount, int duration)
@@ -212,7 +215,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         HP -= amount;
         aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
         StartCoroutine( flashPlayerDmg());
-        gameManager.instance.getHealthBar().value = HP;
+        updatePlayerUI();
 
         if (HP <= 0) 
         {
@@ -266,13 +269,20 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     public void updatePlayerUI()
     {
-        
+
+        gameManager.instance.getHealthBar().value = HP;
 
         if (gunList.Count > 0)
         {
             gameManager.instance.ammoCur.text = gunList[gunListPos].ammoCur.ToString("F0");
             gameManager.instance.ammoMax.text = gunList[gunListPos].ammoMax.ToString("F0");
         }
+    }
+    public void spawnPlayer()
+    {
+        controller.transform.position = gameManager.instance.PlayerSpawnPos.transform.position;
+        HP = HPOrig;
+        updatePlayerUI();
     }
 
     IEnumerator playStep()

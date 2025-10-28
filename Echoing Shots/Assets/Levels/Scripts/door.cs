@@ -20,7 +20,14 @@ public class door : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact") && canSeePlayer)
         {
-            openDoor();
+            if (keyRequired && gameManager.instance.keyCount > 0)
+            {
+                openDoor();
+            }
+            else if(!keyRequired)
+            {
+                openDoor();
+            }
         }
     }
 
@@ -45,6 +52,16 @@ public class door : MonoBehaviour
     {
         if (!keyRequired) // add an OR for how to track if the player has a Key in their inventory.
         {
+            doorHingeLeft.transform.localRotation = Quaternion.Euler(0, 100, 0);
+            doorHingeRight.transform.localRotation = Quaternion.Euler(0, -100, 0);
+
+            this.GetComponent<BoxCollider>().enabled = false;
+            doorCollider.GetComponent<BoxCollider>().enabled = false;
+            gameManager.instance.hideInteraction();
+        }
+        else
+        {
+
             doorHingeLeft.transform.localRotation = Quaternion.Euler(0, 100, 0);
             doorHingeRight.transform.localRotation = Quaternion.Euler(0, -100, 0);
 

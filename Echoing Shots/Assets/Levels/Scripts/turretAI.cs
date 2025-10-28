@@ -60,7 +60,7 @@ public class turretAI : MonoBehaviour
 
     void faceTarget()
     {
-        Quaternion Rot = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y, playerDir.z));
+        Quaternion Rot = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y + .5f, playerDir.z));
         shootPos.transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * faceTargetSpeed);
     }
 

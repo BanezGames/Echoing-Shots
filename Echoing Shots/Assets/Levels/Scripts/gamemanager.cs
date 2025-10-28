@@ -16,14 +16,19 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject interactDoor;
     [SerializeField] GameObject interactChest;
     [SerializeField] GameObject interactLever;
+    [SerializeField] GameObject readPage;
 
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
     [SerializeField] Slider HealthBar;
+    public GameObject interactTipPub;
     public GameObject playerDamageScreen;
+    public GameObject playerShieldScreen;
     public TMP_Text gameGoalCountText;
     public TMP_Text ammoCur, ammoMax;
     public GameObject checkpointPopup;
+    public GameObject objectivePopup;
+    public GameObject storyPopup;
     [SerializeField] Image Reticle;
 
 
@@ -32,6 +37,8 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public playerController playerScript;
     public GameObject PlayerSpawnPos;
+
+    public int keyCount;
 
     int gameItemCount; 
    
@@ -151,6 +158,13 @@ public class gameManager : MonoBehaviour
     {
         statePause();
         menuActive = menuLose;
+        menuActive.SetActive(true);
+    }
+
+    public void youWin()
+    {
+        statePause();
+        menuActive = menuWin;
         menuActive.SetActive(true);
     }
 

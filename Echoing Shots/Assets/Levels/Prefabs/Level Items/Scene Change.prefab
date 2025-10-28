@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6340456362717335938}
   serializedVersion: 2
-  m_LocalRotation: {x: -9.527527e-10, y: 0.1965296, z: 0.000000014870671, w: 0.9804979}
+  m_LocalRotation: {x: 0, y: 0.19652796, z: 0, w: 0.98049825}
   m_LocalPosition: {x: -378.935, y: 10.256378, z: 64.43999}
   m_LocalScale: {x: 4.7233386, y: 3.679908, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62ace8da6fd6994484c6751d11aa046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::sceneChange
-  sceneName: 
+  sceneName: 4 Weeping Angels
 --- !u!33 &9018642419761892185
 MeshFilter:
   m_ObjectHideFlags: 0
