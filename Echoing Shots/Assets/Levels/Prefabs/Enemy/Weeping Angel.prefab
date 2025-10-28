@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2635954069931420079}
   - component: {fileID: 1381533287759451409}
   - component: {fileID: 2054655459746305263}
+  - component: {fileID: 1916988210446891087}
   m_Layer: 0
   m_Name: Weeping Angel
   m_TagString: Untagged
@@ -158,6 +159,24 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1916988210446891087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5406796997959224858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500a08448e9fc1f449887a4b3ce467eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  type: 2
+  rb: {fileID: 0}
+  damageAmount: 2
+  damageRate: 1
+  speed: 0
+  destroyTime: 0
 --- !u!1 &6857264752329235484
 GameObject:
   m_ObjectHideFlags: 0

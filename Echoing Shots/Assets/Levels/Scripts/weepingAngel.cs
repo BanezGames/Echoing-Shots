@@ -31,15 +31,15 @@ public class weepingAngel : MonoBehaviour
             dest = player.position;
             AI.destination = dest;
 
-            if (distance <= catchDistance)
-            {
-                jumpscareCam.gameObject.SetActive(true);
+            //if (distance <= catchDistance)
+            //{
+                //jumpscareCam.gameObject.SetActive(true);
                 //gameManager.instance.playerScript.takeDamage(100);
-                player.gameObject.SetActive(false);
+                //player.gameObject.SetActive(false);
                 
-                StartCoroutine(killPlayer());
-                gameManager.instance.youLose();
-            }
+                //StartCoroutine(killPlayer());
+                //gameManager.instance.youLose();
+            //}
         }
         
     }
