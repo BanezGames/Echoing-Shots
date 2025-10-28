@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.19687, y: 0.5, z: -13.77372}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 200, y: 1, z: 200.00006}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -49,9 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::damage
   type: 2
   rb: {fileID: 0}
-  damageAmount: 0
-  damageRate: 0
-  speed: 0
+  damageAmount: 1
+  damageRate: 1
+  speed: 1
   destroyTime: 0
 --- !u!33 &8766730169871560711
 MeshFilter:
@@ -86,7 +86,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ab6ce67874fbc74facc86f054b5f3e3, type: 2}
+  - {fileID: 2100000, guid: 30764fbe8b92cab489214bfb4044b7b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,7 +119,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
