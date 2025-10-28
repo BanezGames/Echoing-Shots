@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//using UnityEngine.UI;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 {
@@ -19,6 +19,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int swimMod;
 
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
+    
     [SerializeField] GameObject gunModel;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
@@ -116,10 +117,28 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         {
             shoot();
         }
-        selectGun();
+        if (Input.GetButton("Slot1"))
+        {
+            gameManager.instance.SetOff();
+            gameManager.instance.SetOnSlot(0);
+        }
+        else if (Input.GetButton("Slot2"))
+        {
+            gameManager.instance.SetOff();
+            gameManager.instance.SetOnSlot(1);
+        }
+        else if (Input.GetButton("Slot3"))
+        {
+            gameManager.instance.SetOff();
+            gameManager.instance.SetOnSlot(2);
+        }
+
+
+            selectGun();
         reload();
     }
 
+    
     void jump()
     {
         if(Input.GetButtonDown("Jump") && jumpCount < jumpCountMax)

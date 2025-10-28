@@ -17,6 +17,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject interactChest;
     [SerializeField] GameObject interactLever;
     [SerializeField] GameObject readPage;
+    [SerializeField] List<GameObject> InventorySlotsImage = new List<GameObject>();
 
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
@@ -45,6 +46,7 @@ public class gameManager : MonoBehaviour
     
     
     public bool isPaused;
+    public int selectedIndex;
 
     float timeScaleOrig;
 
@@ -88,6 +90,19 @@ public class gameManager : MonoBehaviour
                 stateUnpause();
             }
         }
+    }
+
+    public void SetOff()
+    {
+        InventorySlotsImage[0].GetComponent<Outline>().enabled = false;
+        InventorySlotsImage[1].GetComponent<Outline>().enabled = false;
+        InventorySlotsImage[2].GetComponent<Outline>().enabled = false;
+
+    }
+    public void SetOnSlot(int index)
+    {
+        InventorySlotsImage[index].GetComponent<Outline>().enabled = true;
+        selectedIndex = index;
     }
 
     public void statePause()
