@@ -1,5 +1,6 @@
 using UnityEngine;
-using System.Collections;
+//using System.Collections;
+using UnityEngine.UI;
 
 public class powerUp : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class powerUp : MonoBehaviour
     [SerializeField] int shieldDuration;
     [SerializeField] int damageBoostDuration;
     [SerializeField] int damageBoostAmount;
+    [SerializeField] itemStats item;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,26 +22,30 @@ public class powerUp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("Player") || gameManager.instance.itemInventory[gameManager.instance.selectedIndex] !=null)
             return;
 
         playerController player= other.GetComponent<playerController>();
         if (player == null)
             return;
 
-        if(type == PowerUpType.health)
-        {
-            player.Heal(healAmount);
-        }
-        else if (type == PowerUpType.shield)
-        {
-            player.StartCoroutine(player.Shield(shieldDuration));
-        }
-        else if (type == PowerUpType.damageBoost)
-        {
-           player.StartCoroutine( player.DamageBoost(damageBoostAmount, damageBoostDuration));
-        }
-
+        //if(type == PowerUpType.health)
+        //{
+        // player.Heal(healAmount);
+        //}
+        //else if (type == PowerUpType.shield)
+        //{
+        //player.StartCoroutine(player.Shield(shieldDuration));
+        //}
+        //else if (type == PowerUpType.damageBoost)
+        //{
+        //player.StartCoroutine( player.DamageBoost(damageBoostAmount, damageBoostDuration));
+        //}
+        //Debug.Log("Index" + gameManager.instance.selectedIndex);
+        gameManager.instance.itemInventory[gameManager.instance.selectedIndex] = item;
+        gameManager.instance.InventorySlotsImage[gameManager.instance.selectedIndex].GetComponent<RawImage>().texture = item.image;
+        gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] = item.durability;
+        gameManager.instance.inventoryDurability[gameManager.instance.selectedIndex].text = gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex].ToString();
         Destroy(gameObject);
     }
 
