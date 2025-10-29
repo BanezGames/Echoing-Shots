@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using NUnit.Framework.Constraints;
 
 public class gameManager : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject interactChest;
     [SerializeField] GameObject interactLever;
     [SerializeField] GameObject readPage;
-    [SerializeField] List<GameObject> InventorySlotsImage = new List<GameObject>();
+    public List<GameObject> InventorySlotsImage = new List<GameObject>();
+    public List<TMP_Text> inventoryDurability = new List<TMP_Text>();
 
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
@@ -31,6 +33,7 @@ public class gameManager : MonoBehaviour
     public GameObject objectivePopup;
     public GameObject storyPopup;
     public itemStats[] itemInventory;
+    public int[] itemDurabilityList;
     [SerializeField] Image Reticle;
 
 
@@ -71,6 +74,7 @@ public class gameManager : MonoBehaviour
         PlayerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
         selectedIndex = 0;
         itemInventory = new itemStats[3];
+        itemDurabilityList = new int[3];
         spawnEnemies();
         
 
@@ -233,6 +237,14 @@ public class gameManager : MonoBehaviour
         interactDoor.SetActive(false);
         interactChest.SetActive(false);
         interactLever.SetActive(false);
+    }
+
+    public void clearSlot()
+    {
+        InventorySlotsImage[gameManager.instance.selectedIndex].GetComponent<RawImage>().texture = null;
+        //InventorySlotsImage[selectedIndex] = null;
+        itemInventory[selectedIndex] = null;
+        itemDurabilityList[selectedIndex] = 0;
     }
 
 }

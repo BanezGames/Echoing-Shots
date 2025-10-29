@@ -132,6 +132,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             gameManager.instance.SetOff();
             gameManager.instance.SetOnSlot(2);
         }
+        if (gameManager.instance.itemInventory[gameManager.instance.selectedIndex] != null &&Input.GetButton("Use"))
+        {
+            useItem();
+        }
 
 
             selectGun();
@@ -197,6 +201,17 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         }
     }
 
+    void useItem()
+    {
+        gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]--;
+        Heal(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].Healing);
+        if (gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration > 0) StartCoroutine(Shield(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration));
+        if (gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] <=0)
+        {
+            gameManager.instance.clearSlot();
+        }
+        
+    }
     public void Heal(int amount)
     {
         HP += amount;

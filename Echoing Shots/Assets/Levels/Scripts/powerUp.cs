@@ -1,5 +1,6 @@
 using UnityEngine;
-using System.Collections;
+//using System.Collections;
+using UnityEngine.UI;
 
 public class powerUp : MonoBehaviour
 {
@@ -40,8 +41,11 @@ public class powerUp : MonoBehaviour
         //{
         //player.StartCoroutine( player.DamageBoost(damageBoostAmount, damageBoostDuration));
         //}
-        Debug.Log("Index" + gameManager.instance.selectedIndex);
+        //Debug.Log("Index" + gameManager.instance.selectedIndex);
         gameManager.instance.itemInventory[gameManager.instance.selectedIndex] = item;
+        gameManager.instance.InventorySlotsImage[gameManager.instance.selectedIndex].GetComponent<RawImage>().texture = item.image;
+        gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] = item.durability;
+        gameManager.instance.inventoryDurability[gameManager.instance.selectedIndex].text = gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex].ToString();
         Destroy(gameObject);
     }
 
