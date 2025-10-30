@@ -4864,6 +4864,7 @@ MonoBehaviour:
   shieldDuration: 0
   damageBoostDuration: 0
   damageBoostAmount: 0
+  item: {fileID: 11400000, guid: 817ff22035cf13a4ba9a184ce9607a7b, type: 2}
 --- !u!65 &4295909530399382853
 BoxCollider:
   m_ObjectHideFlags: 0
