@@ -2188,7 +2188,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3521257955723076959, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -586.7335
+      value: -614.2835
       objectReference: {fileID: 0}
     - target: {fileID: 3521257955723076959, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2196,7 +2196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3521257955723076959, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.65554
+      value: 15.744461
       objectReference: {fileID: 0}
     - target: {fileID: 3521257955723076959, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2230,6 +2230,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: roomManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
+      propertyPath: 'enemyList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1131448946238993723, guid: 27deb0163e0896b49b4cf90720c2d7c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

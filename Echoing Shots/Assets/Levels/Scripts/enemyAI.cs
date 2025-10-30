@@ -48,26 +48,33 @@ public class enemyAI : MonoBehaviour , IDamage
         thisRoom.updateEnemyCount(1);
         startingPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
+        playerInRange = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        //anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
+        
+        anim.SetFloat("Movement", agent.velocity.normalized.magnitude);
+        
+        
         shootTimer += Time.deltaTime;
         
         if (agent.remainingDistance < 0.01f)
         {
             roamTimer += Time.deltaTime;
         }
-
-        if(playerInRange && !canSeePlayer())
+        
+        if (playerInRange && !canSeePlayer())
         {
+            
             checkRoam();
         }
-        else if (!playerInRange)
+        
+        if (!playerInRange)
         {
+            
+            
             checkRoam();
         }
     }
@@ -83,6 +90,7 @@ public class enemyAI : MonoBehaviour , IDamage
     void roam()
     {
         roamTimer = 0;
+        Debug.Log("Roaming");
         agent.stoppingDistance = 0;
 
         Vector3 ranPos = Random.insideUnitSphere * roamDist;
@@ -109,14 +117,19 @@ public class enemyAI : MonoBehaviour , IDamage
                 agent.SetDestination(gameManager.instance.player.transform.position);
                 if(shootTimer > shootRate)
                 {
-                    shoot();
+                    if (anim != null)
+                    {
+                        anim.SetTrigger("Shoot");
+                    }
                 }
-                if (agent.remainingDistance <= agent.stoppingDistance)
+                if (agent.remainingDistance <= stoppingDistOrig)
                     faceTarget();
                 agent.stoppingDistance = stoppingDistOrig;
+                playerInRange = true;
                 return true;
             }
         }
+        
         agent.stoppingDistance = 0;
         return false;
     }
@@ -139,7 +152,9 @@ public class enemyAI : MonoBehaviour , IDamage
     {
         if (other.CompareTag("Player"))
         {
+            
             playerInRange = false;
+            
             agent.stoppingDistance = 0;
         }
     }
@@ -150,10 +165,7 @@ public class enemyAI : MonoBehaviour , IDamage
         if(agent.remainingDistance <= attackRange)
         {
             shootTimer = 0;
-            if(anim != null)
-            {
-                anim.SetTrigger("Shoot");
-            }
+            
             
             Instantiate(bullet, shootPos.position, transform.rotation);
 
