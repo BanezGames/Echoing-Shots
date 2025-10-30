@@ -1,8 +1,6 @@
 using System.Collections;
-using Unity.VisualScripting;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
@@ -19,6 +17,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int swimMod;
 
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
+    
     [SerializeField] GameObject gunModel;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
@@ -116,10 +115,32 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         {
             shoot();
         }
-        selectGun();
+        if (Input.GetButton("Slot1"))
+        {
+            gameManager.instance.SetOff();
+            gameManager.instance.SetOnSlot(0);
+        }
+        else if (Input.GetButton("Slot2"))
+        {
+            gameManager.instance.SetOff();
+            gameManager.instance.SetOnSlot(1);
+        }
+        else if (Input.GetButton("Slot3"))
+        {
+            gameManager.instance.SetOff();
+            gameManager.instance.SetOnSlot(2);
+        }
+        if (gameManager.instance.itemInventory[gameManager.instance.selectedIndex] != null &&Input.GetButtonDown("Use"))
+        {
+            useItem();
+        }
+
+
+            selectGun();
         reload();
     }
 
+    
     void jump()
     {
         if(Input.GetButtonDown("Jump") && jumpCount < jumpCountMax)
@@ -178,6 +199,19 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         }
     }
 
+    void useItem()
+    {
+        gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]--;
+        Heal(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].Healing);
+        if (gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration > 0) StartCoroutine(Shield(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration));
+        Debug.Log("Test: " + gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]);
+        if (gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] <=0)
+        {
+            gameManager.instance.clearSlot();
+        }
+        gameManager.instance.inventoryDurability[gameManager.instance.selectedIndex].text = gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex].ToString();
+        
+    }
     public void Heal(int amount)
     {
         HP += amount;

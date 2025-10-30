@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
+
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
@@ -17,6 +18,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject interactChest;
     [SerializeField] GameObject interactLever;
     [SerializeField] GameObject readPage;
+    public List<GameObject> InventorySlotsImage = new List<GameObject>();
+    public List<TMP_Text> inventoryDurability = new List<TMP_Text>();
 
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
@@ -29,6 +32,8 @@ public class gameManager : MonoBehaviour
     public GameObject checkpointPopup;
     public GameObject objectivePopup;
     public GameObject storyPopup;
+    public itemStats[] itemInventory;
+    public int[] itemDurabilityList;
     [SerializeField] Image Reticle;
 
 
@@ -45,6 +50,7 @@ public class gameManager : MonoBehaviour
     
     
     public bool isPaused;
+    public int selectedIndex;
 
     float timeScaleOrig;
 
@@ -66,7 +72,9 @@ public class gameManager : MonoBehaviour
         playerScript = player.GetComponent<playerController>();
 
         PlayerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
-
+        selectedIndex = 0;
+        itemInventory = new itemStats[3];
+        itemDurabilityList = new int[3];
         spawnEnemies();
         
 
@@ -88,6 +96,19 @@ public class gameManager : MonoBehaviour
                 stateUnpause();
             }
         }
+    }
+
+    public void SetOff()
+    {
+        InventorySlotsImage[0].GetComponent<Outline>().enabled = false;
+        InventorySlotsImage[1].GetComponent<Outline>().enabled = false;
+        InventorySlotsImage[2].GetComponent<Outline>().enabled = false;
+
+    }
+    public void SetOnSlot(int index)
+    {
+        InventorySlotsImage[index].GetComponent<Outline>().enabled = true;
+        selectedIndex = index;
     }
 
     public void statePause()
@@ -216,6 +237,14 @@ public class gameManager : MonoBehaviour
         interactDoor.SetActive(false);
         interactChest.SetActive(false);
         interactLever.SetActive(false);
+    }
+
+    public void clearSlot()
+    {
+        InventorySlotsImage[gameManager.instance.selectedIndex].GetComponent<RawImage>().texture = null;
+        //InventorySlotsImage[selectedIndex] = null;
+        itemInventory[selectedIndex] = null;
+        itemDurabilityList[selectedIndex] = 0;
     }
 
 }
