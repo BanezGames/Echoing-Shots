@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: ShieldPotionstats
   m_EditorClassIdentifier: Assembly-CSharp::itemStats
   var: 0
-  image: {fileID: 0}
+  image: {fileID: 2800000, guid: 6620da299c527bd41831ef211ef050c0, type: 3}
   Healing: 0
-  givesInvinc: 0
-  duration: 0
+  InvincDuration: 10
   projectile: {fileID: 0}
-  durability: 0
+  durability: 3
