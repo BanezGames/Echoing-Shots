@@ -1,30 +1,66 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class vendingMachine : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefabItems;
-    [SerializeField] private int itemCosts;
+    [SerializeField] private List<int>[] itemCosts;
     [SerializeField] private string[] itemNames;
     [SerializeField] private Transform dispensePoint;
+    [SerializeField] private int itemindexToSell = 0;
+     
+
+    private bool isPlayerinRange = false;
 
 
-    public void BuyItem(int coins)
+
+    public void Update()
     {
-        if (coins < 0 || coins >= prefabItems.Length)
+        if (isPlayerinRange && Input.GetKeyDown(KeyCode.E))
+        {
+            BuyItem(itemindexToSell);
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            isPlayerinRange = true;
+            Debug.Log("Press E to buy" + itemNames[itemindexToSell]);
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            isPlayerinRange=false;
+        }
+    }
+
+
+    public void BuyItem(int index)
+    {
+        if (index < 0 || index >= prefabItems.Length)
             return;
 
-        int cost = itemCosts * (coins - 1);
-        GameObject item = prefabItems[coins];
-
-        if(PlayerInventory.instance.Coins >= cost)
+        
+        GameObject item = prefabItems[index];
+        List<int> list = itemCosts[index];
+   
+        if(PlayerInventory.instance.Coins >= index)
         {
-            PlayerInventory.instance.AddGold(-cost);
+            PlayerInventory.instance.AddGold(-index);
             Instantiate(item, dispensePoint.position, Quaternion.identity);
-            Debug.Log("Now dispensing: " + itemNames[coins]);
+            Debug.Log("Now dispensing: " + itemNames[index]);
         }
         else
         {
-            Debug.Log("Not enough coins to buy: " + itemNames[coins]);
+            Debug.Log("Not enough coins to buy: " + itemNames[index]);
         }
 
     }
