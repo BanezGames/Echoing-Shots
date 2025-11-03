@@ -32,6 +32,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [Range(0, 1)][SerializeField] float audJumpVol;
     [SerializeField] AudioClip[] audHurt;
     [Range(0, 1)][SerializeField] float audHurtVol;
+    [SerializeField] AudioClip[] audDeath;
+    [Range(0, 1)][SerializeField] float audDeathVol;
 
     Vector3 playerVel;
     Vector3 moveDir;
@@ -280,6 +282,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         if (HP <= 0) 
         {
+            aud.PlayOneShot(audDeath[Random.Range(0, audDeath.Length)], audDeathVol);
             gameManager.instance.getHealthBar().value = 0;
             gameManager.instance.youLose();
         }
