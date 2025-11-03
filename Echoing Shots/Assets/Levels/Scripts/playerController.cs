@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int HP;
     [SerializeField] int speed;
     [SerializeField] int sprintMod;
+    [SerializeField] [Range(0.1f, 1.0f)] float crouchHeightMultiplier; 
     [SerializeField] int jumpSpeed;
     [SerializeField] int jumpCountMax;
     [SerializeField] int gravity;
@@ -44,6 +45,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     float shootTimer;
     bool isSprinting;
     bool isPlayingSteps;
+    bool isUncrouching;
 
     public bool isSwimming;
 
@@ -68,6 +70,16 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         shootTimer += Time.deltaTime;
         movement();
         sprint();
+
+        if (isUncrouching)
+        {
+            RaycastHit hit;
+            if (!Physics.Raycast(transform.position, Vector3.up, out hit, 1.5f))
+            {
+                isUncrouching = false;
+                transform.localScale = new Vector3(transform.localScale.x, 1.0f, transform.localScale.z);
+            }
+        }
     }
 
     void movement()
@@ -88,6 +100,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         moveDir = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
         controller.Move(moveDir * speed * Time.deltaTime);
+        crouch();
 
         if (!isSwimming)
         {
@@ -171,6 +184,20 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         {
             speed /= sprintMod;
         }
+    }
+    void crouch()
+    {
+        if (Input.GetButtonDown("Crouch"))
+        {
+            isUncrouching = false;
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * crouchHeightMultiplier, transform.localScale.z);
+
+        }
+        if (Input.GetButtonUp("Crouch"))
+        {
+            isUncrouching = true;
+        }
+
     }
     void shoot()
     {
