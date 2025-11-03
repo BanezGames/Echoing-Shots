@@ -90,7 +90,7 @@ public class enemyAI : MonoBehaviour , IDamage
     void roam()
     {
         roamTimer = 0;
-        Debug.Log("Roaming");
+        
         agent.stoppingDistance = 0;
 
         Vector3 ranPos = Random.insideUnitSphere * roamDist;
