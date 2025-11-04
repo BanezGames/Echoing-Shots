@@ -3,10 +3,11 @@ guid: d413ce7db141d4f469895cbad12e1044
 ShaderImporter:
   externalObjects: {}
   defaultTextures:
-  - _Normals: {fileID: 2800000, guid: e6aeb2ad4d01a6a43b80b8183f22fe23, type: 3}
-  - _MainTex: {fileID: 2800000, guid: 97eb01fbde9f0234ba9a2ca6218b1642, type: 3}
-  - _Smoothness: {fileID: 2800000, guid: c95b89c88fbf3e0429daf4630eb88437, type: 3}
+  - _MainTex: {fileID: 2800000, guid: 0ff8d15b6c99feb4eaa8345891568060, type: 3}
+  - _Normals: {fileID: 2800000, guid: 025f906ac54c33c41aa39ba2f05df651, type: 3}
+  - _Smoothness: {fileID: 2800000, guid: eb1c6adb4e77a5e4086c5ce509ba7784, type: 3}
   nonModifiableTextures: []
+  preprocessorOverride: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

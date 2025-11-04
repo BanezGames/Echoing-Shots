@@ -9,13 +9,16 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: DBK_Concrete_Rubble_A
   m_Shader: {fileID: 4800000, guid: b83fe8e77ea6a254db3da190eaaaeb04, type: 3}
-  m_ShaderKeywords: _NORMALMAP
+  m_ShaderKeywords: _ADD_PRECOMPUTED_VELOCITY _ALPHATEST_ON _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  stringTagMap:
+    MotionVector: User
+    RenderType: TransparentCutout
+  disabledShaderPasses:
+  - TransparentBackface
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -130,6 +133,13 @@ Material:
     m_Floats:
     - _23: 1
     - _AODirt: 0.21943645
+    - _AddPrecomputedVelocity: 1
+    - _AlphaClip: 0.1
+    - _AlphaCutoff: 0.5
+    - _AlphaCutoffEnable: 1
+    - _AlphaDstBlend: 0
+    - _AlphaSrcBlend: 1
+    - _BlendMode: 0
     - _BrightnessAdd: 0.030428972
     - _BumpScale: 1
     - _Color: 0
@@ -140,7 +150,9 @@ Material:
     - _ConcreteBareSmooth: 0.055235285
     - _ConcreteBareSmooth1: 0.267
     - _ConcreteBrightness: 0.066702306
-    - _CustomColor: 0
+    - _CullMode: 2
+    - _CullModeForward: 2
+    - _CustomColor: 36
     - _Cutoff: 0.5
     - _DamageNMTiling: 8
     - _DamageScale: 0.7267291
@@ -156,8 +168,11 @@ Material:
     - _DirtSmooth1: 0.6242941
     - _DirtSmoothness: 1.0769445
     - _DirtSmoothness1: 1.0769445
+    - _DoubleSidedEnable: 0
+    - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
     - _EdgesAdd: 0.043460622
+    - _EnableFogOnTransparent: 1
     - _Float0: 0.69411767
     - _Float1: 1
     - _Float2: 0.07687109
@@ -177,16 +192,38 @@ Material:
     - _PaintSmooth: 0.06668227
     - _PaintSmoothness: 0.1882353
     - _Parallax: 0.02
+    - _ReceivesSSR: 1
+    - _RenderQueueType: 1
+    - _RequireSplitLighting: 0
     - _Scale: 0.81580454
     - _ScaleFlat: 1.9530317
     - _Smoothenss: 0.10729837
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _StencilRef: 0
+    - _StencilRefDepth: 8
+    - _StencilRefDistortionVec: 4
+    - _StencilRefGBuffer: 10
+    - _StencilRefMV: 40
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDistortionVec: 4
+    - _StencilWriteMaskGBuffer: 14
+    - _StencilWriteMaskMV: 40
+    - _SurfaceType: 0
     - _TilingDetails: 7.9502583
     - _TilingFlat: 6
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
+    - _TransparentSortPriority: 0
+    - _TransparentZWrite: 1
     - _UVSec: 0
     - _UseCustomColor: 0
+    - _UseShadowThreshold: 0
+    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestGBuffer: 3
+    - _ZTestTransparent: 4
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
@@ -194,5 +231,7 @@ Material:
     - _Color0: {r: 0.343, g: 0.29366437, b: 0.2184863, a: 0}
     - _Color1: {r: 0.364, g: 0.322, b: 0.28, a: 0}
     - _Dirt: {r: 0.14699996, g: 0.11645303, b: 0.08320198, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _Paint: {r: 0.25882345, g: 0.27058813, b: 0.3137254, a: 1}
+  m_BuildTextureStacks: []
