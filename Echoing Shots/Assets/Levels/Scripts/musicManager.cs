@@ -46,6 +46,7 @@ public class musicManager : MonoBehaviour
         }
 
         musicSource.clip = Clip;
+        musicSource.volume = musicVol;
         musicSource.loop = true;
         musicSource.Play();
     }
@@ -57,6 +58,7 @@ public class musicManager : MonoBehaviour
             return;
         }
         ambientSource.clip = Clip;
+        ambientSource.volume = ambientVol;
         ambientSource.loop = true;
         ambientSource.Play();
     }
