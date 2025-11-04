@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class musicManager : MonoBehaviour
 {
-    private static musicManager instance;
+    public static musicManager instance;
 
     [SerializeField] AudioSource musicSource;
     [Range(0f, 1f)][SerializeField] float musicVol;
@@ -10,6 +10,7 @@ public class musicManager : MonoBehaviour
     [Range(0f, 1f)][SerializeField] float ambientVol;
 
     [SerializeField] AudioClip mainMenuMusic;
+    [Range(0f, 1f)][SerializeField] float mainMenuMusicVol;
     [SerializeField] AudioClip gameMusic;
     [SerializeField] AudioClip ambientLoop;
 
@@ -58,5 +59,9 @@ public class musicManager : MonoBehaviour
         ambientSource.clip = Clip;
         ambientSource.loop = true;
         ambientSource.Play();
+    }
+    public void StopMusic()
+    {
+        musicSource.Stop();
     }
 }
