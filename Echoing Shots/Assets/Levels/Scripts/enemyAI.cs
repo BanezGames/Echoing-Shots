@@ -27,6 +27,13 @@ public class enemyAI : MonoBehaviour , IDamage
     [SerializeField] GameObject meleeHitBox;
 
 
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] audHurt;
+    [Range(0, 1)][SerializeField] float audHurtVol;
+    [SerializeField] AudioClip[] audDeath;
+    [Range(0, 1)][SerializeField] float audDeathVol;
+
+
     Color colorOrig;
 
     float shootTimer;
@@ -172,11 +179,6 @@ public class enemyAI : MonoBehaviour , IDamage
 
 
         }
-        
-
-
-
-
     }
 
     void meleeAttack()
@@ -190,6 +192,15 @@ public class enemyAI : MonoBehaviour , IDamage
         HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
 
+        if (HP > 0)
+        {
+            aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
+        }
+        else if (HP <= 0)
+        {
+            aud.PlayOneShot(audDeath[Random.Range(0, audDeath.Length)], audDeathVol);
+        }
+
         if (HP <= 0)
         {
             Destroy(gameObject);
@@ -199,10 +210,10 @@ public class enemyAI : MonoBehaviour , IDamage
             Debug.Log(rand);
             //if(rand == 0)
             //{
-               // Instantiate(Item, transform.position, Quaternion.identity);
+            // Instantiate(Item, transform.position, Quaternion.identity);
             //}
-            
-            if(randPowerUp == 0 && powerUpPrefabs.Length > 0)
+
+            if (randPowerUp == 0 && powerUpPrefabs.Length > 0)
             {
                 Debug.Log("spawnHealth");
                 int randPU = Random.Range(0, powerUpPrefabs.Length);
@@ -211,7 +222,7 @@ public class enemyAI : MonoBehaviour , IDamage
         }
         else
         {
-            StartCoroutine( flashRed());
+            StartCoroutine(flashRed());
         }
     }
 

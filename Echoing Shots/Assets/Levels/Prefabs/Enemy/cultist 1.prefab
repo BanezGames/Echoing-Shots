@@ -1145,6 +1145,14 @@ MonoBehaviour:
   - {fileID: 6315063268524054832, guid: c9d3205087bdfd244b6f198465e06ee6, type: 3}
   - {fileID: 857460445885957466, guid: b6f8dd35f0e5f5241a808d68571013d3, type: 3}
   - {fileID: 7428177344910553596, guid: 610b070942de67c43988c217e02599f7, type: 3}
+  meleeHitBox: {fileID: 0}
+  aud: {fileID: 0}
+  audHurt:
+  - {fileID: 8300000, guid: 237fcde9015979742b8a487ac1d7baf5, type: 3}
+  audHurtVol: 0.5
+  audDeath:
+  - {fileID: 8300000, guid: 125d46bc97f544fe6b46072b509f4b28, type: 3}
+  audDeathVol: 0.5
   thisRoom: {fileID: 0}
 --- !u!95 &6970759766086338509
 Animator:

@@ -1024,9 +1024,37 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: gameMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 78defea10bd38484d8b61dc7fc4c22e4, type: 3}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: level1Music.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: level2Music.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: level3Music.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
       propertyPath: mainMenuMusic.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: 'level1Music.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 01b35d01768a4ce4a9014015e46e2398, type: 3}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: 'level2Music.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2443009fcc73197478217cde8dfb18e9, type: 3}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: 'level3Music.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 08026223c60278e4e9ece9c4ada9afde, type: 3}
     - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
       propertyPath: 'mainMenuMusic.Array.data[0]'
       value: 
