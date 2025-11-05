@@ -1019,6 +1019,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: musicVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: mainMenuMusic.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: 'mainMenuMusic.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3930f2df5ebd1304fbc920c606753ff4, type: 3}
     - target: {fileID: 7606449223731138570, guid: cade86b8b07896c469210851568b4296, type: 3}
       propertyPath: m_Name
       value: TitleScreenMusic
