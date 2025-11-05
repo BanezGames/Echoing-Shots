@@ -24,6 +24,7 @@ public class enemyAI : MonoBehaviour , IDamage
     [SerializeField] int dropChanceItem;
     [SerializeField] int dropChancePowerUp;
     [SerializeField] GameObject[] powerUpPrefabs;
+    [SerializeField] GameObject meleeHitBox;
 
 
     Color colorOrig;
@@ -115,7 +116,7 @@ public class enemyAI : MonoBehaviour , IDamage
             if (angleToPlayer <= FOV && hit.collider.CompareTag("Player"))
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
-                if(shootTimer > shootRate)
+                if (shootTimer > shootRate && attackRange >= agent.remainingDistance);
                 {
                     if (anim != null)
                     {
@@ -178,6 +179,12 @@ public class enemyAI : MonoBehaviour , IDamage
 
     }
 
+    void meleeAttack()
+    {
+        shootTimer = 0;
+        StartCoroutine(meleeAttackE(2));
+    }
+
     public void takeDamage(int amount)
     {
         HP -= amount;
@@ -208,6 +215,12 @@ public class enemyAI : MonoBehaviour , IDamage
         }
     }
 
+    IEnumerator meleeAttackE(int duration)
+    {
+        meleeHitBox.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        meleeHitBox.SetActive(false);
+    }
     IEnumerator flashRed()
     {
         model.material.color = Color.red;
