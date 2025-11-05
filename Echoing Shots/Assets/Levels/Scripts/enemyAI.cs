@@ -116,7 +116,7 @@ public class enemyAI : MonoBehaviour , IDamage
             if (angleToPlayer <= FOV && hit.collider.CompareTag("Player"))
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
-                if (shootTimer > shootRate && attackRange >= agent.remainingDistance);
+                if (shootTimer > shootRate && attackRange >= Vector3.Distance(transform.position,gameManager.instance.player.transform.position));
                 {
                     if (anim != null)
                     {
