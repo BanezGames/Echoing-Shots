@@ -21,6 +21,7 @@ public class sceneChange : MonoBehaviour
         IInteract blackHole = other.GetComponent<IInteract>();
         if (blackHole != null) 
         {
+            musicManager.instance.StopMusic();
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         }
     }
