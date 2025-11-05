@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
     
     [SerializeField] GameObject gunModel;
+    public Light flashlight;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate;
@@ -48,6 +50,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     bool isSprinting;
     bool isPlayingSteps;
     bool isUncrouching;
+    public bool isOn;
 
     public bool isSwimming;
 
@@ -72,6 +75,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         shootTimer += Time.deltaTime;
         movement();
         sprint();
+        flashLight();
 
         if (isUncrouching)
         {
@@ -301,6 +305,25 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         yield return new WaitForSeconds(0.1f);
         gameManager.instance.playerDamageScreen.SetActive(false);
     }
+
+    void flashLight()
+    {
+       
+        if (Input.GetButtonDown("f"))
+        {
+            if (!isOn)
+            {
+                flashlight.enabled = true;
+                isOn = true;
+            }
+            else if (isOn)
+            {
+                flashlight.enabled = false;
+                isOn = false;
+            }
+        }
+
+    }
     public void getGunStats(gunStats gun) 
     {
         gunList.Add(gun);
@@ -321,6 +344,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         updatePlayerUI();
     }
+   
     void selectGun()
     {
         if(Input.GetAxis("Mouse ScrollWheel") > 0 && gunListPos <gunList.Count - 1)
