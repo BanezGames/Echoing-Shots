@@ -24,7 +24,7 @@ public class enemyAI : MonoBehaviour , IDamage
     [SerializeField] int dropChanceItem;
     [SerializeField] int dropChancePowerUp;
     [SerializeField] GameObject[] powerUpPrefabs;
-    [SerializeField] GameObject meleeHitBox;
+    [SerializeField] GameObject[] meleeHitBox;
 
 
     Color colorOrig;
@@ -182,7 +182,7 @@ public class enemyAI : MonoBehaviour , IDamage
     void meleeAttack()
     {
         shootTimer = 0;
-        StartCoroutine(meleeAttackE(2));
+        StartCoroutine(meleeAttackE(1.5f));
     }
 
     public void takeDamage(int amount)
@@ -215,11 +215,19 @@ public class enemyAI : MonoBehaviour , IDamage
         }
     }
 
-    IEnumerator meleeAttackE(int duration)
+    IEnumerator meleeAttackE(float duration)
     {
-        meleeHitBox.SetActive(true);
+        for (int i = 0; i < meleeHitBox.Length; i++)
+        {
+            meleeHitBox[i].SetActive(true);
+        }
+        
         yield return new WaitForSeconds(duration);
-        meleeHitBox.SetActive(false);
+        for (int i = 0; i < meleeHitBox.Length; i++)
+        {
+            meleeHitBox[i].SetActive(false);
+        }
+       
     }
     IEnumerator flashRed()
     {
