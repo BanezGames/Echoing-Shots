@@ -127,6 +127,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 485790764172685388, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
+      propertyPath: audDeathVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 485790764172685388, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
+      propertyPath: audDeath.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 485790764172685388, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
+      propertyPath: 'audDeath.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 450eaf4ebbde94988bfa31fe145db4ce, type: 3}
+    - target: {fileID: 485790764172685388, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
+      propertyPath: 'audDeath.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 125d46bc97f544fe6b46072b509f4b28, type: 3}
+    - target: {fileID: 485790764172685388, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
+      propertyPath: 'audDeath.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5d72ee7fecf3d4c479e4f2b39d511f96, type: 3}
     - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
       propertyPath: m_LocalPosition.x
       value: -564.9251
