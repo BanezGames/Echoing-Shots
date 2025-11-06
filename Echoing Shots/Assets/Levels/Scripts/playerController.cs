@@ -21,7 +21,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
     
     [SerializeField] GameObject gunModel;
-    public Light flashlight;
+    
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate;
@@ -50,7 +50,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     bool isSprinting;
     bool isPlayingSteps;
     bool isUncrouching;
-    public bool isOn;
+    
 
     public bool isSwimming;
 
@@ -64,8 +64,9 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         spawnPlayer();
         gravityOrig = gravity;
         damageOrig = shootDamage;
-        gameManager.instance.getHealthBar().value = HP;
+        //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
+       
     }
 
     // Update is called once per frame
@@ -75,7 +76,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         shootTimer += Time.deltaTime;
         movement();
         sprint();
-        flashLight();
+       
 
         if (isUncrouching)
         {
@@ -254,7 +255,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             HP = HPOrig;
         }
 
-        gameManager.instance.getHealthBar().value = HP;
+        //gameManager.instance.getHealthBar().value = HP;
     }
 
     public IEnumerator Shield(int duration)
@@ -291,7 +292,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         if (HP <= 0) 
         {
             aud.PlayOneShot(audDeath[Random.Range(0, audDeath.Length)], audDeathVol);
-            gameManager.instance.getHealthBar().value = 0;
+            //gameManager.instance.playerHPBar.value = 0;
             gameManager.instance.youLose();
         }
         else
@@ -306,24 +307,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         gameManager.instance.playerDamageScreen.SetActive(false);
     }
 
-    void flashLight()
-    {
-       
-        if (Input.GetButtonDown("f"))
-        {
-            if (!isOn)
-            {
-                flashlight.enabled = true;
-                isOn = true;
-            }
-            else if (isOn)
-            {
-                flashlight.enabled = false;
-                isOn = false;
-            }
-        }
-
-    }
+   
     public void getGunStats(gunStats gun) 
     {
         gunList.Add(gun);
@@ -361,8 +345,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     public void updatePlayerUI()
     {
-
-        gameManager.instance.getHealthBar().value = HP;
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
+        //gameManager.instance.getHealthBar().value = HP;
 
         if (gunList.Count > 0)
         {
