@@ -64,7 +64,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         spawnPlayer();
         gravityOrig = gravity;
         damageOrig = shootDamage;
-        gameManager.instance.getHealthBar().value = HP;
+        //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
        
     }
@@ -255,7 +255,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             HP = HPOrig;
         }
 
-        gameManager.instance.getHealthBar().value = HP;
+        //gameManager.instance.getHealthBar().value = HP;
     }
 
     public IEnumerator Shield(int duration)
@@ -292,7 +292,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         if (HP <= 0) 
         {
             aud.PlayOneShot(audDeath[Random.Range(0, audDeath.Length)], audDeathVol);
-            gameManager.instance.getHealthBar().value = 0;
+            //gameManager.instance.playerHPBar.value = 0;
             gameManager.instance.youLose();
         }
         else
@@ -345,8 +345,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     public void updatePlayerUI()
     {
-
-        gameManager.instance.getHealthBar().value = HP;
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
+        //gameManager.instance.getHealthBar().value = HP;
 
         if (gunList.Count > 0)
         {

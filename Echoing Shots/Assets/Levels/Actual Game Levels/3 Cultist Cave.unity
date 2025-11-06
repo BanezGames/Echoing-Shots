@@ -5231,7 +5231,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1714684274906456279, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
@@ -18252,6 +18253,7 @@ MonoBehaviour:
   shieldDuration: 0
   damageBoostDuration: 10
   damageBoostAmount: 2
+  item: {fileID: 0}
 --- !u!4 &1453282976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8663109453467068425, guid: e5217ca3cc01d39439b6edc0e29d2f4b, type: 3}
