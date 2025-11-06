@@ -24,7 +24,8 @@ public class gameManager : MonoBehaviour
 
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
-    [SerializeField] Slider HealthBar;
+    //[SerializeField] Slider HealthBar;
+    public Image playerHPBar;
     public GameObject interactTipPub;
     public GameObject playerDamageScreen;
     public GameObject playerShieldScreen;
@@ -199,10 +200,10 @@ public class gameManager : MonoBehaviour
         return Reticle;
     }
 
-    public Slider getHealthBar()
-    {
-        return HealthBar;
-    }
+    //public Slider getHealthBar()
+    //{
+    //    return HealthBar;
+    //}
 
     public GameObject[] getEnemyList()
     {
