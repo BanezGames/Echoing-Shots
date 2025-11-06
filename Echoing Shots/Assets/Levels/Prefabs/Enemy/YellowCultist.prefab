@@ -400,7 +400,13 @@ MonoBehaviour:
   dropChanceItem: 0
   dropChancePowerUp: 0
   powerUpPrefabs: []
-  meleeHitBox: {fileID: 7130856061404394654}
+  meleeHitBox:
+  - {fileID: 7130856061404394654}
+  aud: {fileID: 0}
+  audHurt: []
+  audHurtVol: 0
+  audDeath: []
+  audDeathVol: 0
   thisRoom: {fileID: 0}
 --- !u!195 &6469485539881186856
 NavMeshAgent:

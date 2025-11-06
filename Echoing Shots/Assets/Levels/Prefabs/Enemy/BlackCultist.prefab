@@ -821,7 +821,7 @@ MonoBehaviour:
   roamDist: 15
   roamPauseTime: 3
   isMelee: 0
-  attackRange: 1
+  attackRange: 2
   shootPos: {fileID: 0}
   bullet: {fileID: 0}
   shootRate: 1
@@ -831,6 +831,11 @@ MonoBehaviour:
   meleeHitBox:
   - {fileID: 7777918715341530864}
   - {fileID: 4033912837143361529}
+  aud: {fileID: 0}
+  audHurt: []
+  audHurtVol: 0
+  audDeath: []
+  audDeathVol: 0
   thisRoom: {fileID: 0}
 --- !u!195 &285224940811323706
 NavMeshAgent:
