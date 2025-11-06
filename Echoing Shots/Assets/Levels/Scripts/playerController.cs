@@ -238,12 +238,13 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]--;
         Heal(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].Healing);
         if (gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration > 0) StartCoroutine(Shield(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration));
-        Debug.Log("Test: " + gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]);
+        //Debug.Log("Test: " + gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]);
         if (gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] <=0)
         {
             gameManager.instance.clearSlot();
         }
         gameManager.instance.inventoryDurability[gameManager.instance.selectedIndex].text = gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex].ToString();
+        updatePlayerUI();
         
     }
     public void Heal(int amount)
