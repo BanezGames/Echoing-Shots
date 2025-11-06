@@ -21,7 +21,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
     
     [SerializeField] GameObject gunModel;
-    public Light flashlight;
+    
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate;
@@ -50,7 +50,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     bool isSprinting;
     bool isPlayingSteps;
     bool isUncrouching;
-    public bool isOn;
+    
 
     public bool isSwimming;
 
@@ -66,6 +66,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         damageOrig = shootDamage;
         gameManager.instance.getHealthBar().value = HP;
         updatePlayerUI();
+       
     }
 
     // Update is called once per frame
@@ -75,7 +76,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         shootTimer += Time.deltaTime;
         movement();
         sprint();
-        flashLight();
+       
 
         if (isUncrouching)
         {
@@ -306,24 +307,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         gameManager.instance.playerDamageScreen.SetActive(false);
     }
 
-    void flashLight()
-    {
-       
-        if (Input.GetButtonDown("f"))
-        {
-            if (!isOn)
-            {
-                flashlight.enabled = true;
-                isOn = true;
-            }
-            else if (isOn)
-            {
-                flashlight.enabled = false;
-                isOn = false;
-            }
-        }
-
-    }
+   
     public void getGunStats(gunStats gun) 
     {
         gunList.Add(gun);

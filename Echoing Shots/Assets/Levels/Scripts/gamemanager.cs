@@ -12,6 +12,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    [SerializeField] GameObject flash;
 
     [SerializeField] GameObject interactTip;
     [SerializeField] GameObject interactDoor;
@@ -34,6 +35,7 @@ public class gameManager : MonoBehaviour
     public GameObject storyPopup;
     public itemStats[] itemInventory;
     public int[] itemDurabilityList;
+    
     [SerializeField] Image Reticle;
 
 
@@ -50,6 +52,7 @@ public class gameManager : MonoBehaviour
     
     
     public bool isPaused;
+    public bool isOn;
     public int selectedIndex;
 
     float timeScaleOrig;
@@ -76,7 +79,8 @@ public class gameManager : MonoBehaviour
         itemInventory = new itemStats[3];
         itemDurabilityList = new int[3];
         spawnEnemies();
-        
+        isOn = false;
+
 
     }
 
@@ -96,6 +100,7 @@ public class gameManager : MonoBehaviour
                 stateUnpause();
             }
         }
+        flashLight();
     }
 
     public void SetOff()
@@ -245,6 +250,27 @@ public class gameManager : MonoBehaviour
         //InventorySlotsImage[selectedIndex] = null;
         itemInventory[selectedIndex] = null;
         itemDurabilityList[selectedIndex] = 0;
+    }
+    void flashLight()
+    {
+
+        if (Input.GetButtonDown("f"))
+        {
+
+            if (!isOn)
+            {
+                flash.SetActive(true);
+                isOn = true;
+            }
+            else if (isOn)
+            {
+                flash.SetActive(false);
+                isOn = false;
+            }
+
+
+        }
+
     }
 
 }
