@@ -18,6 +18,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject interactDoor;
     [SerializeField] GameObject interactChest;
     [SerializeField] GameObject interactLever;
+    [SerializeField] GameObject interactCrank;
     [SerializeField] GameObject readPage;
     public List<GameObject> InventorySlotsImage = new List<GameObject>();
     public List<TMP_Text> inventoryDurability = new List<TMP_Text>();
@@ -230,6 +231,12 @@ public class gameManager : MonoBehaviour
                 {
                     interactTip.SetActive(true);
                     interactLever.SetActive(true);
+                    break;
+                }
+            case 3:
+                {
+                    interactTip.SetActive(true);
+                    interactCrank.SetActive(true);
                     break;
                 }
             default:

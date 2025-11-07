@@ -45,6 +45,10 @@ public class lever : MonoBehaviour
         for (int i = 0; i < traps.Length; i++)
         {
             traps[i].gameObject.GetComponent<turretAI>().isActive = false;
+            if (traps[i].gameObject.GetComponent<SphereCollider>().enabled = true)
+            {
+                traps[i].gameObject.GetComponent<SphereCollider>().enabled = false;
+            }
         }
 
         this.GetComponent<BoxCollider>().enabled = false;
