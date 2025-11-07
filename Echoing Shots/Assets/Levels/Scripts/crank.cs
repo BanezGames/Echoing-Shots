@@ -3,7 +3,7 @@ using UnityEngine;
 public class crank : MonoBehaviour
 {
     [SerializeField] GameObject crankable;
-    [SerializeField] GameObject valve;
+    [SerializeField] GameObject wheel;
     [SerializeField] int crankSpeed;
     [SerializeField] float rotMax;
 
@@ -26,7 +26,7 @@ public class crank : MonoBehaviour
             rot += (crankSpeed * Time.deltaTime);
             turnCrank(rot);
             rotNorm = rot / rotMax;
-            crankable.GetComponent<blockedPaths>().lowerBridge(rotNorm);
+            crankable.GetComponent<blockedPaths>().openBlocker(rotNorm);
         }
 
         if(rot >= rotMax)
@@ -55,6 +55,6 @@ public class crank : MonoBehaviour
 
     private void turnCrank(float rot)
     {
-        valve.transform.localRotation = Quaternion.Euler(0, 0, rot);
+        wheel.transform.localRotation = Quaternion.Euler(0, 0, rot);
     }
 }
