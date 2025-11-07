@@ -250,6 +250,7 @@ public class gameManager : MonoBehaviour
         interactDoor.SetActive(false);
         interactChest.SetActive(false);
         interactLever.SetActive(false);
+        interactCrank.SetActive(false);
     }
 
     public void clearSlot()

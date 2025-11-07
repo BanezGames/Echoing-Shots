@@ -188,6 +188,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c2ac113624fa3c4cab9a08210c0f157, type: 3}
+--- !u!1 &758776963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 758776964}
+  m_Layer: 0
+  m_Name: Bridge Hinge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &758776964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758776963}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: -0.54, y: 7.44, z: 21.045}
+  m_LocalScale: {x: 4, y: 7, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1006942014}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!1 &864843996
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,12 +687,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006942010}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.54, y: 7.86, z: 21.39}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.481, z: 0.3899994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 758776964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044399413
 GameObject:
@@ -1782,6 +1814,7 @@ MonoBehaviour:
   crankable: {fileID: 0}
   valve: {fileID: 4021467230736805133}
   crankSpeed: 100
+  rotMax: 540
 --- !u!1001 &3102965386958828409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2574,4 +2607,4 @@ SceneRoots:
   - {fileID: 1044399417}
   - {fileID: 2867841092907976640}
   - {fileID: 3036862408913767144}
-  - {fileID: 1006942014}
+  - {fileID: 758776964}

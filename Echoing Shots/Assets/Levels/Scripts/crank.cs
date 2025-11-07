@@ -5,10 +5,12 @@ public class crank : MonoBehaviour
     [SerializeField] GameObject crankable;
     [SerializeField] GameObject valve;
     [SerializeField] int crankSpeed;
+    [SerializeField] float rotMax;
 
     bool canSeePlayer;
 
     float rot;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,10 +21,16 @@ public class crank : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Interact") && canSeePlayer)
+        if (Input.GetButton("Interact") && canSeePlayer && rot < rotMax)
         {
             rot += (crankSpeed * Time.deltaTime);
             turnCrank(rot);
+        }
+
+        if(rot >= rotMax)
+        {
+            this.GetComponent<BoxCollider>().enabled = false;
+            gameManager.instance.hideInteraction();
         }
     }
 
@@ -35,6 +43,12 @@ public class crank : MonoBehaviour
             gameManager.instance.showInteraction(3);
             canSeePlayer = true;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        gameManager.instance.hideInteraction();
+        canSeePlayer = false;
     }
 
     private void turnCrank(float rot)
