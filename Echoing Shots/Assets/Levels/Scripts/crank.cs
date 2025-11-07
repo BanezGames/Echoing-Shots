@@ -31,6 +31,7 @@ public class crank : MonoBehaviour
 
         if(rot >= rotMax)
         {
+            canSeePlayer = false;
             this.GetComponent<BoxCollider>().enabled = false;
             gameManager.instance.hideInteraction();
         }

@@ -13,7 +13,10 @@ public class blockedPaths : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        openAmount = blocker.GetComponent<Collider>().bounds.size.y;
+        if (type == blockerType.gate)
+        {
+            openAmount = blocker.GetComponent<Collider>().bounds.size.y;
+        }
     }
 
     // Update is called once per frame
