@@ -120,15 +120,13 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
             controller.Move(playerVel * Time.deltaTime);
 
-        if(shootTimer >= shootRate)
+        if (shootTimer >= shootRate)
         {
             gameManager.instance.getReticle().color = Color.red;
         }
         else
         {
             gameManager.instance.getReticle().color = Color.gray;
-
-            
         }
 
         if (Input.GetButton("Fire1") && gunList.Count > 0 && gunList[gunListPos].ammoCur > 0 && shootTimer >= shootRate)
