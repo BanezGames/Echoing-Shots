@@ -592,6 +592,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1006942014}
+  - component: {fileID: 1006942015}
   - component: {fileID: 1006942013}
   - component: {fileID: 1006942012}
   - component: {fileID: 1006942011}
@@ -694,6 +695,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 758776964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1006942015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006942010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531dd5dc90166c44098e46769e5ef7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::blockedPaths
+  hinge: {fileID: 758776963}
+  rotMax: 90
 --- !u!1 &1044399413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,7 +1826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5321a88acdc46942a057e77ab6eab22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::crank
-  crankable: {fileID: 0}
+  crankable: {fileID: 1006942010}
   valve: {fileID: 4021467230736805133}
   crankSpeed: 100
   rotMax: 540

@@ -10,7 +10,7 @@ public class crank : MonoBehaviour
     bool canSeePlayer;
 
     float rot;
-
+    float rotNorm;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +25,8 @@ public class crank : MonoBehaviour
         {
             rot += (crankSpeed * Time.deltaTime);
             turnCrank(rot);
+            rotNorm = rot / rotMax;
+            crankable.GetComponent<blockedPaths>().lowerBridge(rotNorm);
         }
 
         if(rot >= rotMax)
