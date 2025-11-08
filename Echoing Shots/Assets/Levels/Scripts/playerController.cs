@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int HP;
     [SerializeField] int speed;
     [SerializeField] int sprintMod;
-    [SerializeField] [Range(0.1f, 1.0f)] float crouchHeightMultiplier; 
+    [Range(0.1f, 1.0f)] [SerializeField] float crouchHeightMultiplier; 
     [SerializeField] int jumpSpeed;
     [SerializeField] int jumpCountMax;
     [SerializeField] int gravity;
@@ -21,6 +21,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
     
     [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject leftHand;
     
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
@@ -53,6 +54,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     
 
     public bool isSwimming;
+    public bool isHolding;
 
     bool isInvincible;
     int damageOrig;
