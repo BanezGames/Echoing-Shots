@@ -9,6 +9,7 @@ public class crank : MonoBehaviour
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip crankSound;
+    [Range(0f,1f)][SerializeField] float crankVol;
 
     bool canSeePlayer;
 
