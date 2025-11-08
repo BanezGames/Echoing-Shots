@@ -1,15 +1,20 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class vendingMachine : MonoBehaviour
 {
-    [SerializeField] private GameObject[] prefabItems;
-    [SerializeField] private List<int>[] itemCosts;
+    [SerializeField] private List<GameObject> storeItems = new List<GameObject>();
+    [SerializeField] private List<int> itemCosts = new List<int>();
     [SerializeField] private string[] itemNames;
     [SerializeField] private Transform dispensePoint;
     [SerializeField] private int itemindexToSell = 0;
-     
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip dispenseSound;
+
+
 
     private bool isPlayerinRange = false;
 
@@ -19,14 +24,14 @@ public class vendingMachine : MonoBehaviour
     {
         if (isPlayerinRange && Input.GetKeyDown(KeyCode.E))
         {
-            BuyItem(itemindexToSell);
+            DispenseItem(itemindexToSell);
         }
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             isPlayerinRange = true;
             Debug.Log("Press E to buy" + itemNames[itemindexToSell]);
@@ -36,32 +41,65 @@ public class vendingMachine : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            isPlayerinRange=false;
+            isPlayerinRange = false;
         }
     }
 
 
-    public void BuyItem(int index)
+    public void DispenseItem(int index)
     {
-        if (index < 0 || index >= prefabItems.Length)
-            return;
-
-        
-        GameObject item = prefabItems[index];
-        List<int> list = itemCosts[index];
-   
-        if(PlayerInventory.instance.Coins >= index)
+        if (index < 0 || index >= storeItems.Count || index >= itemCosts.Count || index >= itemNames.Length)
         {
-            PlayerInventory.instance.AddGold(-index);
-            Instantiate(item, dispensePoint.position, Quaternion.identity);
-            Debug.Log("Now dispensing: " + itemNames[index]);
+            return;
+        }
+
+        GameObject item = storeItems[index];
+        int cost = itemCosts[index];
+
+        if (PlayerInventory.instance.Coins >= cost)
+        {
+            PlayerInventory.instance.AddGold(-cost);
+            item.transform.position = dispensePoint.position;
+            item.SetActive(true);
+
+            if (audioSource != null && dispenseSound != null)
+            {
+                audioSource.PlayOneShot(dispenseSound);
+            }
+
+            Debug.Log("Dispensed " + itemNames[index]);
         }
         else
         {
-            Debug.Log("Not enough coins to buy: " + itemNames[index]);
+            Debug.Log("Not enough coins to buy " + itemNames[index]);
+        }
+    }
+
+    public string GetItemName(int index)
+    {
+        if (index >= 0 && index < itemNames.Count())
+        {
+            return itemNames[index];
         }
 
+        return " ";
     }
+
+    public int GetItemCost(int index)
+    {
+        if (index >= 0 && index < itemCosts.Count())
+        {
+            return itemCosts[index];
+        }
+
+        return 0;
+    }
+
+    public int ItemCount()
+    {
+        return storeItems.Count;
+    }
+
 }
