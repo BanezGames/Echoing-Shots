@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] CharacterController controller;
 
     [SerializeField] int HP;
+    [SerializeField] int sanity;
     [SerializeField] int speed;
     [SerializeField] int sprintMod;
     [SerializeField] [Range(0.1f, 1.0f)] float crouchHeightMultiplier; 
@@ -19,8 +20,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int swimMod;
 
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
+    [SerializeField] List<Tome> tomeList = new List<Tome>();
     
     [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject tomeModel;
     
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
@@ -45,6 +48,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     int HPOrig;
     int gravityOrig;
     int gunListPos;
+    int tomeListPos;
 
     float shootTimer;
     bool isSprinting;
@@ -223,6 +227,13 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             }
             Debug.Log(hit.collider.name);
         }
+    }
+
+    void tomeShoot()
+    {
+        shootTimer = 0;
+        tomeList[tomeListPos].sanityReduction--;
+
     }
     void reload()
     {
