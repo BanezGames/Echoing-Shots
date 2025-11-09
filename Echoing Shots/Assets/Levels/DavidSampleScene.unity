@@ -176,6 +176,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 610b070942de67c43988c217e02599f7, type: 3}
+--- !u!114 &49031277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3930744552555424567, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+  m_PrefabInstance: {fileID: 5570599143839203265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &208022504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2267,6 +2278,10 @@ PrefabInstance:
       propertyPath: ammoMax
       value: 
       objectReference: {fileID: 1463880688}
+    - target: {fileID: 6840862286657124586, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+      propertyPath: playerSanityBar
+      value: 
+      objectReference: {fileID: 49031277}
     - target: {fileID: 6840862286657124586, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
       propertyPath: gameGoalCountText
       value: 

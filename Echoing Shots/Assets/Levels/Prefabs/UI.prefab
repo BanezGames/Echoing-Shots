@@ -5291,6 +5291,7 @@ MonoBehaviour:
   enemy: {fileID: 4924989395540904198, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
   Counter: {fileID: 0}
   playerHPBar: {fileID: 4862378209701019043}
+  playerSanityBar: {fileID: 3930744552555424567}
   interactTipPub: {fileID: 6214115897452747103}
   playerDamageScreen: {fileID: 7246797951358070628}
   playerShieldScreen: {fileID: 7574305501148541338}
