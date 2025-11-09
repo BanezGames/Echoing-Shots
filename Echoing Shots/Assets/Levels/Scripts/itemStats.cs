@@ -11,7 +11,7 @@ public enum itemtype
 
 }
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item Stats")]
 
 public class itemStats : ScriptableObject
 {
@@ -19,6 +19,7 @@ public class itemStats : ScriptableObject
     public Texture image;
     public int Healing;
     public int InvincDuration;
+    public int SanityRestore;
     //public int duration;
     public GameObject projectile;
     public int durability;
