@@ -27,6 +27,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI Counter;
     //[SerializeField] Slider HealthBar;
     public Image playerHPBar;
+    public Image playerSanityBar;
     public GameObject interactTipPub;
     public GameObject playerDamageScreen;
     public GameObject playerShieldScreen;

@@ -196,14 +196,12 @@ public class enemyAI : MonoBehaviour , IDamage
         {
             aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
         }
-        else if (HP <= 0)
-        {
-            aud.PlayOneShot(audDeath[Random.Range(0, audDeath.Length)], audDeathVol);
-        }
-
+      
         if (HP <= 0)
         {
-            Destroy(gameObject);
+            AudioClip deathSound = audDeath[Random.Range(0, audDeath.Length)];
+            aud.PlayOneShot(deathSound, audDeathVol);
+            Destroy(gameObject, deathSound.length);
             thisRoom.updateEnemyCount(-1);
             int rand = Random.Range(0, dropChanceItem);
             int randPowerUp = Random.Range(0, dropChancePowerUp);

@@ -17,6 +17,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int jumpCountMax;
     [SerializeField] int gravity;
     [SerializeField] int swimMod;
+    [SerializeField] int sanityMax = 10;
+    [SerializeField] int sanity;
+    [SerializeField] float sanityDrainRate = 1.0f;
+    [SerializeField] float sanityRecoveryRate = 2.0f;
 
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
     
@@ -25,7 +29,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate;
-
+    [SerializeField] bool isLosingSanity = true;
 
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip[] audSteps;
@@ -64,6 +68,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         spawnPlayer();
         gravityOrig = gravity;
         damageOrig = shootDamage;
+        sanity = sanityMax;
         //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
        
@@ -120,15 +125,13 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
             controller.Move(playerVel * Time.deltaTime);
 
-        if(shootTimer >= shootRate)
+        if (shootTimer >= shootRate)
         {
             gameManager.instance.getReticle().color = Color.red;
         }
         else
         {
             gameManager.instance.getReticle().color = Color.gray;
-
-            
         }
 
         if (Input.GetButton("Fire1") && gunList.Count > 0 && gunList[gunListPos].ammoCur > 0 && shootTimer >= shootRate)
@@ -354,6 +357,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             gameManager.instance.ammoCur.text = gunList[gunListPos].ammoCur.ToString("F0");
             gameManager.instance.ammoMax.text = gunList[gunListPos].ammoMax.ToString("F0");
         }
+
+        gameManager.instance.playerSanityBar.fillAmount = (float)sanity / sanityMax;
     }
     public void spawnPlayer()
     {
@@ -378,4 +383,41 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         isPlayingSteps = false;
     }
+
+    IEnumerator sanityDrain()
+    {
+        while (true)
+        {
+            if(isLosingSanity)
+            {
+                sanity -= Mathf.RoundToInt(sanityDrainRate * Time.deltaTime);
+                sanity = Mathf.Clamp(sanity, 0, sanityMax);
+            
+                
+                if(sanity <= sanityMax * 0.25f)
+                {
+                    //Here is where we put the effect of the window going dark and Samuel hearing voices//
+                }
+
+                if(sanity <= 0)
+                {
+                    takeDamage(5);
+                }
+            }
+
+            updatePlayerUI();
+            yield return null;
+        }
+    }
+
+
+    public void RetstoreSanity(int amount)
+    {
+        sanity += amount;
+        sanity = Mathf.Clamp(sanity, 0, sanityMax);
+        updatePlayerUI();
+    }
+
+
+
 }

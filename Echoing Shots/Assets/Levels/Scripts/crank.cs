@@ -7,6 +7,10 @@ public class crank : MonoBehaviour
     [SerializeField] int crankSpeed;
     [SerializeField] float rotMax;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip crankSound;
+    [Range(0f,1f)][SerializeField] float crankVol;
+
     bool canSeePlayer;
 
     float rot;
@@ -23,16 +27,37 @@ public class crank : MonoBehaviour
     {
         if (Input.GetButton("Interact") && canSeePlayer && rot < rotMax)
         {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = crankSound;
+                audioSource.loop = true;
+                audioSource.Play();
+            }
             rot += (crankSpeed * Time.deltaTime);
             turnCrank(rot);
             rotNorm = rot / rotMax;
             crankable.GetComponent<blockedPaths>().openBlocker(rotNorm);
+        } 
+        else
+        {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+                audioSource.loop = false;
+            }
         }
 
-        if(rot >= rotMax)
+        if (rot >= rotMax)
         {
+            canSeePlayer = false;
             this.GetComponent<BoxCollider>().enabled = false;
             gameManager.instance.hideInteraction();
+
+            if(audioSource.isPlaying)
+            {
+                audioSource.Stop();
+                audioSource.loop = false;
+            }
         }
     }
 
@@ -51,6 +76,12 @@ public class crank : MonoBehaviour
     {
         gameManager.instance.hideInteraction();
         canSeePlayer = false;
+
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+        }
     }
 
     private void turnCrank(float rot)
