@@ -922,6 +922,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
+--- !u!1001 &1689792245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 92686355763679437, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -568.2236
+      objectReference: {fileID: 0}
+    - target: {fileID: 92686355763679437, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 92686355763679437, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.129047
+      objectReference: {fileID: 0}
+    - target: {fileID: 92686355763679437, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 92686355763679437, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92686355763679437, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92686355763679437, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92686355763679437, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92686355763679437, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92686355763679437, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473591886756983186, guid: 6662205664c8a9343bbf77398910d770, type: 3}
+      propertyPath: m_Name
+      value: KaraKalReal 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6662205664c8a9343bbf77398910d770, type: 3}
 --- !u!1001 &1804082345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1066,3 +1123,4 @@ SceneRoots:
   - {fileID: 1304298169}
   - {fileID: 1804082345}
   - {fileID: 1376311881}
+  - {fileID: 1689792245}

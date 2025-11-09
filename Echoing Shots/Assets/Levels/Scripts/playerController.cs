@@ -40,6 +40,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [Range(0, 1)][SerializeField] float audHurtVol;
     [SerializeField] AudioClip[] audDeath;
     [Range(0, 1)][SerializeField] float audDeathVol;
+    [SerializeField] AudioClip audSanVoices;
+    [Range(0, 1)][SerializeField] float audLandVol;
 
     Vector3 playerVel;
     Vector3 moveDir;
@@ -54,6 +56,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     bool isSprinting;
     bool isPlayingSteps;
     bool isUncrouching;
+    bool isHearingVoices;
     
 
     public bool isSwimming;
@@ -397,9 +400,25 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
                 if(sanity <= sanityMax * 0.25f)
                 {
                     //Here is where we put the effect of the window going dark and Samuel hearing voices//
+                    if (!isHearingVoices)
+                    {
+                        isHearingVoices = true;
+                        aud.clip = audSanVoices;
+                        aud.volume = audLandVol;
+                        aud.loop = true;
+                        aud.Play();
+                    }
+                } 
+                else
+                {
+                    if (isHearingVoices)
+                    {
+                        isHearingVoices = false;
+                        aud.Stop();
+                    }
                 }
 
-                if(sanity <= 0)
+                if (sanity <= 0)
                 {
                     takeDamage(5);
                 }
