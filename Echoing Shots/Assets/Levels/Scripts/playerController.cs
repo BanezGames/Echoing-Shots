@@ -71,6 +71,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         sanity = sanityMax;
         //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
+        StartCoroutine(sanityDrain());
        
     }
 
@@ -390,8 +391,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         {
             if(isLosingSanity)
             {
-                sanity -= Mathf.RoundToInt(sanityDrainRate * Time.deltaTime);
-                sanity = Mathf.Clamp(sanity, 0, sanityMax);
+                if (!(sanity <= 0)) sanity -= (int)sanityDrainRate;
             
                 
                 if(sanity <= sanityMax * 0.25f)
@@ -401,12 +401,12 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
                 if(sanity <= 0)
                 {
-                    takeDamage(5);
+                    takeDamage(1);
                 }
             }
 
             updatePlayerUI();
-            yield return null;
+            yield return new WaitForSeconds(1);
         }
     }
 
