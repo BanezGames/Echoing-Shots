@@ -13,6 +13,8 @@ public class vendingMachine : MonoBehaviour
     [SerializeField] private int itemindexToSell = 0;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip dispenseSound;
+    [SerializeField] private I shopUI;
+    [SerializeField] private GameObject interactionPrompt;
 
 
 
@@ -24,27 +26,22 @@ public class vendingMachine : MonoBehaviour
     {
         if (isPlayerinRange && Input.GetKeyDown(KeyCode.E))
         {
-            DispenseItem(itemindexToSell);
+            interactionPrompt.SetActive(false);
+            shopUI.OpenMenu(this);
         }
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerinRange = true;
-            Debug.Log("Press E to buy" + itemNames[itemindexToSell]);
-        }
+        interactionPrompt.SetActive(true);
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerinRange = false;
-        }
+        interactionPrompt.SetActive(false);
+        shopUI.CloseMenu();
     }
 
 

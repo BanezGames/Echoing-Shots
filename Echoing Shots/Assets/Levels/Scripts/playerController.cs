@@ -41,6 +41,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [Range(0, 1)][SerializeField] float audHurtVol;
     [SerializeField] AudioClip[] audDeath;
     [Range(0, 1)][SerializeField] float audDeathVol;
+    [SerializeField] AudioSource audSanity;
     [SerializeField] AudioClip audSanVoices;
     [Range(0, 1)][SerializeField] float audLandVol;
 
@@ -77,13 +78,9 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         damageOrig = shootDamage;
         sanityOrig = sanity;
 
-      
-
-
-
         //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
-        
+
     }
 
     // Update is called once per frame
@@ -104,7 +101,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
                 transform.localScale = new Vector3(transform.localScale.x, 1.0f, transform.localScale.z);
             }
         }
-        StartCoroutine(sanityOther());
+       
     }
 
     void movement()
@@ -330,17 +327,17 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             if (!isHearingVoices)
             {
                 isHearingVoices = true;
-                aud.clip = audSanVoices;
-                aud.volume = audLandVol;
-                aud.loop = true;
-                aud.Play();
+                audSanity.clip = audSanVoices;
+                audSanity.volume = audLandVol;
+                audSanity.loop = true;
+                audSanity.Play();
             }
             else
             {
                 if (isHearingVoices)
                 {
                     isHearingVoices = false;
-                    aud.Stop();
+                    audSanity.Stop();
                 }
             }
                 yield return null;
