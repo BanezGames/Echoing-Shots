@@ -58,6 +58,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     bool isPlayingSteps;
     bool isUncrouching;
     bool isHearingVoices;
+    int sanitySounds;
     
 
     public bool isSwimming;
@@ -397,27 +398,11 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             {
                 sanity -= Mathf.RoundToInt(sanityDrainRate * Time.deltaTime);
                 sanity = Mathf.Clamp(sanity, 0, sanityMax);
-            
-                
-                if(sanity <= sanityMax * 0.25f)
+
+
+                if (sanity <= sanityMax * 0.25f)
                 {
                     //Here is where we put the effect of the window going dark and Samuel hearing voices//
-                    if (!isHearingVoices)
-                    {
-                        isHearingVoices = true;
-                        aud.clip = audSanVoices;
-                        aud.volume = audLandVol;
-                        aud.loop = true;
-                        aud.Play();
-                    }
-                } 
-                else
-                {
-                    if (isHearingVoices)
-                    {
-                        isHearingVoices = false;
-                        aud.Stop();
-                    }
                 }
 
                 if (sanity <= 0)
@@ -432,13 +417,31 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     }
 
 
-    public void RestoreSanity(int amount)
+    public void RetstoreSanity(int amount)
     {
         sanity += amount;
         sanity = Mathf.Clamp(sanity, 0, sanityMax);
         updatePlayerUI();
     }
 
-
+    public void SanitySounds()
+    {
+        if (!isHearingVoices)
+        {
+            isHearingVoices = true;
+            aud.clip = audSanVoices;
+            aud.volume = audLandVol;
+            aud.loop = true;
+            aud.Play();
+        }
+        else
+        {
+            if (isHearingVoices)
+            {
+                isHearingVoices = false;
+                aud.Stop();
+            }
+        }
+    } 
 
 }
