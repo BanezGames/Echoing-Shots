@@ -60,7 +60,6 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     bool isUncrouching;
     bool isLosingSanity;
     bool isHearingVoices;
-    int sanitySounds;
     
 
     public bool isSwimming;
@@ -327,7 +326,24 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             isLosingSanity = true;
             
             gameManager.instance.playerSanityBar.fillAmount -= 0.0001f ;
-            yield return null;
+
+            if (!isHearingVoices)
+            {
+                isHearingVoices = true;
+                aud.clip = audSanVoices;
+                aud.volume = audLandVol;
+                aud.loop = true;
+                aud.Play();
+            }
+            else
+            {
+                if (isHearingVoices)
+                {
+                    isHearingVoices = false;
+                    aud.Stop();
+                }
+            }
+                yield return null;
             
 
         }
@@ -418,57 +434,4 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         isPlayingSteps = false;
     }
-
-    IEnumerator sanityDrain()
-    {
-        while (true)
-        {
-            if(isLosingSanity)
-            {
-                sanity -= Mathf.RoundToInt(sanityDrainRate * Time.deltaTime);
-                sanity = Mathf.Clamp(sanity, 0, sanityMax);
-            
-                
-                if(sanity <= sanityMax * 0.25f)
-                {
-                    //Here is where we put the effect of the window going dark and Samuel hearing voices//
-                    if (!isHearingVoices)
-                    {
-                        isHearingVoices = true;
-                        aud.clip = audSanVoices;
-                        aud.volume = audLandVol;
-                        aud.loop = true;
-                        aud.Play();
-                    }
-                } 
-                else
-                {
-                    if (isHearingVoices)
-                    {
-                        isHearingVoices = false;
-                        aud.Stop();
-                    }
-                }
-
-                if (sanity <= 0)
-                {
-                    takeDamage(1);
-                }
-            }
-
-            updatePlayerUI();
-            yield return null;
-        }
-    }
-
-
-    public void RestoreSanity(int amount)
-    {
-        sanity += amount;
-        sanity = Mathf.Clamp(sanity, 0, sanityMax);
-        updatePlayerUI();
-    }
-
-
-
 }
