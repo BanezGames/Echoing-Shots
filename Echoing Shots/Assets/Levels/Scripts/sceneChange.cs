@@ -21,11 +21,17 @@ public class sceneChange : MonoBehaviour, IRoomInterface
         IInteract blackHole = other.GetComponent<IInteract>();
         if (blackHole != null) 
         {
-            musicManager.instance.StopMusic();
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            if (musicManager.instance != null)
+            {
+                musicManager.instance.StopMusic();
+            }
+            else
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            }
         }
     }
-
+    
     public void roomEnded()
     {
         this.gameObject.SetActive(true);
