@@ -1143,7 +1143,7 @@ PrefabInstance:
     - target: {fileID: 3307790261986138768, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 408892613}
     - target: {fileID: 7131730188472794884, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: m_Name
       value: objectives #4
@@ -3488,7 +3488,7 @@ PrefabInstance:
     - target: {fileID: 3307790261986138768, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 408892613}
     - target: {fileID: 7131730188472794884, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: m_Name
       value: objectives #5
@@ -5189,6 +5189,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+--- !u!114 &408892613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6634897048866408449, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
+  m_PrefabInstance: {fileID: 408892612}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &409123609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11779,7 +11790,7 @@ PrefabInstance:
     - target: {fileID: 3307790261986138768, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 408892613}
     - target: {fileID: 7131730188472794884, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: m_Name
       value: objectives #3
@@ -15433,7 +15444,7 @@ PrefabInstance:
     - target: {fileID: 3307790261986138768, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 408892613}
     - target: {fileID: 7131730188472794884, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: m_Name
       value: objectives #5 (1)
@@ -20100,7 +20111,7 @@ PrefabInstance:
     - target: {fileID: 3307790261986138768, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 408892613}
     - target: {fileID: 7131730188472794884, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: m_Name
       value: objectives #2
@@ -21359,7 +21370,7 @@ PrefabInstance:
     - target: {fileID: 3307790261986138768, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 408892613}
     - target: {fileID: 7131730188472794884, guid: d47ad24709a9dc44aa7704db64336c4b, type: 3}
       propertyPath: m_Name
       value: objectives
