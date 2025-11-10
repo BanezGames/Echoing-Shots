@@ -1559,6 +1559,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8166984831415617286, guid: 332f750b84ae39142934102ddb038d1c, type: 3}
+      propertyPath: sceneName
+      value: Ice Cave
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
