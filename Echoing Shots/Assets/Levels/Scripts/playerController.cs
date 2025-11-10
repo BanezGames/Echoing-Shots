@@ -21,6 +21,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int sanityReduceAmount;
     [SerializeField] float baseSanitydrain;
     [SerializeField] float sanityDrainRate;
+    [SerializeField] int sanityMax;
     //[SerializeField] float sanityRecoveryRate;
 
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
@@ -77,6 +78,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         gravityOrig = gravity;
         damageOrig = shootDamage;
         sanityOrig = sanity;
+        isLosingSanity = true;
 
         //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
@@ -435,9 +437,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     IEnumerator sanityDrain()
     {
-        Debug.Log("Started");
         while (true)
         {
+            Debug.Log("Started");
+
             if(isLosingSanity)
             {
                 if (!(sanity <= 0)) sanity -= (int)sanityDrainRate;
@@ -479,7 +482,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     public void RestoreSanity(int amount)
     {
         sanity += amount;
-        sanity = Mathf.Clamp(sanity, 0, sanityMax);
+        if (sanity > sanityMax)
+        {
+            sanity = sanityMax;
+        }
         updatePlayerUI();
     }
 
