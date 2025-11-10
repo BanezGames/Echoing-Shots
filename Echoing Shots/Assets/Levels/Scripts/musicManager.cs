@@ -17,9 +17,15 @@ public class musicManager : MonoBehaviour
     [SerializeField] AudioClip ambientLoop;
 
     [SerializeField] AudioClip[] level1Music;
+    [Range(0f, 1f)][SerializeField] float level1MusicVol;
     [SerializeField] AudioClip[] level2Music;
+    [Range(0f, 1f)][SerializeField] float level2MusicVol;
     [SerializeField] AudioClip[] level3Music;
-
+    [Range(0f, 1f)][SerializeField] float level3MusicVol;
+    [SerializeField] AudioClip[] level4Music;
+    [Range(0f, 1f)][SerializeField] float level4MusicVol;
+    [SerializeField] AudioClip[] level5Music;
+    [Range(0f, 1f)][SerializeField] float level5MusicVol;
 
     int currentMusicIndex = 0;
     bool isFading = false;
@@ -67,6 +73,14 @@ public class musicManager : MonoBehaviour
         else if (scene.buildIndex == 4)
         {
             PlayMusic(level3Music[0]);
+        }
+        else if (scene.buildIndex == 5)
+        {
+            PlayMusic(level4Music[0]);
+        }
+        else if (scene.buildIndex == 6)
+        {
+            PlayMusic(level5Music[0]);
         }
     }
 
