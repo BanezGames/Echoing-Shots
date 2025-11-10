@@ -21,6 +21,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int sanityReduceAmount;
     [SerializeField] float baseSanitydrain;
     [SerializeField] float sanityDrainRate;
+    [SerializeField] int sanityMax;
     //[SerializeField] float sanityRecoveryRate;
 
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
@@ -77,6 +78,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         gravityOrig = gravity;
         damageOrig = shootDamage;
         sanityOrig = sanity;
+        isLosingSanity = true;
 
         //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
@@ -251,6 +253,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]--;
         Heal(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].Healing);
+        RestoreSanity(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].SanityRestore);
         if (gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration > 0) StartCoroutine(Shield(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration));
         //Debug.Log("Test: " + gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]);
         if (gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] <=0)
@@ -261,6 +264,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         updatePlayerUI();
         
     }
+
+
     public void Heal(int amount)
     {
         HP += amount;
@@ -435,9 +440,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     IEnumerator sanityDrain()
     {
-        Debug.Log("Started");
         while (true)
         {
+            Debug.Log("Started");
+
             if(isLosingSanity)
             {
                 if (!(sanity <= 0)) sanity -= (int)sanityDrainRate;
@@ -479,7 +485,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     public void RestoreSanity(int amount)
     {
         sanity += amount;
-        sanity = Mathf.Clamp(sanity, 0, sanityMax);
+        if (sanity > sanityMax)
+        {
+            sanity = sanityMax;
+        }
         updatePlayerUI();
     }
 
