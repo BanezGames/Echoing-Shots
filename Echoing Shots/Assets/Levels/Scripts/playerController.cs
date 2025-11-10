@@ -432,7 +432,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     }
 
 
-    public void RetstoreSanity(int amount)
+    public void RestoreSanity(int amount)
     {
         sanity += amount;
         sanity = Mathf.Clamp(sanity, 0, sanityMax);
