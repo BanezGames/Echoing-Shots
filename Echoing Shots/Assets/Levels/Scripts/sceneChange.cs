@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class sceneChange : MonoBehaviour
+public class sceneChange : MonoBehaviour, IRoomInterface
 {
     [SerializeField] string sceneName;
 
@@ -24,5 +24,15 @@ public class sceneChange : MonoBehaviour
             musicManager.instance.StopMusic();
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         }
+    }
+
+    public void roomEnded()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    public void roomStarted()
+    {
+        this.gameObject.SetActive(false);
     }
 }
