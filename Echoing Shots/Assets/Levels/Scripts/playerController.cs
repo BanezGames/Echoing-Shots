@@ -81,7 +81,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
         StartCoroutine(sanityDrain());
-        
+       
     }
 
     // Update is called once per frame
@@ -440,8 +440,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         {
             if(isLosingSanity)
             {
-                if(!(sanity <= 0))sanity -= (int)sanityDrainRate;
-                
+                if (!(sanity <= 0)) sanity -= (int)sanityDrainRate;
             
                 
                 if(sanity <= sanityMax * 0.25f)
@@ -473,7 +472,6 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
             updatePlayerUI();
             yield return new WaitForSeconds(1);
-            Debug.Log("Testing");
         }
     }
 
