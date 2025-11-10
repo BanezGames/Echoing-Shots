@@ -253,6 +253,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]--;
         Heal(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].Healing);
+        RestoreSanity(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].SanityRestore);
         if (gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration > 0) StartCoroutine(Shield(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration));
         //Debug.Log("Test: " + gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]);
         if (gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] <=0)
@@ -263,6 +264,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         updatePlayerUI();
         
     }
+
+
     public void Heal(int amount)
     {
         HP += amount;
