@@ -6,7 +6,7 @@ public class LaudanumPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             ConsumeLaudanum(other.GetComponent<playerController>());
         }
@@ -15,9 +15,9 @@ public class LaudanumPickup : MonoBehaviour
 
     void ConsumeLaudanum(playerController player)
     {
-        if(player != null)
+        if (player != null)
         {
-            //player.RetstoreSanity(10);
+            player.RetstoreSanity(10);
             Destroy(gameObject);
         }
     }

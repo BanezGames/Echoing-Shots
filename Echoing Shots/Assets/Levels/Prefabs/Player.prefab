@@ -240,16 +240,16 @@ MonoBehaviour:
   jumpCountMax: 2
   gravity: 30
   swimMod: 0
-  sanityMax: 10
-  sanity: 0
-  sanityDrainRate: 1
-  sanityRecoveryRate: 2
+  sanity: 100
+  sanityReduceAmount: 1
+  baseSanitydrain: 1
+  sanityDrainRate: 2
   gunList: []
   gunModel: {fileID: 2747849146545279302}
+  leftHand: {fileID: 0}
   shootDamage: 0
   shootDist: 0
   shootRate: 0
-  isLosingSanity: 1
   aud: {fileID: 6309730783504994063}
   audSteps:
   - {fileID: 8300000, guid: e91cf8d4f61a8f740897ab998ccfde94, type: 3}
@@ -283,6 +283,7 @@ MonoBehaviour:
   audSanVoices: {fileID: 8300000, guid: 146f084b22304a54bad303194ac93c51, type: 3}
   audLandVol: 0.25
   isSwimming: 0
+  isHolding: 0
 --- !u!143 &1425898397513980404
 CharacterController:
   m_ObjectHideFlags: 0
