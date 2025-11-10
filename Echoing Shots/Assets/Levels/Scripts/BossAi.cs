@@ -47,13 +47,13 @@ public class BossAi : MonoBehaviour , IDamage
     Vector3 playerDir;
     Vector3 startingPos;
 
-    //public RoomManager thisRoom;
+    public RoomManager thisRoom;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         colorOrig = model.material.color;
-        //thisRoom.updateEnemyCount(1);
+        thisRoom.updateEnemyCount(1);
         startingPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
     }
@@ -146,7 +146,7 @@ public class BossAi : MonoBehaviour , IDamage
         if (HP <= 0)
         {
             Destroy(gameObject);
-            //thisRoom.updateEnemyCount(-1);
+            thisRoom.updateEnemyCount(-1);
             
             int randPowerUp = Random.Range(0, dropChancePowerUp);
             //Debug.Log(rand);

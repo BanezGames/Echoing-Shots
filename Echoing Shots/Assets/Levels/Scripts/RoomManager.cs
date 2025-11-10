@@ -50,9 +50,10 @@ public class RoomManager : MonoBehaviour , IRoomInterface
         int arrayPos = Random.Range(0, spawnPos.Length);
 
         GameObject tempEnemy = Instantiate(enemyList[index], spawnPos[arrayPos].position, spawnPos[arrayPos].rotation);
-        tempEnemy.GetComponent<enemyAI>().thisRoom = this;
-        //enemyCount++;
-        spawnTimer = 0;
+        if(tempEnemy.GetComponent<enemyAI>() != null) tempEnemy.GetComponent<enemyAI>().thisRoom = this;
+        else if(tempEnemy.GetComponent<BossAi>() != null) tempEnemy.GetComponent<BossAi>().thisRoom = this;
+            //enemyCount++;
+            spawnTimer = 0;
 
     }
 
