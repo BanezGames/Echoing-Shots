@@ -412,7 +412,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             gameManager.instance.ammoMax.text = gunList[gunListPos].ammoMax.ToString("F0");
         }
 
-        gameManager.instance.playerSanityBar.fillAmount = (float)sanity / sanityMax;
+        gameManager.instance.playerSanityBar.fillAmount = (float)sanity / sanityOrig;
     }
     public void spawnPlayer()
     {
