@@ -1028,6 +1028,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 78defea10bd38484d8b61dc7fc4c22e4, type: 3}
     - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: level1MusicVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: level2MusicVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: level3MusicVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: level4MusicVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: level5MusicVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
       propertyPath: level1Music.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1038,6 +1058,14 @@ PrefabInstance:
     - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
       propertyPath: level3Music.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: level4Music.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: level5Music.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
       propertyPath: mainMenuMusic.Array.size
@@ -1055,6 +1083,18 @@ PrefabInstance:
       propertyPath: 'level3Music.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: 08026223c60278e4e9ece9c4ada9afde, type: 3}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: 'level4Music.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a9dd29cb3580a714c82262c4c905303f, type: 3}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: 'level5Music.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7e450d2a107d8645ba952d6fedd8546, type: 3}
+    - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
+      propertyPath: 'level5Music.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a2714890408fccf4d9f0476e7b67e3dd, type: 3}
     - target: {fileID: 4066139067482099447, guid: cade86b8b07896c469210851568b4296, type: 3}
       propertyPath: 'mainMenuMusic.Array.data[0]'
       value: 

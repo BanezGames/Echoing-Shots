@@ -422,7 +422,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
                 if (sanity <= 0)
                 {
-                    takeDamage(5);
+                    takeDamage(1);
                 }
             }
 
