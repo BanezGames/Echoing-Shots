@@ -24,6 +24,14 @@ public class enemyAI : MonoBehaviour , IDamage
     [SerializeField] int dropChanceItem;
     [SerializeField] int dropChancePowerUp;
     [SerializeField] GameObject[] powerUpPrefabs;
+    [SerializeField] GameObject[] meleeHitBox;
+
+
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] audHurt;
+    [Range(0, 1)][SerializeField] float audHurtVol;
+    [SerializeField] AudioClip[] audDeath;
+    [Range(0, 1)][SerializeField] float audDeathVol;
 
 
     Color colorOrig;
@@ -115,7 +123,7 @@ public class enemyAI : MonoBehaviour , IDamage
             if (angleToPlayer <= FOV && hit.collider.CompareTag("Player"))
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
-                if(shootTimer > shootRate)
+                if (shootTimer > shootRate && attackRange >= Vector3.Distance(transform.position,gameManager.instance.player.transform.position))
                 {
                     if (anim != null)
                     {
@@ -171,11 +179,12 @@ public class enemyAI : MonoBehaviour , IDamage
 
 
         }
-        
+    }
 
-
-
-
+    void meleeAttack()
+    {
+        shootTimer = 0;
+        StartCoroutine(meleeAttackE(1.5f));
     }
 
     public void takeDamage(int amount)
@@ -183,19 +192,26 @@ public class enemyAI : MonoBehaviour , IDamage
         HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
 
+        if (HP > 0)
+        {
+            aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
+        }
+      
         if (HP <= 0)
         {
-            Destroy(gameObject);
+            AudioClip deathSound = audDeath[Random.Range(0, audDeath.Length)];
+            aud.PlayOneShot(deathSound, audDeathVol);
+            Destroy(gameObject, deathSound.length);
             thisRoom.updateEnemyCount(-1);
             int rand = Random.Range(0, dropChanceItem);
             int randPowerUp = Random.Range(0, dropChancePowerUp);
             Debug.Log(rand);
             //if(rand == 0)
             //{
-               // Instantiate(Item, transform.position, Quaternion.identity);
+            // Instantiate(Item, transform.position, Quaternion.identity);
             //}
-            
-            if(randPowerUp == 0 && powerUpPrefabs.Length > 0)
+
+            if (randPowerUp == 0 && powerUpPrefabs.Length > 0)
             {
                 Debug.Log("spawnHealth");
                 int randPU = Random.Range(0, powerUpPrefabs.Length);
@@ -204,10 +220,24 @@ public class enemyAI : MonoBehaviour , IDamage
         }
         else
         {
-            StartCoroutine( flashRed());
+            StartCoroutine(flashRed());
         }
     }
 
+    IEnumerator meleeAttackE(float duration)
+    {
+        for (int i = 0; i < meleeHitBox.Length; i++)
+        {
+            meleeHitBox[i].SetActive(true);
+        }
+        
+        yield return new WaitForSeconds(duration);
+        for (int i = 0; i < meleeHitBox.Length; i++)
+        {
+            meleeHitBox[i].SetActive(false);
+        }
+       
+    }
     IEnumerator flashRed()
     {
         model.material.color = Color.red;

@@ -1,9 +1,10 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
+public class playerController : MonoBehaviour , IDamage, IInteract,IPickup 
 {
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
@@ -11,19 +12,26 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int HP;
     [SerializeField] int speed;
     [SerializeField] int sprintMod;
-    [SerializeField] [Range(0.1f, 1.0f)] float crouchHeightMultiplier; 
+    [Range(0.1f, 1.0f)] [SerializeField] float crouchHeightMultiplier; 
     [SerializeField] int jumpSpeed;
     [SerializeField] int jumpCountMax;
     [SerializeField] int gravity;
     [SerializeField] int swimMod;
+    [SerializeField] int sanity;
+    [SerializeField] int sanityReduceAmount;
+    [SerializeField] float baseSanitydrain;
+    [SerializeField] float sanityDrainRate;
+    [SerializeField] int sanityMax;
+    //[SerializeField] float sanityRecoveryRate;
 
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
     
     [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject leftHand;
+    
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate;
-
 
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip[] audSteps;
@@ -34,6 +42,9 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [Range(0, 1)][SerializeField] float audHurtVol;
     [SerializeField] AudioClip[] audDeath;
     [Range(0, 1)][SerializeField] float audDeathVol;
+    [SerializeField] AudioSource audSanity;
+    [SerializeField] AudioClip audSanVoices;
+    [Range(0, 1)][SerializeField] float audLandVol;
 
     Vector3 playerVel;
     Vector3 moveDir;
@@ -41,6 +52,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     int jumpCount;
 
     int HPOrig;
+    int sanityOrig;
     int gravityOrig;
     int gunListPos;
 
@@ -48,8 +60,12 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     bool isSprinting;
     bool isPlayingSteps;
     bool isUncrouching;
+    bool isLosingSanity;
+    bool isHearingVoices;
+    
 
     public bool isSwimming;
+    public bool isHolding;
 
     bool isInvincible;
     int damageOrig;
@@ -61,8 +77,13 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         spawnPlayer();
         gravityOrig = gravity;
         damageOrig = shootDamage;
-        gameManager.instance.getHealthBar().value = HP;
+        sanityOrig = sanity;
+        isLosingSanity = true;
+
+        //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
+        StartCoroutine(sanityDrain());
+       
     }
 
     // Update is called once per frame
@@ -72,6 +93,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         shootTimer += Time.deltaTime;
         movement();
         sprint();
+        
 
         if (isUncrouching)
         {
@@ -82,6 +104,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
                 transform.localScale = new Vector3(transform.localScale.x, 1.0f, transform.localScale.z);
             }
         }
+       
     }
 
     void movement()
@@ -115,15 +138,13 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
             controller.Move(playerVel * Time.deltaTime);
 
-        if(shootTimer >= shootRate)
+        if (shootTimer >= shootRate)
         {
             gameManager.instance.getReticle().color = Color.red;
         }
         else
         {
             gameManager.instance.getReticle().color = Color.gray;
-
-            
         }
 
         if (Input.GetButton("Fire1") && gunList.Count > 0 && gunList[gunListPos].ammoCur > 0 && shootTimer >= shootRate)
@@ -232,15 +253,19 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]--;
         Heal(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].Healing);
+        RestoreSanity(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].SanityRestore);
         if (gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration > 0) StartCoroutine(Shield(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration));
-        Debug.Log("Test: " + gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]);
+        //Debug.Log("Test: " + gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]);
         if (gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] <=0)
         {
             gameManager.instance.clearSlot();
         }
         gameManager.instance.inventoryDurability[gameManager.instance.selectedIndex].text = gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex].ToString();
+        updatePlayerUI();
         
     }
+
+
     public void Heal(int amount)
     {
         HP += amount;
@@ -250,7 +275,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             HP = HPOrig;
         }
 
-        gameManager.instance.getHealthBar().value = HP;
+        //gameManager.instance.getHealthBar().value = HP;
     }
 
     public IEnumerator Shield(int duration)
@@ -276,14 +301,18 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             return;
 
         HP -= amount;
-        aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
+        if (HP > 0)
+        {
+            aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
+        }
+
         StartCoroutine( flashPlayerDmg());
         updatePlayerUI();
 
         if (HP <= 0) 
         {
             aud.PlayOneShot(audDeath[Random.Range(0, audDeath.Length)], audDeathVol);
-            gameManager.instance.getHealthBar().value = 0;
+            //gameManager.instance.playerHPBar.value = 0;
             gameManager.instance.youLose();
         }
         else
@@ -291,12 +320,52 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             
         }
     }
+
+
+    IEnumerator sanityOther()
+    {
+       if(gameManager.instance.playerSanityBar.fillAmount > 0)
+        {
+            isLosingSanity = true;
+            
+            gameManager.instance.playerSanityBar.fillAmount -= 0.0001f ;
+
+            if (!isHearingVoices)
+            {
+                isHearingVoices = true;
+                audSanity.clip = audSanVoices;
+                audSanity.volume = audLandVol;
+                audSanity.loop = true;
+                audSanity.Play();
+            }
+            else
+            {
+                if (isHearingVoices)
+                {
+                    isHearingVoices = false;
+                    audSanity.Stop();
+                }
+            }
+                yield return null;
+            
+
+        }
+        else if (gameManager.instance.playerSanityBar.fillAmount <= 0)
+        {
+            isLosingSanity = false;
+            takeDamage(1);
+            yield return new WaitForSeconds(2.0f);
+        }
+       
+    } 
     IEnumerator flashPlayerDmg()
     {
         gameManager.instance.playerDamageScreen.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         gameManager.instance.playerDamageScreen.SetActive(false);
     }
+
+   
     public void getGunStats(gunStats gun) 
     {
         gunList.Add(gun);
@@ -317,6 +386,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         updatePlayerUI();
     }
+   
     void selectGun()
     {
         if(Input.GetAxis("Mouse ScrollWheel") > 0 && gunListPos <gunList.Count - 1)
@@ -333,14 +403,16 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     public void updatePlayerUI()
     {
-
-        gameManager.instance.getHealthBar().value = HP;
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
+        //gameManager.instance.getHealthBar().value = HP;
 
         if (gunList.Count > 0)
         {
             gameManager.instance.ammoCur.text = gunList[gunListPos].ammoCur.ToString("F0");
             gameManager.instance.ammoMax.text = gunList[gunListPos].ammoMax.ToString("F0");
         }
+
+        gameManager.instance.playerSanityBar.fillAmount = (float)sanity / sanityOrig;
     }
     public void spawnPlayer()
     {
@@ -365,4 +437,61 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         isPlayingSteps = false;
     }
+
+    IEnumerator sanityDrain()
+    {
+        while (true)
+        {
+            Debug.Log("Started");
+
+            if(isLosingSanity)
+            {
+                if (!(sanity <= 0)) sanity -= (int)sanityDrainRate;
+            
+                
+                if(sanity <= sanityMax * 0.25f)
+                {
+                    //Here is where we put the effect of the window going dark and Samuel hearing voices//
+                    if (!isHearingVoices)
+                    {
+                        isHearingVoices = true;
+                        aud.clip = audSanVoices;
+                        aud.volume = audLandVol;
+                        aud.loop = true;
+                        aud.Play();
+                    }
+                } 
+                else
+                {
+                    if (isHearingVoices)
+                    {
+                        isHearingVoices = false;
+                        aud.Stop();
+                    }
+                }
+
+                if (sanity <= 0)
+                {
+                    takeDamage(1);
+                }
+            }
+
+            updatePlayerUI();
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+
+    public void RestoreSanity(int amount)
+    {
+        sanity += amount;
+        if (sanity > sanityMax)
+        {
+            sanity = sanityMax;
+        }
+        updatePlayerUI();
+    }
+
+
+
 }

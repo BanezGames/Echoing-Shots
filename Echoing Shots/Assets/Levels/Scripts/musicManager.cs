@@ -1,17 +1,34 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class musicManager : MonoBehaviour
 {
-    private static musicManager instance;
+    public static musicManager instance;
 
     [SerializeField] AudioSource musicSource;
     [Range(0f, 1f)][SerializeField] float musicVol;
     [SerializeField] AudioSource ambientSource;
     [Range(0f, 1f)][SerializeField] float ambientVol;
 
-    [SerializeField] AudioClip mainMenuMusic;
+    [SerializeField] AudioClip[] mainMenuMusic;
+    [Range(0f, 1f)][SerializeField] float mainMenuMusicVol;
     [SerializeField] AudioClip gameMusic;
     [SerializeField] AudioClip ambientLoop;
+
+    [SerializeField] AudioClip[] level1Music;
+    [Range(0f, 1f)][SerializeField] float level1MusicVol;
+    [SerializeField] AudioClip[] level2Music;
+    [Range(0f, 1f)][SerializeField] float level2MusicVol;
+    [SerializeField] AudioClip[] level3Music;
+    [Range(0f, 1f)][SerializeField] float level3MusicVol;
+    [SerializeField] AudioClip[] level4Music;
+    [Range(0f, 1f)][SerializeField] float level4MusicVol;
+    [SerializeField] AudioClip[] level5Music;
+    [Range(0f, 1f)][SerializeField] float level5MusicVol;
+
+    int currentMusicIndex = 0;
+    bool isFading = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -24,11 +41,47 @@ public class musicManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     void Start()
     {
         PlayAmbient(ambientLoop);
-        PlayMusic(mainMenuMusic);
+        PlayMusic(mainMenuMusic[currentMusicIndex]);
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        currentMusicIndex = scene.buildIndex;
+
+        
+        if (scene.buildIndex == 0)
+        {
+            PlayMusic(mainMenuMusic[0]);
+        }
+        else if (scene.buildIndex == 1)
+        {
+            PlayMusic(gameMusic);
+        }
+        else if (scene.buildIndex == 2)
+        {
+            PlayMusic(level1Music[0]);
+        }
+        else if (scene.buildIndex == 3)
+        {
+            PlayMusic(level2Music[0]);
+        }
+        else if (scene.buildIndex == 4)
+        {
+            PlayMusic(level3Music[0]);
+        }
+        else if (scene.buildIndex == 5)
+        {
+            PlayMusic(level4Music[0]);
+        }
+        else if (scene.buildIndex == 6)
+        {
+            PlayMusic(level5Music[0]);
+        }
     }
 
     // Update is called once per frame
@@ -44,7 +97,9 @@ public class musicManager : MonoBehaviour
             return; 
         }
 
+        musicSource.Stop();
         musicSource.clip = Clip;
+        musicSource.volume = musicVol;
         musicSource.loop = true;
         musicSource.Play();
     }
@@ -55,8 +110,41 @@ public class musicManager : MonoBehaviour
         {
             return;
         }
+
+        ambientSource.Stop();
         ambientSource.clip = Clip;
+        ambientSource.volume = ambientVol;
         ambientSource.loop = true;
         ambientSource.Play();
+    }
+    public void StopMusic()
+    {
+        if (musicSource.isPlaying)
+        {
+            musicSource.Stop();
+        }
+        
+    }
+
+    public void FadeOutMusic(float fadeTime = 2f)
+    {
+        if (!isFading)
+        StartCoroutine(FadeOutCoroutine(fadeTime));
+    }
+
+    IEnumerator FadeOutCoroutine(float fadeTime)
+    {
+        isFading = true;
+        float startVol = musicSource.volume;
+
+        while (musicSource.volume > 0)
+        {
+            musicSource.volume -= startVol * Time.deltaTime / fadeTime;
+            yield return null;
+        }
+
+        musicSource.Stop();
+        musicSource.volume = startVol;
+        isFading = false;
     }
 }

@@ -17,4 +17,4 @@ MonoBehaviour:
   Healing: 0
   InvincDuration: 10
   projectile: {fileID: 0}
-  durability: 3
+  durability: 1
