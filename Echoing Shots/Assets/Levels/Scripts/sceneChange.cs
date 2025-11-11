@@ -25,10 +25,9 @@ public class sceneChange : MonoBehaviour, IRoomInterface
             {
                 musicManager.instance.StopMusic();
             }
-            else
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-            }
+           
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            
         }
     }
     
