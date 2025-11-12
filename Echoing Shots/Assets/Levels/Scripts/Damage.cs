@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Damage : MonoBehaviour
 {
-    enum damageType { moving, stationary, DOT, homing }
+    enum damageType { moving, stationary, DOT, homing, sanity }
     [SerializeField] damageType type;
     [SerializeField] Rigidbody rb;
 
@@ -19,12 +19,16 @@ public class Damage : MonoBehaviour
     {
         if (type == damageType.moving || type == damageType.homing)
         {
-            Destroy(gameObject, destroyTime);
+            //Destroy(gameObject, destroyTime);
 
             if (type == damageType.moving)
             {
                 rb.linearVelocity = transform.forward * speed;
             }
+        }
+        if(destroyTime != 0)
+        {
+            Destroy(gameObject, destroyTime);
         }
     }
 
@@ -67,12 +71,28 @@ public class Damage : MonoBehaviour
                 StartCoroutine(damageOther(dmg));
             }
         }
+
+        if (dmg != null && type == damageType.sanity)
+        {
+            if(!isDamaging)
+            {
+                StartCoroutine(damageSanity(dmg));
+            }
+        }
     }
 
     IEnumerator damageOther(IDamage d)
     {
         isDamaging = true;
         d.takeDamage(damageAmount);
+        yield return new WaitForSeconds(damageRate);
+        isDamaging = false;
+    }
+
+    IEnumerator damageSanity(IDamage d)
+    {
+        isDamaging = true;
+        d.sanityDamage(damageAmount);
         yield return new WaitForSeconds(damageRate);
         isDamaging = false;
     }
