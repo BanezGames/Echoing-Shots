@@ -82,7 +82,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
-        StartCoroutine(sanityDrain());
+        //StartCoroutine(sanityDrain());
        
     }
 
@@ -321,43 +321,68 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         }
     }
 
-
-    IEnumerator sanityOther()
+    public void sanityDamage(int amount)
     {
-       if(gameManager.instance.playerSanityBar.fillAmount > 0)
-        {
-            isLosingSanity = true;
-            
-            gameManager.instance.playerSanityBar.fillAmount -= 0.0001f ;
+        sanity -= amount;
 
-            if (!isHearingVoices)
-            {
-                isHearingVoices = true;
-                audSanity.clip = audSanVoices;
-                audSanity.volume = audLandVol;
-                audSanity.loop = true;
-                audSanity.Play();
-            }
-            else
-            {
-                if (isHearingVoices)
-                {
-                    isHearingVoices = false;
-                    audSanity.Stop();
-                }
-            }
-                yield return null;
-            
+        updatePlayerUI();
 
-        }
-        else if (gameManager.instance.playerSanityBar.fillAmount <= 0)
+        if (sanity <= 0)
         {
-            isLosingSanity = false;
-            takeDamage(1);
-            yield return new WaitForSeconds(2.0f);
+            aud.PlayOneShot(audDeath[Random.Range(0, audDeath.Length)], audDeathVol);
+            //gameManager.instance.playerHPBar.value = 0;
+            gameManager.instance.youLose();
         }
-       
-    } 
+    }
+
+    public void RestoreSanity(int amount)
+    {
+        sanity += amount;
+        if (sanity > sanityMax)
+        {
+            sanity = sanityMax;
+        }
+        updatePlayerUI();
+    }
+
+    // Commented out by Ron on 11-11-25 due to reworking Sanity Damage to be tied to objects.
+    //
+    //IEnumerator sanityOther()
+    //{
+    //   if(gameManager.instance.playerSanityBar.fillAmount > 0)
+    //    {
+    //        isLosingSanity = true;
+
+    //        gameManager.instance.playerSanityBar.fillAmount -= 0.0001f ;
+
+    //        if (!isHearingVoices)
+    //        {
+    //            isHearingVoices = true;
+    //            audSanity.clip = audSanVoices;
+    //            audSanity.volume = audLandVol;
+    //            audSanity.loop = true;
+    //            audSanity.Play();
+    //        }
+    //        else
+    //        {
+    //            if (isHearingVoices)
+    //            {
+    //                isHearingVoices = false;
+    //                audSanity.Stop();
+    //            }
+    //        }
+    //            yield return null;
+
+
+    //    }
+    //    else if (gameManager.instance.playerSanityBar.fillAmount <= 0)
+    //    {
+    //        isLosingSanity = false;
+    //        takeDamage(1);
+    //        yield return new WaitForSeconds(2.0f);
+    //    }
+
+    //} 
     IEnumerator flashPlayerDmg()
     {
         gameManager.instance.playerDamageScreen.SetActive(true);
@@ -412,6 +437,27 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             gameManager.instance.ammoMax.text = gunList[gunListPos].ammoMax.ToString("F0");
         }
 
+        if (sanity <= sanityMax * 0.25f)
+        {
+            //Here is where we put the effect of the window going dark and Samuel hearing voices//
+            if (!isHearingVoices)
+            {
+                isHearingVoices = true;
+                aud.clip = audSanVoices;
+                aud.volume = audLandVol;
+                aud.loop = true;
+                aud.Play();
+            }
+        }
+        else
+        {
+            if (isHearingVoices)
+            {
+                isHearingVoices = false;
+                aud.Stop();
+            }
+        }
+
         gameManager.instance.playerSanityBar.fillAmount = (float)sanity / sanityOrig;
     }
     public void spawnPlayer()
@@ -438,59 +484,53 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         isPlayingSteps = false;
     }
 
-    IEnumerator sanityDrain()
-    {
-        while (true)
-        {
-            Debug.Log("Started");
+    // Commented out by Ron on 11-11-25 due to reworking Sanity Damage to be tied to objects.
+    //
+    //IEnumerator sanityDrain()
+    //{
+    //    while (true)
+    //    {
+    //        Debug.Log("Started");
 
-            if(isLosingSanity)
-            {
-                if (!(sanity <= 0)) sanity -= (int)sanityDrainRate;
-            
-                
-                if(sanity <= sanityMax * 0.25f)
-                {
-                    //Here is where we put the effect of the window going dark and Samuel hearing voices//
-                    if (!isHearingVoices)
-                    {
-                        isHearingVoices = true;
-                        aud.clip = audSanVoices;
-                        aud.volume = audLandVol;
-                        aud.loop = true;
-                        aud.Play();
-                    }
-                } 
-                else
-                {
-                    if (isHearingVoices)
-                    {
-                        isHearingVoices = false;
-                        aud.Stop();
-                    }
-                }
-
-                if (sanity <= 0)
-                {
-                    takeDamage(1);
-                }
-            }
-
-            updatePlayerUI();
-            yield return new WaitForSeconds(1);
-        }
-    }
+    //        if(isLosingSanity)
+    //        {
+    //            if (!(sanity <= 0)) sanity -= (int)sanityDrainRate;
 
 
-    public void RestoreSanity(int amount)
-    {
-        sanity += amount;
-        if (sanity > sanityMax)
-        {
-            sanity = sanityMax;
-        }
-        updatePlayerUI();
-    }
+    //            if(sanity <= sanityMax * 0.25f)
+    //            {
+    //                //Here is where we put the effect of the window going dark and Samuel hearing voices//
+    //                if (!isHearingVoices)
+    //                {
+    //                    isHearingVoices = true;
+    //                    aud.clip = audSanVoices;
+    //                    aud.volume = audLandVol;
+    //                    aud.loop = true;
+    //                    aud.Play();
+    //                }
+    //            } 
+    //            else
+    //            {
+    //                if (isHearingVoices)
+    //                {
+    //                    isHearingVoices = false;
+    //                    aud.Stop();
+    //                }
+    //            }
+
+    //            if (sanity <= 0)
+    //            {
+    //                takeDamage(1);
+    //            }
+    //        }
+
+    //        updatePlayerUI();
+    //        yield return new WaitForSeconds(1);
+    //    }
+    //}
+
+
+    
 
 
 

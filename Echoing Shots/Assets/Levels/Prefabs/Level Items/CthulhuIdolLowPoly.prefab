@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2277199319361588166}
-  - component: {fileID: 8753149498035551398}
   - component: {fileID: 7997781181721867454}
   m_Layer: 0
   m_Name: CthulhuIdolLowPoly
@@ -35,18 +34,6 @@ Transform:
   - {fileID: 9093118935583967970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8753149498035551398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5268703701721796798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd9327234d9a12e45a7155969740e3a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::itemAI
 --- !u!65 &7997781181721867454
 BoxCollider:
   m_ObjectHideFlags: 0
