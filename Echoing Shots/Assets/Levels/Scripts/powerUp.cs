@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class powerUp : MonoBehaviour
 {
-    enum PowerUpType { health, shield, damageBoost }
+    enum PowerUpType { health, shield, damageBoost, sanity }
     [SerializeField] PowerUpType type;
 
     [SerializeField] int healAmount;
@@ -42,11 +42,18 @@ public class powerUp : MonoBehaviour
         //player.StartCoroutine( player.DamageBoost(damageBoostAmount, damageBoostDuration));
         //}
         //Debug.Log("Index" + gameManager.instance.selectedIndex);
-        gameManager.instance.itemInventory[gameManager.instance.selectedIndex] = item;
-        gameManager.instance.InventorySlotsImage[gameManager.instance.selectedIndex].GetComponent<RawImage>().texture = item.image;
-        gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] = item.durability;
-        gameManager.instance.inventoryDurability[gameManager.instance.selectedIndex].text = gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex].ToString();
-        Destroy(gameObject);
+        if (type != PowerUpType.sanity)
+        {
+            gameManager.instance.itemInventory[gameManager.instance.selectedIndex] = item;
+            gameManager.instance.InventorySlotsImage[gameManager.instance.selectedIndex].GetComponent<RawImage>().texture = item.image;
+            gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] = item.durability;
+            gameManager.instance.inventoryDurability[gameManager.instance.selectedIndex].text = gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex].ToString();
+        }
+        else
+        {
+            player.RestoreSanity(healAmount);
+        }
+            Destroy(gameObject);
     }
 
     // Update is called once per frame

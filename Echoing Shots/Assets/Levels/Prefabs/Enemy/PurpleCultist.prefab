@@ -226,7 +226,10 @@ MonoBehaviour:
   shootRate: 4
   dropChanceItem: 0
   dropChancePowerUp: 0
-  powerUpPrefabs: []
+  powerUpPrefabs:
+  - {fileID: 857460445885957466, guid: b6f8dd35f0e5f5241a808d68571013d3, type: 3}
+  - {fileID: 7428177344910553596, guid: 610b070942de67c43988c217e02599f7, type: 3}
+  - {fileID: 2430432201208384360, guid: b25442c95327c4344a0eb034801afc03, type: 3}
   meleeHitBox: []
   aud: {fileID: -4346265717547181313}
   audHurt:
