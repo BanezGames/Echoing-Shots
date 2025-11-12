@@ -166,6 +166,10 @@ public class BossAi : MonoBehaviour , IDamage
             StartCoroutine(flashRed());
         }
     }
+    public void sanityDamage(int amount)
+    {
+        // Do Nothing
+    }
 
     IEnumerator flashRed()
     {
