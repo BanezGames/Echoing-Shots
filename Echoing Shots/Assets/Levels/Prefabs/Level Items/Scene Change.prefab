@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62ace8da6fd6994484c6751d11aa046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::sceneChange
-  sceneName: Ice Cave
+  sceneName: 4 Weeping Angels
 --- !u!33 &9018642419761892185
 MeshFilter:
   m_ObjectHideFlags: 0

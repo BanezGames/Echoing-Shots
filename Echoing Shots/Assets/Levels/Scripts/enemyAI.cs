@@ -224,11 +224,6 @@ public class enemyAI : MonoBehaviour , IDamage
         }
     }
 
-    public void sanityDamage(int amount)
-    {
-        // Do Nothing
-    }
-
     IEnumerator meleeAttackE(float duration)
     {
         for (int i = 0; i < meleeHitBox.Length; i++)
@@ -251,5 +246,4 @@ public class enemyAI : MonoBehaviour , IDamage
 
     }
 
-    
 }

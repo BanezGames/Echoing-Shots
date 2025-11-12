@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::objectiveUpdates
   objective: {fileID: 0}
-  text: Kill the boss to escape
+  text: Search the House for clues
 --- !u!65 &7940043679347126828
 BoxCollider:
   m_ObjectHideFlags: 0

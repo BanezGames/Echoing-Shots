@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class sceneChange : MonoBehaviour, IRoomInterface
+public class sceneChange : MonoBehaviour
 {
     [SerializeField] string sceneName;
 
@@ -21,23 +21,8 @@ public class sceneChange : MonoBehaviour, IRoomInterface
         IInteract blackHole = other.GetComponent<IInteract>();
         if (blackHole != null) 
         {
-            if (musicManager.instance != null)
-            {
-                musicManager.instance.StopMusic();
-            }
-           
+            musicManager.instance.StopMusic();
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-            
         }
-    }
-    
-    public void roomEnded()
-    {
-        this.gameObject.SetActive(true);
-    }
-
-    public void roomStarted()
-    {
-        this.gameObject.SetActive(false);
     }
 }
