@@ -221,9 +221,12 @@ MonoBehaviour:
   roamPauseTime: 3
   isMelee: 0
   attackRange: 10
-  shootPos: {fileID: 381718198539688351}
-  bullet: {fileID: 5751844053204205236, guid: 6d165324d0009374685e8df48663357d, type: 3}
+  shootPos:
+  - {fileID: 381718198539688351}
+  bullet:
+  - {fileID: 5751844053204205236, guid: 6d165324d0009374685e8df48663357d, type: 3}
   shootRate: 4
+  numOfAttacks: 0
   dropChanceItem: 0
   dropChancePowerUp: 0
   powerUpPrefabs:
