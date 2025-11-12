@@ -19,12 +19,16 @@ public class Damage : MonoBehaviour
     {
         if (type == damageType.moving || type == damageType.homing)
         {
-            Destroy(gameObject, destroyTime);
+            //Destroy(gameObject, destroyTime);
 
             if (type == damageType.moving)
             {
                 rb.linearVelocity = transform.forward * speed;
             }
+        }
+        if(destroyTime != 0)
+        {
+            Destroy(gameObject, destroyTime);
         }
     }
 
