@@ -141,7 +141,7 @@ public class enemyAI : MonoBehaviour , IDamage
                                  attackNum += randAttack.ToString();
                                 Debug.Log("Added");
                             }
-                            Debug.Log("AttackNum: " + attackNum);
+                            //Debug.Log("AttackNum: " + attackNum);
                             anim.SetTrigger(attackNum);
                         }
                     }
@@ -191,7 +191,7 @@ public class enemyAI : MonoBehaviour , IDamage
         {
             shootTimer = 0;
 
-            Debug.Log("Attack: " + attack);
+            //Debug.Log("Attack: " + attack);
             Instantiate(bullet[attack], shootPos[attack].position, transform.rotation);
 
 
@@ -200,6 +200,7 @@ public class enemyAI : MonoBehaviour , IDamage
 
     void meleeAttack()
     {
+        //Debug.Log("AttackStarted");
         shootTimer = 0;
         StartCoroutine(meleeAttackE(1.5f));
     }
@@ -222,7 +223,7 @@ public class enemyAI : MonoBehaviour , IDamage
             thisRoom.updateEnemyCount(-1);
             int rand = Random.Range(0, dropChanceItem);
             int randPowerUp = Random.Range(0, dropChancePowerUp);
-            Debug.Log(rand);
+            //Debug.Log(rand);
             //if(rand == 0)
             //{
             // Instantiate(Item, transform.position, Quaternion.identity);
