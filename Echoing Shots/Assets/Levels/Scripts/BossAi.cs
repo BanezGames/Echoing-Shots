@@ -35,6 +35,12 @@ public class BossAi : MonoBehaviour , IDamage
     [SerializeField] int skyAmount;
     [SerializeField] int yAdd;
 
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] audHurt;
+    [Range(0, 1)][SerializeField] float audHurtVol;
+    [SerializeField] AudioClip[] audDeath;
+    [Range(0, 1)][SerializeField] float audDeathVol;
+
     Color colorOrig;
 
     float shootTimer;
@@ -143,9 +149,17 @@ public class BossAi : MonoBehaviour , IDamage
         HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
 
+
+        if (HP > 0)
+        {
+            aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
+        }
+
         if (HP <= 0)
         {
-            Destroy(gameObject);
+            AudioClip deathSound = audDeath[Random.Range(0, audDeath.Length)];
+            aud.PlayOneShot(deathSound, audDeathVol);
+            Destroy(gameObject, deathSound.length);
             thisRoom.updateEnemyCount(-1);
             
             int randPowerUp = Random.Range(0, dropChancePowerUp);
