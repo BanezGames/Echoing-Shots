@@ -13,6 +13,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
     [SerializeField] GameObject flash;
+    [SerializeField] GameObject VendingMenu;
 
     [SerializeField] GameObject interactTip;
     [SerializeField] GameObject interactDoor;
@@ -22,6 +23,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject readPage;
     public List<GameObject> InventorySlotsImage = new List<GameObject>();
     public List<TMP_Text> inventoryDurability = new List<TMP_Text>();
+    public VendingMachine currentVendingMachine;
 
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
@@ -281,6 +283,21 @@ public class gameManager : MonoBehaviour
 
         }
 
+    }
+
+    public void OpenVendingMenu(VendingMachine vm)
+    {
+        statePause();
+        currentVendingMachine  = vm;
+
+        menuActive = VendingMenu;
+        menuActive.SetActive(true);
+    }
+
+    public void CloseVendingMenu(VendingMachine vm)
+    {
+        stateUnpause();
+        currentVendingMachine = null;
     }
 
 }
