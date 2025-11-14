@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 
 public class NewMonoBehaviourScript : MonoBehaviour
@@ -7,22 +8,40 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [SerializeField] private GameObject itemButttonPrefab;
     [SerializeField] private Transform buttonContainer;
 
-    public void BuildMenu(vendingMachine vendMachine)
+    public void BuildMenu(VendingMachine vendMachine)
     {
-        foreach (Transfrom child in buttonContainer)
+       
+        for(int i = buttonContainer.childCount - 1; i>= 0; i--)
         {
-            Destroy(gameObject);
-        }
+            Destroy(buttonContainer.GetChild(i).gameObject);
 
-        for (int i = 0; i < buttonContainer.childCount; i++)
+
+        }
+        int itemCount = vendMachine.ItemCount();
+
+        for(int i = 0; i < itemCount; i++)
         {
             GameObject buttonObj = Instantiate(itemButttonPrefab, buttonContainer);
-            Text buttonText = buttonObj.GetComponentInChildren<Text>();
-            buttonText.text = vendMachine.GetItemName(i) + " - " + vendMachine.GetItemCost(i);
+
+            TMP_Text tmpText = buttonObj.GetComponentInChildren<TMP_Text>();
+
+            if (tmpText != null)
+            {
+                tmpText.text = vendMachine.GetItemName(i) + " - " + vendMachine.GetItemCost(i) + "coins";
 
 
-            int index = i;
-            buttonObj.GetComponent<Button>().onClick.AddListener(() => vendMachine.DispenseItem(index));
+                int index = i;
+
+                buttonObj.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    vendMachine.DispenseItem(index);
+                });
+
+             
+            
+            }
+
+
         }
     }
     
