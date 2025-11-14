@@ -1106,7 +1106,7 @@ PrefabInstance:
     - target: {fileID: 8249725089736303823, guid: 0a2905fd05b170b4582315719032d3dc, type: 3}
       propertyPath: 'enemyList.Array.data[0]'
       value: 
-      objectReference: {fileID: 2073391138671033692, guid: f7228c5142d5110488b644bfd2ab2978, type: 3}
+      objectReference: {fileID: 3595394208431372157, guid: 0d0fcd578f34dda498d09cd54b6918db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
