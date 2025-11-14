@@ -21,6 +21,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int sanityReduceAmount;
     [SerializeField] float baseSanitydrain;
     [SerializeField] float sanityDrainRate;
+    [SerializeField] int sanityMax;
     //[SerializeField] float sanityRecoveryRate;
 
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
@@ -41,6 +42,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [Range(0, 1)][SerializeField] float audHurtVol;
     [SerializeField] AudioClip[] audDeath;
     [Range(0, 1)][SerializeField] float audDeathVol;
+    [SerializeField] AudioSource audSanity;
     [SerializeField] AudioClip audSanVoices;
     [Range(0, 1)][SerializeField] float audLandVol;
 
@@ -76,14 +78,12 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         gravityOrig = gravity;
         damageOrig = shootDamage;
         sanityOrig = sanity;
-
-      
-
-
+        isLosingSanity = true;
 
         //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
-        
+        //StartCoroutine(sanityDrain());
+       
     }
 
     // Update is called once per frame
@@ -104,7 +104,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
                 transform.localScale = new Vector3(transform.localScale.x, 1.0f, transform.localScale.z);
             }
         }
-        StartCoroutine(sanityOther());
+       
     }
 
     void movement()
@@ -253,6 +253,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]--;
         Heal(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].Healing);
+        RestoreSanity(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].SanityRestore);
         if (gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration > 0) StartCoroutine(Shield(gameManager.instance.itemInventory[gameManager.instance.selectedIndex].InvincDuration));
         //Debug.Log("Test: " + gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex]);
         if (gameManager.instance.itemDurabilityList[gameManager.instance.selectedIndex] <=0)
@@ -263,6 +264,8 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         updatePlayerUI();
         
     }
+
+
     public void Heal(int amount)
     {
         HP += amount;
@@ -318,43 +321,68 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         }
     }
 
-
-    IEnumerator sanityOther()
+    public void sanityDamage(int amount)
     {
-       if(gameManager.instance.playerSanityBar.fillAmount > 0)
-        {
-            isLosingSanity = true;
-            
-            gameManager.instance.playerSanityBar.fillAmount -= 0.0001f ;
+        sanity -= amount;
 
-            if (!isHearingVoices)
-            {
-                isHearingVoices = true;
-                aud.clip = audSanVoices;
-                aud.volume = audLandVol;
-                aud.loop = true;
-                aud.Play();
-            }
-            else
-            {
-                if (isHearingVoices)
-                {
-                    isHearingVoices = false;
-                    aud.Stop();
-                }
-            }
-                yield return null;
-            
+        updatePlayerUI();
 
-        }
-        else if (gameManager.instance.playerSanityBar.fillAmount <= 0)
+        if (sanity <= 0)
         {
-            isLosingSanity = false;
-            takeDamage(1);
-            yield return new WaitForSeconds(2.0f);
+            aud.PlayOneShot(audDeath[Random.Range(0, audDeath.Length)], audDeathVol);
+            //gameManager.instance.playerHPBar.value = 0;
+            gameManager.instance.youLose();
         }
-       
-    } 
+    }
+
+    public void RestoreSanity(int amount)
+    {
+        sanity += amount;
+        if (sanity > sanityMax)
+        {
+            sanity = sanityMax;
+        }
+        updatePlayerUI();
+    }
+
+    // Commented out by Ron on 11-11-25 due to reworking Sanity Damage to be tied to objects.
+    //
+    //IEnumerator sanityOther()
+    //{
+    //   if(gameManager.instance.playerSanityBar.fillAmount > 0)
+    //    {
+    //        isLosingSanity = true;
+
+    //        gameManager.instance.playerSanityBar.fillAmount -= 0.0001f ;
+
+    //        if (!isHearingVoices)
+    //        {
+    //            isHearingVoices = true;
+    //            audSanity.clip = audSanVoices;
+    //            audSanity.volume = audLandVol;
+    //            audSanity.loop = true;
+    //            audSanity.Play();
+    //        }
+    //        else
+    //        {
+    //            if (isHearingVoices)
+    //            {
+    //                isHearingVoices = false;
+    //                audSanity.Stop();
+    //            }
+    //        }
+    //            yield return null;
+
+
+    //    }
+    //    else if (gameManager.instance.playerSanityBar.fillAmount <= 0)
+    //    {
+    //        isLosingSanity = false;
+    //        takeDamage(1);
+    //        yield return new WaitForSeconds(2.0f);
+    //    }
+
+    //} 
     IEnumerator flashPlayerDmg()
     {
         gameManager.instance.playerDamageScreen.SetActive(true);
@@ -409,6 +437,27 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             gameManager.instance.ammoMax.text = gunList[gunListPos].ammoMax.ToString("F0");
         }
 
+        if (sanity <= sanityMax * 0.25f)
+        {
+            //Here is where we put the effect of the window going dark and Samuel hearing voices//
+            if (!isHearingVoices)
+            {
+                isHearingVoices = true;
+                aud.clip = audSanVoices;
+                aud.volume = audLandVol;
+                aud.loop = true;
+                aud.Play();
+            }
+        }
+        else
+        {
+            if (isHearingVoices)
+            {
+                isHearingVoices = false;
+                aud.Stop();
+            }
+        }
+
         gameManager.instance.playerSanityBar.fillAmount = (float)sanity / sanityOrig;
     }
     public void spawnPlayer()
@@ -434,4 +483,55 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         isPlayingSteps = false;
     }
+
+    // Commented out by Ron on 11-11-25 due to reworking Sanity Damage to be tied to objects.
+    //
+    //IEnumerator sanityDrain()
+    //{
+    //    while (true)
+    //    {
+    //        Debug.Log("Started");
+
+    //        if(isLosingSanity)
+    //        {
+    //            if (!(sanity <= 0)) sanity -= (int)sanityDrainRate;
+
+
+    //            if(sanity <= sanityMax * 0.25f)
+    //            {
+    //                //Here is where we put the effect of the window going dark and Samuel hearing voices//
+    //                if (!isHearingVoices)
+    //                {
+    //                    isHearingVoices = true;
+    //                    aud.clip = audSanVoices;
+    //                    aud.volume = audLandVol;
+    //                    aud.loop = true;
+    //                    aud.Play();
+    //                }
+    //            } 
+    //            else
+    //            {
+    //                if (isHearingVoices)
+    //                {
+    //                    isHearingVoices = false;
+    //                    aud.Stop();
+    //                }
+    //            }
+
+    //            if (sanity <= 0)
+    //            {
+    //                takeDamage(1);
+    //            }
+    //        }
+
+    //        updatePlayerUI();
+    //        yield return new WaitForSeconds(1);
+    //    }
+    //}
+
+
+    
+
+
+
 }

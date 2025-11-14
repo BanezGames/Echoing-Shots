@@ -18,9 +18,10 @@ public class enemyAI : MonoBehaviour , IDamage
     [SerializeField] bool isMelee;
     [SerializeField] float attackRange;
 
-    [SerializeField] Transform shootPos;
-    [SerializeField] GameObject bullet;
+    [SerializeField] Transform[] shootPos;
+    [SerializeField] GameObject[] bullet;
     [SerializeField] float shootRate;
+    [SerializeField] int numOfAttacks;
     [SerializeField] int dropChanceItem;
     [SerializeField] int dropChancePowerUp;
     [SerializeField] GameObject[] powerUpPrefabs;
@@ -127,8 +128,24 @@ public class enemyAI : MonoBehaviour , IDamage
                 {
                     if (anim != null)
                     {
-                        anim.SetTrigger("Shoot");
+                        if(numOfAttacks <= 0)
+                        {
+                            anim.SetTrigger("Shoot");
+                        }
+                        else
+                        {
+                            int randAttack = Random.Range(0, numOfAttacks);
+                            string attackNum = "Shoot";
+                            if (randAttack != 0)
+                            {
+                                 attackNum += randAttack.ToString();
+                                Debug.Log("Added");
+                            }
+                            //Debug.Log("AttackNum: " + attackNum);
+                            anim.SetTrigger(attackNum);
+                        }
                     }
+                    shootTimer = 0;
                 }
                 if (agent.remainingDistance <= stoppingDistOrig)
                     faceTarget();
@@ -168,14 +185,14 @@ public class enemyAI : MonoBehaviour , IDamage
     }
 
 
-    void shoot() 
+    void shoot(int attack = 0) 
     {
         if(agent.remainingDistance <= attackRange)
         {
             shootTimer = 0;
-            
-            
-            Instantiate(bullet, shootPos.position, transform.rotation);
+
+            //Debug.Log("Attack: " + attack);
+            Instantiate(bullet[attack], shootPos[attack].position, transform.rotation);
 
 
         }
@@ -183,6 +200,7 @@ public class enemyAI : MonoBehaviour , IDamage
 
     void meleeAttack()
     {
+        //Debug.Log("AttackStarted");
         shootTimer = 0;
         StartCoroutine(meleeAttackE(1.5f));
     }
@@ -205,7 +223,7 @@ public class enemyAI : MonoBehaviour , IDamage
             thisRoom.updateEnemyCount(-1);
             int rand = Random.Range(0, dropChanceItem);
             int randPowerUp = Random.Range(0, dropChancePowerUp);
-            Debug.Log(rand);
+            //Debug.Log(rand);
             //if(rand == 0)
             //{
             // Instantiate(Item, transform.position, Quaternion.identity);
@@ -222,6 +240,11 @@ public class enemyAI : MonoBehaviour , IDamage
         {
             StartCoroutine(flashRed());
         }
+    }
+
+    public void sanityDamage(int amount)
+    {
+        // Do Nothing
     }
 
     IEnumerator meleeAttackE(float duration)
@@ -246,4 +269,5 @@ public class enemyAI : MonoBehaviour , IDamage
 
     }
 
+    
 }

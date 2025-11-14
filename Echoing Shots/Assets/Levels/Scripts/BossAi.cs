@@ -35,6 +35,12 @@ public class BossAi : MonoBehaviour , IDamage
     [SerializeField] int skyAmount;
     [SerializeField] int yAdd;
 
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] audHurt;
+    [Range(0, 1)][SerializeField] float audHurtVol;
+    [SerializeField] AudioClip[] audDeath;
+    [Range(0, 1)][SerializeField] float audDeathVol;
+
     Color colorOrig;
 
     float shootTimer;
@@ -47,13 +53,13 @@ public class BossAi : MonoBehaviour , IDamage
     Vector3 playerDir;
     Vector3 startingPos;
 
-    //public RoomManager thisRoom;
+    public RoomManager thisRoom;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         colorOrig = model.material.color;
-        //thisRoom.updateEnemyCount(1);
+        thisRoom.updateEnemyCount(1);
         startingPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
     }
@@ -143,10 +149,18 @@ public class BossAi : MonoBehaviour , IDamage
         HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
 
+
+        if (HP > 0)
+        {
+            aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
+        }
+
         if (HP <= 0)
         {
-            Destroy(gameObject);
-            //thisRoom.updateEnemyCount(-1);
+            AudioClip deathSound = audDeath[Random.Range(0, audDeath.Length)];
+            aud.PlayOneShot(deathSound, audDeathVol);
+            Destroy(gameObject, deathSound.length);
+            thisRoom.updateEnemyCount(-1);
             
             int randPowerUp = Random.Range(0, dropChancePowerUp);
             //Debug.Log(rand);
@@ -159,12 +173,16 @@ public class BossAi : MonoBehaviour , IDamage
                 Instantiate(powerUpPrefabs[randPU], transform.position, Quaternion.identity);
             }
 
-            gameManager.instance.youWin();
+            //gameManager.instance.youWin();
         }
         else
         {
             StartCoroutine(flashRed());
         }
+    }
+    public void sanityDamage(int amount)
+    {
+        // Do Nothing
     }
 
     IEnumerator flashRed()

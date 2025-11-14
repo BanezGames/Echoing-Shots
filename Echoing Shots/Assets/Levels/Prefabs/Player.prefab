@@ -244,6 +244,7 @@ MonoBehaviour:
   sanityReduceAmount: 1
   baseSanitydrain: 1
   sanityDrainRate: 2
+  sanityMax: 100
   gunList: []
   gunModel: {fileID: 2747849146545279302}
   leftHand: {fileID: 0}
@@ -280,6 +281,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 125d46bc97f544fe6b46072b509f4b28, type: 3}
   - {fileID: 8300000, guid: 5d72ee7fecf3d4c479e4f2b39d511f96, type: 3}
   audDeathVol: 0.5
+  audSanity: {fileID: 0}
   audSanVoices: {fileID: 8300000, guid: 146f084b22304a54bad303194ac93c51, type: 3}
   audLandVol: 0.25
   isSwimming: 0

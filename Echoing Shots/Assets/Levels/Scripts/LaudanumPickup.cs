@@ -17,7 +17,7 @@ public class LaudanumPickup : MonoBehaviour
     {
         if (player != null)
         {
-            gameManager.instance.playerSanityBar.fillAmount += 1.0f;
+            player.RestoreSanity(10);
             Destroy(gameObject);
         }
     }
