@@ -19,5 +19,6 @@ MonoBehaviour:
   ammoCur: 6
   ammoMax: 6
   hitEffect: {fileID: 0}
-  shootSound: []
-  shootSoundVol: 0
+  shootSound:
+  - {fileID: 8300000, guid: 71d0cb2d7e2b21447bf906a25b1d0082, type: 3}
+  shootSoundVol: 0.5
