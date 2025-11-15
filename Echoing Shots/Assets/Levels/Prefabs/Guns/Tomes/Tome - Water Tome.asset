@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d0e9103307945749b660cc5c7fe08b8, type: 3}
-  m_Name: Tome - Fire Tome
+  m_Name: Tome - Water Tome
   m_EditorClassIdentifier: Assembly-CSharp::tomeStats
-  tomeModel: {fileID: 8720276373641136096, guid: 401f54b8ca367064297a687d7383ebcb, type: 3}
-  shootDamage: 5
-  shootDist: 20
+  tomeName: Water
+  tomeModel: {fileID: 8720276373641136096, guid: 5f639c6dc4bf6c3429342901603b5608, type: 3}
   sanityCost: 15
-  castRate: 0
-  bullet: {fileID: 1620881435908363643, guid: dd47cb4517a89d84baaeb6a36ad68912, type: 3}
-  tomeColor: {r: 1, g: 0, b: 0, a: 0.6313726}
+  castRate: 15
+  bullet: {fileID: 1329139326727047796, guid: 865230238e78abf47bfb89b112f2cd35, type: 3}
+  tomeColor: {r: 0.31420133, g: 0.3003738, b: 0.8490566, a: 0.54509807}
   shootSound: []
   shootSoundVol: 0

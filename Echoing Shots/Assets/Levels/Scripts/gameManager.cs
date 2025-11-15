@@ -30,6 +30,7 @@ public class gameManager : MonoBehaviour
     //[SerializeField] Slider HealthBar;
     public Image playerHPBar;
     public Image playerSanityBar;
+    public Image castCooldown;
     public GameObject interactTipPub;
     public GameObject playerDamageScreen;
     public GameObject playerShieldScreen;

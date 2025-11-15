@@ -34,8 +34,6 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int shootDist;
     [SerializeField] float shootRate;
 
-    [SerializeField] int tomeDamage;
-    [SerializeField] int tomeDist;
     [SerializeField] int castRate;
     [SerializeField] Transform castPos;
 
@@ -99,7 +97,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist,Color.red);
         shootTimer += Time.deltaTime;
-        castTimer += Time.deltaTime;
+        castTimer -= Time.deltaTime;
         movement();
         sprint();
         
@@ -156,7 +154,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             gameManager.instance.getReticle().color = Color.gray;
         }
 
-        if(Input.GetButton("Tome Select") && tomeList.Count > 0)
+        if(Input.GetButtonDown("Tome Select") && tomeList.Count > 0)
         {
             selectTome();
         }
@@ -166,7 +164,13 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             shoot();
         }
 
-        if(Input.GetButton("Fire2") && tomeList.Count > 0 && tomeList[tomeListPos].sanityCost < sanity && castTimer >= castRate)
+        if (tomeList.Count > 0)
+        {
+            gameManager.instance.castCooldown.fillAmount = castTimer /
+                tomeList[tomeListPos].castRate;
+        }
+
+        if (Input.GetButton("Fire2") && tomeList.Count > 0 && tomeList[tomeListPos].sanityCost < sanity && castTimer <= 0)
         {
             cast();
         }
@@ -262,8 +266,9 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     void cast()
     {
-        castTimer = 0;
+        castTimer = tomeList[tomeListPos].castRate;
         sanity -= tomeList[tomeListPos].sanityCost;
+        // update aiming to include elevation for shots.
         Instantiate(tomeList[tomeListPos].bullet, castPos.transform.position, transform.rotation);
         // add audio
         updatePlayerUI();
@@ -450,9 +455,6 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     void changeTome()
     {
-        tomeDamage = tomeList[tomeListPos].shootDamage;
-        tomeDist = tomeList[tomeListPos].shootDist;
-
         leftHand.GetComponent<MeshFilter>().sharedMesh = tomeList[tomeListPos].tomeModel.GetComponent<MeshFilter>().sharedMesh;
         leftHand.GetComponent<MeshRenderer>().sharedMaterial = tomeList[tomeListPos].
             tomeModel.GetComponent<MeshRenderer>().sharedMaterial;
@@ -494,6 +496,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
         //gameManager.instance.getHealthBar().value = HP;
+        
 
         if (gunList.Count > 0)
         {

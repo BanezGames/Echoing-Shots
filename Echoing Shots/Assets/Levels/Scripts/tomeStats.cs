@@ -3,11 +3,10 @@ using UnityEngine;
 [CreateAssetMenu]
 public class tomeStats : ScriptableObject
 {
+    public string tomeName;
     public GameObject tomeModel;
-    [Range(1, 10)] public int shootDamage;
-    [Range(15, 1000)] public int shootDist;
     [Range(5, 50)] public int sanityCost;
-    [Range(30, 120)] public float castRate;
+    [Range(10, 30)] public float castRate;
     public GameObject bullet;
     public Color tomeColor;
 
