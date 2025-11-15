@@ -6,6 +6,8 @@ public class objectiveUpdates : MonoBehaviour
 {
     [SerializeField] TMP_Text objective;
     [SerializeField] string text;
+    public GameObject uiObject;
+    public BoxCollider popUpWall;
     //[SerializeField] float textTime;
 
     //void start()
@@ -15,10 +17,10 @@ public class objectiveUpdates : MonoBehaviour
    // }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && gameManager.instance.PlayerSpawnPos.transform.position != transform.position)
+        if (other.CompareTag("Player"))
         {
-            gameManager.instance.PlayerSpawnPos.transform.position = transform.position;
             objective.text = text;
+
             
             StartCoroutine(feedback());
             
@@ -40,8 +42,10 @@ public class objectiveUpdates : MonoBehaviour
     IEnumerator feedback()
     {
         gameManager.instance.objectivePopup.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         gameManager.instance.objectivePopup.SetActive(false);
+        //Destroy(uiObject);
+        Destroy(popUpWall);
 
     }
 }

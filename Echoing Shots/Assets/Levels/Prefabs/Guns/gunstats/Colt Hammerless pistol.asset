@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f133b4416518b924a806d5d944929470, type: 3}
+  m_Name: Colt Hammerless pistol
+  m_EditorClassIdentifier: Assembly-CSharp::gunStats
+  gunModel: {fileID: 3527297086336696619, guid: 17f5bacd77eb42f4280efd336263406b, type: 3}
+  shootDamage: 2
+  shootDist: 50
+  shootRate: 1
+  ammoCur: 8
+  ammoMax: 8
+  hitEffect: {fileID: 0}
+  shootSound:
+  - {fileID: 8300000, guid: 18990df005c28f247ad437d37a252458, type: 3}
+  shootSoundVol: 0.5

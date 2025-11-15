@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f133b4416518b924a806d5d944929470, type: 3}
+  m_Name: Mauser Pistol
+  m_EditorClassIdentifier: Assembly-CSharp::gunStats
+  gunModel: {fileID: 1919000655295315985, guid: a2c5ce086acf5c04cafb5a3bf339b2f3, type: 3}
+  shootDamage: 1
+  shootDist: 150
+  shootRate: 0.1
+  ammoCur: 9
+  ammoMax: 10
+  hitEffect: {fileID: 0}
+  shootSound:
+  - {fileID: 8300000, guid: 49b90c8e464359545acec38423b5956c, type: 3}
+  shootSoundVol: 0.5
