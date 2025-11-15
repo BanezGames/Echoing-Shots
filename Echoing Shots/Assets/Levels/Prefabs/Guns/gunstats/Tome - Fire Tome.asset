@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0e9103307945749b660cc5c7fe08b8, type: 3}
+  m_Name: Tome - Fire Tome
+  m_EditorClassIdentifier: Assembly-CSharp::tomeStats
+  tomeModel: {fileID: 8720276373641136096, guid: 401f54b8ca367064297a687d7383ebcb, type: 3}
+  shootDamage: 5
+  shootDist: 20
+  sanityCost: 15
+  castRate: 0
+  bullet: {fileID: 1620881435908363643, guid: dd47cb4517a89d84baaeb6a36ad68912, type: 3}
+  tomeColor: {r: 1, g: 0, b: 0, a: 0.6313726}
+  shootSound: []
+  shootSoundVol: 0

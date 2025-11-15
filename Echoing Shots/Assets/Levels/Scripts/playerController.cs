@@ -25,6 +25,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     //[SerializeField] float sanityRecoveryRate;
 
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
+    [SerializeField] List<tomeStats> tomeList = new List<tomeStats>();
     
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject leftHand;
@@ -32,6 +33,11 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate;
+
+    [SerializeField] int tomeDamage;
+    [SerializeField] int tomeDist;
+    [SerializeField] int castRate;
+    [SerializeField] Transform castPos;
 
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip[] audSteps;
@@ -55,8 +61,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     int sanityOrig;
     int gravityOrig;
     int gunListPos;
+    int tomeListPos;
 
     float shootTimer;
+    float castTimer;
     bool isSprinting;
     bool isPlayingSteps;
     bool isUncrouching;
@@ -91,6 +99,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist,Color.red);
         shootTimer += Time.deltaTime;
+        castTimer += Time.deltaTime;
         movement();
         sprint();
         
@@ -147,9 +156,19 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             gameManager.instance.getReticle().color = Color.gray;
         }
 
+        if(Input.GetButton("Tome Select") && tomeList.Count > 0)
+        {
+            selectTome();
+        }
+
         if (Input.GetButton("Fire1") && gunList.Count > 0 && gunList[gunListPos].ammoCur > 0 && shootTimer >= shootRate)
         {
             shoot();
+        }
+
+        if(Input.GetButton("Fire2") && tomeList.Count > 0 && tomeList[tomeListPos].sanityCost < sanity && castTimer >= castRate)
+        {
+            cast();
         }
         if (Input.GetButton("Slot1"))
         {
@@ -239,6 +258,15 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
             }
             Debug.Log(hit.collider.name);
         }
+    }
+
+    void cast()
+    {
+        castTimer = 0;
+        sanity -= tomeList[tomeListPos].sanityCost;
+        Instantiate(tomeList[tomeListPos].bullet, castPos.transform.position, transform.rotation);
+        // add audio
+        updatePlayerUI();
     }
     void reload()
     {
@@ -400,6 +428,14 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
     }
 
+    public void getTomeStats(tomeStats tome)
+    {
+        tomeList.Add(tome);
+        tomeListPos = tomeList.Count - 1;
+
+        changeTome();
+    }
+
     void changeGun()
     {
         shootDamage = gunList[gunListPos].shootDamage;
@@ -408,6 +444,19 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[gunListPos].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[gunListPos].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+
+        updatePlayerUI();
+    }
+
+    void changeTome()
+    {
+        tomeDamage = tomeList[tomeListPos].shootDamage;
+        tomeDist = tomeList[tomeListPos].shootDist;
+
+        leftHand.GetComponent<MeshFilter>().sharedMesh = tomeList[tomeListPos].tomeModel.GetComponent<MeshFilter>().sharedMesh;
+        leftHand.GetComponent<MeshRenderer>().sharedMaterial = tomeList[tomeListPos].
+            tomeModel.GetComponent<MeshRenderer>().sharedMaterial;
+        leftHand.GetComponent<MeshRenderer>().material.color = tomeList[tomeListPos].tomeColor;
 
         updatePlayerUI();
     }
@@ -423,6 +472,21 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         {
             gunListPos--;
             changeGun();
+        }
+    }
+
+    void selectTome()
+    {
+        if (tomeListPos < tomeList.Count - 1)
+        {
+            tomeListPos++;
+            changeTome();
+        }
+        else if (tomeListPos == tomeList.Count - 1)
+        {
+            tomeListPos = 0;
+            changeTome();
+            // Hide Tome
         }
     }
 

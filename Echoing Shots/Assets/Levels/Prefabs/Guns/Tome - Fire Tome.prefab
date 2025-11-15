@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6529283268862767168}
+  - component: {fileID: -6827585767272321101}
   - component: {fileID: 5370184405911013236}
   - component: {fileID: 8893513700950180298}
   - component: {fileID: 2999254334611611405}
   m_Layer: 0
-  m_Name: Fire Tome
+  m_Name: Tome - Fire Tome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,6 +35,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6827585767272321101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8720276373641136096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e56e8b22ebe311499f127e3bcb2328f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::pickup
+  gun: {fileID: 0}
+  tome: {fileID: 11400000, guid: 93766fa9d02005848a635f9aae2b3084, type: 2}
 --- !u!33 &5370184405911013236
 MeshFilter:
   m_ObjectHideFlags: 0
