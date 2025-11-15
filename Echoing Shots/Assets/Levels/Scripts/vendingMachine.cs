@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 
-public class vendingMachine : MonoBehaviour
+public class VendingMachine : MonoBehaviour
 {
     [SerializeField] private List<GameObject> storeItems = new List<GameObject>();
     [SerializeField] private List<int> itemCosts = new List<int>();
@@ -24,7 +24,7 @@ public class vendingMachine : MonoBehaviour
     {
         if (isPlayerinRange && Input.GetKeyDown(KeyCode.E))
         {
-            DispenseItem(itemindexToSell);
+            gameManager.instance.OpenVendingMenu(this);
         }
     }
 
@@ -34,7 +34,7 @@ public class vendingMachine : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerinRange = true;
-            Debug.Log("Press E to buy" + itemNames[itemindexToSell]);
+            gameManager.instance.showInteraction(4);
         }
     }
 
@@ -44,36 +44,40 @@ public class vendingMachine : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerinRange = false;
+            gameManager.instance.hideInteraction();
         }
     }
 
 
     public void DispenseItem(int index)
     {
-        if (index < 0 || index >= storeItems.Count || index >= itemCosts.Count || index >= itemNames.Length)
+        if (index < 0 || index >= storeItems.Count)
+        {
+            return;
+        }
+        if(index >= itemCosts.Count || index >= itemNames.Length)
         {
             return;
         }
 
-        GameObject item = storeItems[index];
         int cost = itemCosts[index];
 
-        if (PlayerInventory.instance.Coins >= cost)
+        if(PlayerInventory.instance.Coins >= cost)
         {
             PlayerInventory.instance.AddGold(-cost);
-            item.transform.position = dispensePoint.position;
-            item.SetActive(true);
 
-            if (audioSource != null && dispenseSound != null)
+            GameObject newItem = Instantiate(storeItems[index], dispensePoint.position,Quaternion.identity);
+
+            if(audioSource && dispenseSound)
             {
                 audioSource.PlayOneShot(dispenseSound);
             }
 
-            Debug.Log("Dispensed " + itemNames[index]);
+            Debug.Log("Dispnesed" + itemNames[index]);
         }
-        else
+       else
         {
-            Debug.Log("Not enough coins to buy " + itemNames[index]);
+            Debug.Log("Not enough coins to buy: " + itemNames[index]);
         }
     }
 
