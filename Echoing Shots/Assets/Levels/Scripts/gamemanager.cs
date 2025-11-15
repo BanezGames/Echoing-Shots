@@ -38,6 +38,7 @@ public class gameManager : MonoBehaviour
     public GameObject checkpointPopup;
     public GameObject objectivePopup;
     public GameObject storyPopup;
+    public GameObject itempopup;
     public itemStats[] itemInventory;
     public int[] itemDurabilityList;
     
