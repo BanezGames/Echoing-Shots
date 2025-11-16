@@ -11234,6 +11234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: gramophone (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1993008731431645427, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5166578647986226245, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: text
       value: 
