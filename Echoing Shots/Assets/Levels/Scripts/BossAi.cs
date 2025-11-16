@@ -173,7 +173,7 @@ public class BossAi : MonoBehaviour , IDamage
                 Instantiate(powerUpPrefabs[randPU], transform.position, Quaternion.identity);
             }
 
-            //gameManager.instance.youWin();
+            gameManager.instance.youWin();
         }
         else
         {

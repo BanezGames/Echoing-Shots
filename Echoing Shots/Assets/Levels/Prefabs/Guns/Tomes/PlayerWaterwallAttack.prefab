@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8538494578617835907}
+  - component: {fileID: 3800329806932299372}
   - component: {fileID: 1262139986384137999}
   - component: {fileID: 7592140775915636254}
   - component: {fileID: 2354661962089199065}
-  - component: {fileID: 3800329806932299372}
   - component: {fileID: 4640315481811308080}
   m_Layer: 8
   m_Name: PlayerWaterwallAttack
@@ -36,6 +36,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3800329806932299372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329139326727047796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500a08448e9fc1f449887a4b3ce467eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  type: 0
+  rb: {fileID: 4640315481811308080}
+  damageAmount: 5
+  damageRate: 0
+  speed: 15
+  destroyTime: 10
 --- !u!33 &1262139986384137999
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113,24 +131,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3800329806932299372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329139326727047796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500a08448e9fc1f449887a4b3ce467eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Damage
-  type: 0
-  rb: {fileID: 4640315481811308080}
-  damageAmount: 2
-  damageRate: 0
-  speed: 15
-  destroyTime: 10
 --- !u!54 &4640315481811308080
 Rigidbody:
   m_ObjectHideFlags: 0

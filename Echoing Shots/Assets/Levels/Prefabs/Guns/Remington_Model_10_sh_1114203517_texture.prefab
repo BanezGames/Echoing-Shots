@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pickup
   gun: {fileID: 11400000, guid: f6319561fe84af74fb10d5c7ad6f28b0, type: 2}
+  tome: {fileID: 0}
 --- !u!33 &2874574421983235655
 MeshFilter:
   m_ObjectHideFlags: 0
