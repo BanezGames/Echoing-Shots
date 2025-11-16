@@ -156,15 +156,12 @@ MonoBehaviour:
   baseSanitydrain: 1
   sanityDrainRate: 2
   sanityMax: 100
-  gunList: []
   tomeList: []
   gunModel: {fileID: 7567168056750543821}
   leftHand: {fileID: 8859034752644782340}
   shootDamage: 0
   shootDist: 0
   shootRate: 0
-  tomeDamage: 0
-  tomeDist: 0
   castRate: 0
   castPos: {fileID: 2897456944039349030}
   aud: {fileID: 6309730783504994063}
@@ -566,7 +563,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.47, y: -0.677, z: 1.31}
-  m_LocalScale: {x: 99.99996, y: 100, z: 99.99996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5113106941004304028}
