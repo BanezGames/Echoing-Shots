@@ -80,10 +80,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     void Start()
     {
         HPOrig = HP;
+        sanityOrig = sanity;
         spawnPlayer();
         gravityOrig = gravity;
         damageOrig = shootDamage;
-        sanityOrig = sanity;
         isLosingSanity = true;
 
         //gameManager.instance.playerHPBar = HP;
@@ -364,7 +364,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         {
             aud.PlayOneShot(audDeath[Random.Range(0, audDeath.Length)], audDeathVol);
             //gameManager.instance.playerHPBar.value = 0;
-            gameManager.instance.youLose();
+            takeDamage(1);
         }
     }
 
@@ -531,6 +531,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         controller.transform.position = gameManager.instance.PlayerSpawnPos.transform.position;
         HP = HPOrig;
+        sanity = sanityOrig;
         updatePlayerUI();
     }
 
