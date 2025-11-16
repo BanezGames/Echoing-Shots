@@ -809,14 +809,6 @@ MonoBehaviour:
   interactLever: {fileID: 5393570063628277181}
   interactCrank: {fileID: 6544489351226999349, guid: 03cdb6e8f06a26e4f9a3cb7fff4c866f, type: 3}
   readPage: {fileID: 0}
-  InventorySlotsImage:
-  - {fileID: 3595157035256603812}
-  - {fileID: 142699322813959429}
-  - {fileID: 462804476180685751}
-  inventoryDurability:
-  - {fileID: 3540250924779470199}
-  - {fileID: 8398420592868929173}
-  - {fileID: 6207623262203032836}
   currentVendingMachine: {fileID: 0}
   enemy: {fileID: 4924989395540904198, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
   Counter: {fileID: 0}
@@ -834,6 +826,14 @@ MonoBehaviour:
   storyPopup: {fileID: 5336254063678362018}
   itempopup: {fileID: 5813480246335655057}
   itemInventory: []
+  InventorySlotsImage:
+  - {fileID: 3595157035256603812}
+  - {fileID: 142699322813959429}
+  - {fileID: 462804476180685751}
+  inventoryDurability:
+  - {fileID: 3540250924779470199}
+  - {fileID: 8398420592868929173}
+  - {fileID: 6207623262203032836}
   itemDurabilityList: 
   Reticle: {fileID: 9054773729189454025}
   maxItems: 10

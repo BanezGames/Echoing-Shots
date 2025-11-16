@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class playerController : MonoBehaviour , IDamage, IInteract,IPickup 
 {
+    public static playerController instance { get; private set; }
+
     [SerializeField] LayerMask ignoreLayer;
     [SerializeField] CharacterController controller;
 
@@ -76,20 +78,27 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     bool isInvincible;
     int damageOrig;
 
+    private void Awake()
+    {
+        
+    }
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         HPOrig = HP;
-        spawnPlayer();
         gravityOrig = gravity;
         damageOrig = shootDamage;
         sanityOrig = sanity;
-        isLosingSanity = true;
+        spawnPlayer();
+
+        //isLosingSanity = true;
 
         //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
         //StartCoroutine(sanityDrain());
-       
     }
 
     // Update is called once per frame
@@ -465,7 +474,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
    
     void selectGun()
     {
-        if(Input.GetAxis("Mouse ScrollWheel") > 0 && gunListPos <gunList.Count - 1)
+        if(Input.GetAxis("Mouse ScrollWheel") > 0 && gunListPos < gunList.Count - 1)
         {
             gunListPos++;
             changeGun();
