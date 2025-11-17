@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 
 public class gameManager : MonoBehaviour
@@ -90,6 +91,11 @@ public class gameManager : MonoBehaviour
         isOn = false;
 
 
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // Update is called once per frame
@@ -301,6 +307,18 @@ public class gameManager : MonoBehaviour
     {
         stateUnpause();
         currentVendingMachine = null;
+    }
+
+    public void onLoadnewScene()
+    {
+        PlayerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
+        player.transform.position = PlayerSpawnPos.transform.position;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        onLoadnewScene();
+        
     }
 
 }
