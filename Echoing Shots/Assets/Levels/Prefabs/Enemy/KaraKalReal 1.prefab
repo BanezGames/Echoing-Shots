@@ -859,6 +859,7 @@ MonoBehaviour:
   dropChancePowerUp: 2
   powerUpPrefabs:
   - {fileID: 857460445885957466, guid: b6f8dd35f0e5f5241a808d68571013d3, type: 3}
+  - {fileID: 2430432201208384360, guid: b25442c95327c4344a0eb034801afc03, type: 3}
   meleeHitBox: []
   aud: {fileID: -1117757422791034220}
   audHurt:

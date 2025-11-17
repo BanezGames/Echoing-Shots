@@ -4,12 +4,25 @@ using System.Collections;
 public class checkpoint : MonoBehaviour
 {
     [SerializeField] Renderer model;
+    [SerializeField] GameObject light;
 
     Color colorOrig;
 
     private void Start()
     {
         colorOrig = model.material.color;
+    }
+
+    private void Update()
+    {
+        if (gameManager.instance.PlayerSpawnPos.transform.position == transform.position)
+        {
+            light.SetActive(true);
+        }
+        else
+        {
+            light.SetActive(false);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

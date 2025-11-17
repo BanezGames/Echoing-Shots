@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 257074277716725870}
   - component: {fileID: 7997781181721867454}
   - component: {fileID: 8819247417176024592}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CthulhuIdolLowPoly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Damage
   type: 4
   rb: {fileID: 0}
-  damageAmount: 1
-  damageRate: 0.5
+  damageAmount: 2
+  damageRate: 1
   speed: 0
   destroyTime: 0
 --- !u!65 &7997781181721867454
@@ -69,7 +69,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 9093118935583967970}
   - component: {fileID: 6125482460347085718}
   - component: {fileID: 1829213501455624552}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Idol_V2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 2625536653034764187}
   - component: {fileID: 581253022458545162}
   - component: {fileID: 165359994226691764}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Idol_V1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -34,7 +34,7 @@ public class blockedPaths : MonoBehaviour
 
         if (type == blockerType.gate)
         {
-            blocker.transform.position += Vector3.up * (amount/100);
+            blocker.transform.position += Vector3.up * (amount/25);
         }
     }
 }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f133b4416518b924a806d5d944929470, type: 3}
+  m_Name: PPD-40 submachinegun
+  m_EditorClassIdentifier: Assembly-CSharp::gunStats
+  gunModel: {fileID: 7800495610469442550, guid: 271e0e4229996bc43a9cc2174dd615d2, type: 3}
+  shootDamage: 3
+  shootDist: 200
+  shootRate: 0.1
+  ammoCur: 71
+  ammoMax: 50
+  hitEffect: {fileID: 0}
+  shootSound:
+  - {fileID: 8300000, guid: cb15d4568f2a6724f913ad675abefa43, type: 3}
+  shootSoundVol: 0.5

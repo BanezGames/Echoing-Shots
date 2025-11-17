@@ -21,8 +21,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject interactLever;
     [SerializeField] GameObject interactCrank;
     [SerializeField] GameObject readPage;
-    public List<GameObject> InventorySlotsImage = new List<GameObject>();
-    public List<TMP_Text> inventoryDurability = new List<TMP_Text>();
+    
     public VendingMachine currentVendingMachine;
 
     [SerializeField] GameObject enemy;
@@ -30,6 +29,7 @@ public class gameManager : MonoBehaviour
     //[SerializeField] Slider HealthBar;
     public Image playerHPBar;
     public Image playerSanityBar;
+    public Image castCooldown;
     public GameObject interactTipPub;
     public GameObject playerDamageScreen;
     public GameObject playerShieldScreen;
@@ -38,7 +38,10 @@ public class gameManager : MonoBehaviour
     public GameObject checkpointPopup;
     public GameObject objectivePopup;
     public GameObject storyPopup;
+    public GameObject itempopup;
     public itemStats[] itemInventory;
+    public List<GameObject> InventorySlotsImage = new List<GameObject>();
+    public List<TMP_Text> inventoryDurability = new List<TMP_Text>();
     public int[] itemDurabilityList;
     
     [SerializeField] Image Reticle;
@@ -52,10 +55,9 @@ public class gameManager : MonoBehaviour
 
     public int keyCount;
 
-    int gameItemCount; 
-   
-    
-    
+    int gameItemCount;
+
+
     public bool isPaused;
     public bool isOn;
     public int selectedIndex;
@@ -73,6 +75,7 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+
         timeScaleOrig = Time.timeScale;
 
         Spawners = GameObject.FindGameObjectsWithTag("Spawner");
