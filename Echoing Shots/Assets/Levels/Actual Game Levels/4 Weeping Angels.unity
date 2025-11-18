@@ -2305,11 +2305,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (6)
@@ -4041,11 +4041,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (16)
@@ -4564,11 +4564,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (4)
@@ -4773,11 +4773,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b9e4243247f51b84880d12e3ead14210, type: 3}
   m_PrefabInstance: {fileID: 425057121}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &430986774 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-  m_PrefabInstance: {fileID: 2115583606}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &437341437 stripped
 Transform:
@@ -6236,11 +6231,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (11)
@@ -8065,7 +8060,7 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: AISpeed
       value: 6
@@ -8073,7 +8068,7 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (8)
@@ -8123,11 +8118,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
---- !u!20 &816815442 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 7426766257100148575, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-  m_PrefabInstance: {fileID: 2115583606}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &826112265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11964,7 +11954,7 @@ PrefabInstance:
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: uiObject
       value: 
-      objectReference: {fileID: 1462407464}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: popUpWall
       value: 
@@ -12000,8 +11990,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b727b78696843e44599d0ae9dec539b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPopup
-  imagePage: {fileID: 1462407464}
-  aboutText: {fileID: 1462407465}
+  imagePage: {fileID: 0}
+  aboutText: {fileID: 0}
   text: TOME OF WATER    Press T to swap between Tomes.    Sanity Cost (15)        
     Press Space to Close
   popUpWall: {fileID: 1220343758}
@@ -12393,11 +12383,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (7)
@@ -12937,11 +12927,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (3)
@@ -13696,128 +13686,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4432975863972712, guid: 278e8eacf74c6154ebc173a666e00c27, type: 3}
   m_PrefabInstance: {fileID: 1461914656}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1462407461
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3617849842856468765, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058522479557678819, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_Name
-      value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813480246335655057, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6020824774616777067, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_text
-      value: TOME OF WATER    Press T to swap between Tomes.    Sanity Cost (15)        
-        Press Space to Close
-      objectReference: {fileID: 0}
-    - target: {fileID: 6020824774616777067, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_fontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6020824774616777067, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6840862286657124586, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: readPage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 120.35728
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -42.27408
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874883266324282694, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084875363289602203, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084875363289602203, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
---- !u!1 &1462407462 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 470135224093158746, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 1462407461}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1462407463 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6634897048866408449, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 1462407461}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!1 &1462407464 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5813480246335655057, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 1462407461}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1462407465 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6020824774616777067, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 1462407461}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1463016322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13833,11 +13701,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (15)
@@ -14559,11 +14427,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (9)
@@ -15763,11 +15631,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (13)
@@ -16487,11 +16355,11 @@ PrefabInstance:
     - target: {fileID: 5166578647986226245, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 1462407463}
+      objectReference: {fileID: 0}
     - target: {fileID: 5166578647986226245, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: imagePage
       value: 
-      objectReference: {fileID: 1462407462}
+      objectReference: {fileID: 0}
     - target: {fileID: 7527473182193999241, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.081768
@@ -18125,11 +17993,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (10)
@@ -18871,11 +18739,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (5)
@@ -19526,11 +19394,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (14)
@@ -20335,63 +20203,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5217ca3cc01d39439b6edc0e29d2f4b, type: 3}
---- !u!1001 &2115583606
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.03527151
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.9699998
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.5300004
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.000000014901161
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396864286442560288, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
 --- !u!4 &2115927707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4393125519056686, guid: d9701c9a48aaebe40813707f15a57b7d, type: 3}
@@ -20412,11 +20223,11 @@ PrefabInstance:
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 430986774}
+      objectReference: {fileID: 0}
     - target: {fileID: 5065322845556244551, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 816815442}
+      objectReference: {fileID: 0}
     - target: {fileID: 5406796997959224858, guid: 93e2ce6790b77084b85f678086facbda, type: 3}
       propertyPath: m_Name
       value: Weeping Angel (12)
@@ -20475,9 +20286,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 2115583606}
   - {fileID: 74821394}
-  - {fileID: 1462407461}
   - {fileID: 707987704}
   - {fileID: 900393647}
   - {fileID: 3984748}

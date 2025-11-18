@@ -1323,11 +1323,11 @@ PrefabInstance:
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: uiObject
       value: 
-      objectReference: {fileID: 1023953824}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 408892613}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: popUpWall
       value: 
@@ -1482,11 +1482,11 @@ PrefabInstance:
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: uiObject
       value: 
-      objectReference: {fileID: 1023953824}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 408892613}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: popUpWall
       value: 
@@ -2861,11 +2861,11 @@ PrefabInstance:
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: uiObject
       value: 
-      objectReference: {fileID: 1023953824}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 408892613}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: popUpWall
       value: 
@@ -2901,8 +2901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b727b78696843e44599d0ae9dec539b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPopup
-  imagePage: {fileID: 1423550072}
-  aboutText: {fileID: 277978537}
+  imagePage: {fileID: 0}
+  aboutText: {fileID: 0}
   text: 'INVENTORY                                         Press 1 , 2 , 3                                    
     To select slot                                       Pick empty                                          
     Slot to pickup                                      ''Z'' to use  item                                  
@@ -3967,17 +3967,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8675028945288632779, guid: b3f57a4031b27cf46b569a8585ab50b4, type: 3}
   m_PrefabInstance: {fileID: 274517998}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &277978537 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6020824774616777067, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 408892612}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &283360919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4543,11 +4532,11 @@ PrefabInstance:
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: uiObject
       value: 
-      objectReference: {fileID: 1023953824}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 408892613}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: popUpWall
       value: 
@@ -4583,8 +4572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b727b78696843e44599d0ae9dec539b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPopup
-  imagePage: {fileID: 1423550072}
-  aboutText: {fileID: 277978537}
+  imagePage: {fileID: 0}
+  aboutText: {fileID: 0}
   text: OCCULT TOME                   Right Click to cast spell. Sanity Cost - 15
     Press SPACE to close
   popUpWall: {fileID: 324923381}
@@ -5782,158 +5771,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b473ac37d9ff28d44ae1e8e574efe069, type: 3}
---- !u!1001 &408892612
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 497002452451029325, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: flash
-      value: 
-      objectReference: {fileID: 498849290}
-    - target: {fileID: 497002452451029325, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: readPage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 497002452451029325, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: VendingMenu
-      value: 
-      objectReference: {fileID: 491963377}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -74.7287
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 109.85748
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601678735676371752, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813480246335655057, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6020824774616777067, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_text
-      value: OCCULT TOME                   Right Click to cast spell. Sanity Cost
-        - 15 Press SPACE to close
-      objectReference: {fileID: 0}
-    - target: {fileID: 6020824774616777067, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_fontSize
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 6020824774616777067, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7972023304090664153, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-      propertyPath: m_Name
-      value: UI
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
---- !u!114 &408892613 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6634897048866408449, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 408892612}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!1 &408892614 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5177026374024139715, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 408892612}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &408892615 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7326509232570839209, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 408892612}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &408892616 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7888751331796854254, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 408892612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &409123609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6395,11 +6232,11 @@ PrefabInstance:
     - target: {fileID: 5166578647986226245, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 408892613}
+      objectReference: {fileID: 0}
     - target: {fileID: 5166578647986226245, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: imagePage
       value: 
-      objectReference: {fileID: 408892616}
+      objectReference: {fileID: 0}
     - target: {fileID: 7527473182193999241, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: m_LocalPosition.x
       value: -642.55
@@ -7158,11 +6995,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 662319099425387430, guid: 258cf905ed725ee449e45d0de78d0605, type: 3}
   m_PrefabInstance: {fileID: 1630381414}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &491963377 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8270823187288395871, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 408892612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &492831540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8675028945288632779, guid: b3f57a4031b27cf46b569a8585ab50b4, type: 3}
@@ -7308,11 +7140,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b473ac37d9ff28d44ae1e8e574efe069, type: 3}
---- !u!1 &498849290 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 237231012695107341, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-  m_PrefabInstance: {fileID: 685610824}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &499215179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10178,67 +10005,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 250aacdb4e1d6ef4daccb60cfe6f10ce, type: 3}
---- !u!1001 &685610824
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -674.55035
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 14.20119
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 39.405067
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.50000054
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.86602515
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 566094814865810857, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396864286442560288, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7426766257100148575, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 12287
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3abe84eaec523674ca6ee1e92bc6ac29, type: 3}
 --- !u!1001 &695076986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12018,11 +11784,11 @@ PrefabInstance:
     - target: {fileID: 5166578647986226245, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 408892613}
+      objectReference: {fileID: 0}
     - target: {fileID: 5166578647986226245, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: imagePage
       value: 
-      objectReference: {fileID: 408892614}
+      objectReference: {fileID: 0}
     - target: {fileID: 7527473182193999241, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: m_LocalPosition.x
       value: -645.2732
@@ -14719,11 +14485,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f57a4031b27cf46b569a8585ab50b4, type: 3}
---- !u!1 &1023953824 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1594452609231146075, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 408892612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1025442852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 662319099425387430, guid: 258cf905ed725ee449e45d0de78d0605, type: 3}
@@ -15246,11 +15007,11 @@ PrefabInstance:
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: uiObject
       value: 
-      objectReference: {fileID: 1023953824}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 408892613}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: popUpWall
       value: 
@@ -15286,8 +15047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b727b78696843e44599d0ae9dec539b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPopup
-  imagePage: {fileID: 1423550072}
-  aboutText: {fileID: 277978537}
+  imagePage: {fileID: 0}
+  aboutText: {fileID: 0}
   text: SHEILD POTION                             Prevents damage                         
     Duration 10Sec                           Made by Dr.Halverson                  
     Space to close
@@ -16384,11 +16145,11 @@ PrefabInstance:
     - target: {fileID: 5166578647986226245, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 408892613}
+      objectReference: {fileID: 0}
     - target: {fileID: 5166578647986226245, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: imagePage
       value: 
-      objectReference: {fileID: 408892615}
+      objectReference: {fileID: 0}
     - target: {fileID: 7527473182193999241, guid: cf184cfa897e49b488c22f40d055c184, type: 3}
       propertyPath: m_LocalPosition.x
       value: -648.53
@@ -19324,11 +19085,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f57a4031b27cf46b569a8585ab50b4, type: 3}
---- !u!1 &1423550072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5813480246335655057, guid: 9dbb1737985b2b543af048331b4aee9a, type: 3}
-  m_PrefabInstance: {fileID: 408892612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1425970661 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8091677623062082376, guid: 5c1fcd5b39d17b24b8e02a9756f03c77, type: 3}
@@ -19576,11 +19332,11 @@ PrefabInstance:
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: uiObject
       value: 
-      objectReference: {fileID: 1023953824}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 408892613}
+      objectReference: {fileID: 0}
     - target: {fileID: 7167828276534626406, guid: 36e37765ffe87e247866cc8e2824112b, type: 3}
       propertyPath: popUpWall
       value: 
@@ -19616,8 +19372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b727b78696843e44599d0ae9dec539b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPopup
-  imagePage: {fileID: 1423550072}
-  aboutText: {fileID: 277978537}
+  imagePage: {fileID: 0}
+  aboutText: {fileID: 0}
   text: 'HEALTH POTION                            Heal when injured                         
     Made by Dr.Halverson                    Space to close '
   popUpWall: {fileID: 1475039634}
@@ -29081,9 +28837,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 408892612}
   - {fileID: 762699406}
-  - {fileID: 685610824}
   - {fileID: 1484930960}
   - {fileID: 530864678}
   - {fileID: 949551225}
