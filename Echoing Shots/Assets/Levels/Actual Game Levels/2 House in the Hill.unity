@@ -35410,6 +35410,7 @@ GameObject:
   - component: {fileID: 543450652451815708}
   - component: {fileID: 3469287838449094329}
   - component: {fileID: 1711813854654610035}
+  - component: {fileID: 3469287838449094330}
   m_Layer: 0
   m_Name: Vintage_Memories_1105005944_texture
   m_TagString: Untagged
@@ -35473,6 +35474,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148263820198}
   m_Mesh: {fileID: 1588110511326799053, guid: ae7e7d2a234d91741a16835b79e1aa2d, type: 3}
+--- !u!65 &3469287838449094330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148263820198}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.019035617, y: 0.009825109, z: 0.009170199}
+  m_Center: {x: -0.00000011967494, y: 0.00006849504, z: 0.0000019399447}
 --- !u!1001 &3561448042537984316
 PrefabInstance:
   m_ObjectHideFlags: 0
