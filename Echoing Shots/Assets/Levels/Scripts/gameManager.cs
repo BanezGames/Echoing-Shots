@@ -47,6 +47,11 @@ public class gameManager : MonoBehaviour
     
     [SerializeField] Image Reticle;
 
+    [SerializeField] AudioSource audUI;
+    [SerializeField] AudioClip pauseSound;
+    [SerializeField] AudioClip unpausedSound;
+    [Range(0f, 1f)][SerializeField] float uiVol;
+
 
     [SerializeField] int maxItems;
 
@@ -132,20 +137,35 @@ public class gameManager : MonoBehaviour
 
     public void statePause()
     {
-        isPaused = !isPaused;
+        if (isPaused)
+            return;
+        isPaused = true;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        if (audUI != null && pauseSound != null)
+        {
+            audUI.PlayOneShot(pauseSound, uiVol);
+        }
     }
 
     public void stateUnpause()
     {
-        isPaused = !isPaused;
+        if (!isPaused)
+            return;
+
+        isPaused = false;
         Time.timeScale = timeScaleOrig;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
         menuActive = null;
+
+        if (audUI != null && unpausedSound != null)
+        {
+            audUI.PlayOneShot(unpausedSound, uiVol);
+        }
     }
 
     public void updateGameGoal(int amount)
