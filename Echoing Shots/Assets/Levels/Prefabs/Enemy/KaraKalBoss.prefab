@@ -629,7 +629,7 @@ MonoBehaviour:
   anim: {fileID: 3374226514817084860}
   model: {fileID: 4411697525257890405}
   agent: {fileID: 1551037614453927990}
-  headPos: {fileID: 0}
+  headPos: {fileID: 2840258582004710501}
   Item: {fileID: 0}
   HP: 75
   faceTargetSpeed: 600

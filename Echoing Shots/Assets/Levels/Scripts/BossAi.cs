@@ -70,12 +70,13 @@ public class BossAi : MonoBehaviour , IDamage
 
         shootTimer += Time.deltaTime;
 
-        playerDir = gameManager.instance.player.transform.position - shootPos.position;
-        Debug.DrawRay(shootPos.position, playerDir, Color.red);
+        playerDir = gameManager.instance.player.transform.position - headPos.position;
+        Debug.DrawRay(headPos.position, playerDir, Color.red);
 
         RaycastHit hit;
-        if (Physics.Raycast(shootPos.position, playerDir, out hit))
+        if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
+            Debug.Log(hit.collider.CompareTag("Player"));
             if (hit.collider.CompareTag("Player"))
             {
                 faceTarget();
