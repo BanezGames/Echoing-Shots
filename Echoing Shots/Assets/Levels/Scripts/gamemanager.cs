@@ -18,6 +18,7 @@ public class gameManager : MonoBehaviour
 
     [SerializeField] GameObject interactTip;
     [SerializeField] GameObject interactDoor;
+    [SerializeField] GameObject noKey;
     [SerializeField] GameObject interactChest;
     [SerializeField] GameObject interactLever;
     [SerializeField] GameObject interactCrank;
@@ -276,10 +277,16 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    public void showNoKey()
+    {
+        noKey.SetActive(true);
+    }
+
     public void hideInteraction()
     {
         interactTip.SetActive(false);
         interactDoor.SetActive(false);
+        noKey.SetActive(false);
         interactChest.SetActive(false);
         interactLever.SetActive(false);
         interactCrank.SetActive(false);
