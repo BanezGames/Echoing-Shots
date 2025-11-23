@@ -11,6 +11,5 @@ public class startGame : MonoBehaviour
             musicManager.instance.StopMusic();
 
         }
-        SceneManager.LoadScene(1);
     }
 }
