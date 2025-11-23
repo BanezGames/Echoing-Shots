@@ -35,10 +35,15 @@ public class door : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         IInteract door = other.GetComponent<IInteract>();
+        canSeePlayer = true;
+
         if (door != null)
         {
             gameManager.instance.showInteraction(0);
-            canSeePlayer = true;
+            if(keyRequired && gameManager.instance.keyCount == 0)
+            {
+                gameManager.instance.showNoKey();
+            }
         }
     }
 

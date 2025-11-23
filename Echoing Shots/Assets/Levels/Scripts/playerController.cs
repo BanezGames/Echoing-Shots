@@ -10,7 +10,7 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     [SerializeField] CharacterController controller;
 
     [SerializeField] int HP;
-    [SerializeField] int speed;
+    public int speed;
     [SerializeField] int sprintMod;
     [Range(0.1f, 1.0f)] [SerializeField] float crouchHeightMultiplier; 
     [SerializeField] int jumpSpeed;
@@ -81,10 +81,12 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
     {
         HPOrig = HP;
         sanityOrig = sanity;
+        
         spawnPlayer();
         gravityOrig = gravity;
         damageOrig = shootDamage;
         isLosingSanity = true;
+        speed = gameManager.instance.playerSpeedOrig;
 
         //gameManager.instance.playerHPBar = HP;
         updatePlayerUI();
@@ -98,7 +100,10 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist,Color.red);
         shootTimer += Time.deltaTime;
         castTimer -= Time.deltaTime;
-        movement();
+        if (gameManager.instance.isPaused == false)
+        {
+            movement();
+        }
         sprint();
         
 
@@ -199,7 +204,21 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         reload();
     }
 
-    
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus)
+        {
+            moveDir = Vector3.zero;
+            playerVel = Vector3.zero;
+
+            if (isSprinting)
+            {
+                speed /= sprintMod;
+                isSprinting = false;
+            }
+        }
+    }
+
     void jump()
     {
         if(Input.GetButtonDown("Jump") && jumpCount < jumpCountMax)

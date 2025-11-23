@@ -18,16 +18,18 @@ public class gameManager : MonoBehaviour
 
     [SerializeField] GameObject interactTip;
     [SerializeField] GameObject interactDoor;
+    [SerializeField] GameObject noKey;
     [SerializeField] GameObject interactChest;
     [SerializeField] GameObject interactLever;
     [SerializeField] GameObject interactCrank;
-    [SerializeField] GameObject readPage;
+    [SerializeField] GameObject interactRead;
+    [SerializeField] GameObject[] pageToRead;
     
     public VendingMachine currentVendingMachine;
 
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
-    //[SerializeField] Slider HealthBar;
+
     public Image playerHPBar;
     public Image playerSanityBar;
     public Image castCooldown;
@@ -60,6 +62,7 @@ public class gameManager : MonoBehaviour
     public GameObject PlayerSpawnPos;
 
     public int keyCount;
+    public int playerSpeedOrig;
 
     int gameItemCount;
 
@@ -87,6 +90,7 @@ public class gameManager : MonoBehaviour
         Spawners = GameObject.FindGameObjectsWithTag("Spawner");
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+        playerSpeedOrig = player.GetComponent<playerController>().speed;
 
         PlayerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
         selectedIndex = 0;
@@ -271,18 +275,41 @@ public class gameManager : MonoBehaviour
                     interactCrank.SetActive(true);
                     break;
                 }
+            case 4:
+                {
+                    interactTip.SetActive(true);
+                    interactRead.SetActive(true);
+                    break;
+                }
             default:
                 break;
         }
+    }
+
+    public void showNoKey()
+    {
+        noKey.SetActive(true);
     }
 
     public void hideInteraction()
     {
         interactTip.SetActive(false);
         interactDoor.SetActive(false);
+        noKey.SetActive(false);
         interactChest.SetActive(false);
         interactLever.SetActive(false);
         interactCrank.SetActive(false);
+        interactRead.SetActive(false);
+    }
+
+    public void readPage(int index)
+    {
+        pageToRead[index].SetActive(true);
+    }
+
+    public void hidePage(int index)
+    {
+        pageToRead[index].SetActive(false);
     }
 
     public void clearSlot()
