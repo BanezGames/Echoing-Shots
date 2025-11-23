@@ -14,7 +14,12 @@ public class weepingAngel : MonoBehaviour
     public Camera playerCam, jumpscareCam;
     public float AISpeed, catchDistance, jumpscareTime;
 
-    
+    private void Start()
+    {
+        player = gameManager.instance.player.transform;
+        playerCam = Camera.main;
+        
+    }
     private void Update()
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(playerCam);
