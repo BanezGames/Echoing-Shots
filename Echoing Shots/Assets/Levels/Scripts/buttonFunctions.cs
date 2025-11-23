@@ -14,11 +14,11 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.stateUnpause();
     }
 
-    public void testScene()
-    {
-        SceneManager.LoadScene("Open World 1");
-        gameManager.instance.stateUnpause();
-    }
+    //public void testScene()
+    //{
+    //    SceneManager.LoadScene("Open World 1");
+    //    gameManager.instance.stateUnpause();
+    //}
 
     public void quit()
     {
