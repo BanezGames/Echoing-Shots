@@ -199,7 +199,21 @@ public class playerController : MonoBehaviour , IDamage, IInteract,IPickup
         reload();
     }
 
-    
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus)
+        {
+            moveDir = Vector3.zero;
+            playerVel = Vector3.zero;
+
+            if (isSprinting)
+            {
+                speed /= sprintMod;
+                isSprinting = false;
+            }
+        }
+    }
+
     void jump()
     {
         if(Input.GetButtonDown("Jump") && jumpCount < jumpCountMax)
