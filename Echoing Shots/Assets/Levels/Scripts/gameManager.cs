@@ -62,6 +62,7 @@ public class gameManager : MonoBehaviour
     public GameObject PlayerSpawnPos;
 
     public int keyCount;
+    public int playerSpeedOrig;
 
     int gameItemCount;
 
@@ -89,6 +90,7 @@ public class gameManager : MonoBehaviour
         Spawners = GameObject.FindGameObjectsWithTag("Spawner");
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+        playerSpeedOrig = player.GetComponent<playerController>().speed;
 
         PlayerSpawnPos = GameObject.FindWithTag("Player Spawn Pos");
         selectedIndex = 0;
