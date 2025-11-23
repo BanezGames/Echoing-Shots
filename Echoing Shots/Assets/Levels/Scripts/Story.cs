@@ -1,94 +1,57 @@
 using UnityEngine;
-using System.Collections;
 using TMPro;
-using UnityEngine.UIElements;
-using Unity.VisualScripting;
 
 public class Story : MonoBehaviour
 {
-    [SerializeField] TMP_Text text;
-    [SerializeField] GameObject imagePage;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //[SerializeField] GameObject imagePage;
+    [SerializeField] int readIndex;
+
     bool canSeePlayer;
-    bool pageShown;
-    //// Update is called once per frame
+    bool showText;
     void Start()
     {
         canSeePlayer = false;
-        pageShown = false;
+        showText = false;
     }
     void Update()
     {
         if (Input.GetButtonDown("Interact") && canSeePlayer)
         {
-
-            
-            removeRead();
-            gameManager.instance.storyPopup.SetActive(false);
-            showPage();
-            pageShown = true;
             gameManager.instance.statePause();
-
-
-
-
+            showPage();
         }
-        if (Input.GetButton("Fire1") && pageShown)
+        if (Input.GetButton("Cancel") && showText)
         {
-            
-            showRead();
-            removePage();
-            pageShown = false;
             gameManager.instance.stateUnpause();
+            removePage();
         }
         
 
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            canSeePlayer = true;
-            StartCoroutine(showRead());
-        }
+        IInteract story = other.GetComponent<IInteract>();
+        canSeePlayer = true;
+
+        gameManager.instance.showInteraction(4);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            canSeePlayer = false;
-            StartCoroutine(removeRead());
-        }
-    }
-
-    //void showRead()
-    //{
-       
-    //}
-
-    IEnumerator showRead()
-    {
-        gameManager.instance.interactTipPub.SetActive(true);
-        gameManager.instance.storyPopup.SetActive(true);
-        yield return null;
-    }
-    IEnumerator removeRead()
-    {
-        gameManager.instance.interactTipPub.SetActive(false);
-        gameManager.instance.storyPopup.SetActive(false);
-        yield return null;
+        gameManager.instance.hideInteraction();
+        canSeePlayer = false;
     }
 
     void showPage()
-    {
-        
-        imagePage.SetActive(true);
+    { 
+        gameManager.instance.readPage(readIndex);
+        showText = true;
     }
 
     void removePage() 
     {
-        imagePage.SetActive(false );
+        gameManager.instance.hidePage(readIndex);
+        showText = false;
     }
  
 

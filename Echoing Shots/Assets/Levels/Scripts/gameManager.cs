@@ -22,13 +22,14 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject interactChest;
     [SerializeField] GameObject interactLever;
     [SerializeField] GameObject interactCrank;
-    [SerializeField] GameObject readPage;
+    [SerializeField] GameObject interactRead;
+    [SerializeField] GameObject[] pageToRead;
     
     public VendingMachine currentVendingMachine;
 
     [SerializeField] GameObject enemy;
     [SerializeField] TextMeshProUGUI Counter;
-    //[SerializeField] Slider HealthBar;
+
     public Image playerHPBar;
     public Image playerSanityBar;
     public Image castCooldown;
@@ -272,6 +273,12 @@ public class gameManager : MonoBehaviour
                     interactCrank.SetActive(true);
                     break;
                 }
+            case 4:
+                {
+                    interactTip.SetActive(true);
+                    interactRead.SetActive(true);
+                    break;
+                }
             default:
                 break;
         }
@@ -290,6 +297,17 @@ public class gameManager : MonoBehaviour
         interactChest.SetActive(false);
         interactLever.SetActive(false);
         interactCrank.SetActive(false);
+        interactRead.SetActive(false);
+    }
+
+    public void readPage(int index)
+    {
+        pageToRead[index].SetActive(true);
+    }
+
+    public void hidePage(int index)
+    {
+        pageToRead[index].SetActive(false);
     }
 
     public void clearSlot()
