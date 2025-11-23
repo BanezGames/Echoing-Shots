@@ -810,7 +810,20 @@ MonoBehaviour:
   interactChest: {fileID: 5325700043925409912}
   interactLever: {fileID: 5393570063628277181}
   interactCrank: {fileID: 5916863844510752109}
-  readPage: {fileID: 0}
+  interactRead: {fileID: 5336254063678362018}
+  pageToRead:
+  - {fileID: 4403360006980481138}
+  - {fileID: 9054708264815105361}
+  - {fileID: 5893191302058541877}
+  - {fileID: 815452783689102366}
+  - {fileID: 5177026374024139715}
+  - {fileID: 7888751331796854254}
+  - {fileID: 7326509232570839209}
+  - {fileID: 470135224093158746}
+  - {fileID: 8920556149863547156}
+  - {fileID: 4588728508430100044}
+  - {fileID: 1039478545184148619}
+  - {fileID: 7839463088027477521}
   currentVendingMachine: {fileID: 0}
   enemy: {fileID: 4924989395540904198, guid: b0d91b76fa4d6864e9ff880cbd9b81a4, type: 3}
   Counter: {fileID: 0}
@@ -5578,7 +5591,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1704865514338197745
@@ -5643,7 +5656,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
