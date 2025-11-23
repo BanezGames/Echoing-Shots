@@ -265,6 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 754228219}
+  - component: {fileID: 754228222}
   - component: {fileID: 754228221}
   - component: {fileID: 754228220}
   m_Layer: 5
@@ -331,6 +332,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754228218}
   m_CullTransparentMesh: 1
+--- !u!114 &754228222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754228218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcab3ef16730f3047982b4ab0c23c76d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::startGame
 --- !u!1 &781428370
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,8 +644,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1911377335}
-        m_TargetAssemblyTypeName: startGame, Assembly-CSharp
-        m_MethodName: start
+        m_TargetAssemblyTypeName: buttonFunctions, Assembly-CSharp
+        m_MethodName: play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -725,9 +738,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1911377333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcab3ef16730f3047982b4ab0c23c76d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e3aa582002cb7341b160aac52cdcfc1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::startGame
+  m_EditorClassIdentifier: Assembly-CSharp::buttonFunctions
 --- !u!1 &2024079065
 GameObject:
   m_ObjectHideFlags: 0
