@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class cameraController : MonoBehaviour
 {
     [SerializeField] int sens;
     [SerializeField] int lockVertMin, lockVertMax;
     [SerializeField] bool invertY;
-
+    [SerializeField] Slider sensitivitybar;
     float rotX;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,5 +41,10 @@ public class cameraController : MonoBehaviour
 
         transform.parent.Rotate(Vector3.up * mouseX);
 
+    }
+
+    public void sensSet()
+    {
+        sensitivitybar.value = sens;
     }
 }

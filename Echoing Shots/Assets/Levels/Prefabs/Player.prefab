@@ -822,6 +822,7 @@ MonoBehaviour:
   lockVertMin: -90
   lockVertMax: 90
   invertY: 0
+  sensitivitybar: {fileID: 0}
 --- !u!20 &7426766257100148575
 Camera:
   m_ObjectHideFlags: 0

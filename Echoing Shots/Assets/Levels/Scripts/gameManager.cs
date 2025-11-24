@@ -16,6 +16,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject flash;
     [SerializeField] GameObject VendingMenu;
     [SerializeField] GameObject CreditsMenu;
+    [SerializeField] GameObject SettingsMenu;
 
     [SerializeField] GameObject interactTip;
     [SerializeField] GameObject interactDoor;
@@ -120,6 +121,10 @@ public class gameManager : MonoBehaviour
                 menuActive.SetActive(true);
             }
             else if (menuActive == menuPause)
+            {
+                stateUnpause();
+            }
+            else if (menuActive == SettingsMenu)
             {
                 stateUnpause();
             }
@@ -238,6 +243,22 @@ public class gameManager : MonoBehaviour
         statePause();
         menuActive = CreditsMenu;
         menuActive.SetActive(true);
+    }
+
+    public void settingsPop()
+    {
+        statePause();
+        menuActive = SettingsMenu;
+        menuActive.SetActive(true);
+
+    }
+
+    public void settingclose() 
+    {
+        menuActive.SetActive(false);
+        menuActive = null;
+        stateUnpause();
+
     }
     public Image getReticle()
     {

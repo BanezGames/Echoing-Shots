@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -44,5 +45,14 @@ public class buttonFunctions : MonoBehaviour
     public void title()
     { 
         SceneManager.LoadScene(0);
+    }
+    public void settings()
+    {
+        gameManager.instance.stateUnpause();
+       // gameManager.instance.statePause();
+        gameManager.instance.settingsPop();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
     }
 }
