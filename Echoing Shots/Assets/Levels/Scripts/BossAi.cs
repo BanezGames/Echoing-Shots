@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 public class BossAi : MonoBehaviour , IDamage
 {
     [SerializeField] Animator anim;
@@ -174,7 +175,7 @@ public class BossAi : MonoBehaviour , IDamage
                 Instantiate(powerUpPrefabs[randPU], transform.position, Quaternion.identity);
             }
 
-            gameManager.instance.youWin();
+            SceneManager.LoadScene(5);
         }
         else
         {

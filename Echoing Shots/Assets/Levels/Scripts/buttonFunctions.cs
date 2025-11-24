@@ -40,4 +40,9 @@ public class buttonFunctions : MonoBehaviour
         SceneManager.LoadScene(1);
         gameManager.instance.stateUnpause();
     }
+
+    public void title()
+    { 
+        SceneManager.LoadScene(0);
+    }
 }
