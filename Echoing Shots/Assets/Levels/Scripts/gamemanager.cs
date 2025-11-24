@@ -15,6 +15,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuLose;
     [SerializeField] GameObject flash;
     [SerializeField] GameObject VendingMenu;
+    [SerializeField] GameObject CreditsMenu;
 
     [SerializeField] GameObject interactTip;
     [SerializeField] GameObject interactDoor;
@@ -232,6 +233,12 @@ public class gameManager : MonoBehaviour
         menuActive.SetActive(true);
     }
 
+    public void creditsPop()
+    {
+        statePause();
+        menuActive = CreditsMenu;
+        menuActive.SetActive(true);
+    }
     public Image getReticle()
     {
         return Reticle;

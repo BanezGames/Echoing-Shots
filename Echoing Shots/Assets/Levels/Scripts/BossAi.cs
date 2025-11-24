@@ -174,8 +174,8 @@ public class BossAi : MonoBehaviour , IDamage
                 int randPU = Random.Range(0, powerUpPrefabs.Length);
                 Instantiate(powerUpPrefabs[randPU], transform.position, Quaternion.identity);
             }
-
-            SceneManager.LoadScene(5);
+            gameManager.instance.creditsPop();
+            //SceneManager.LoadScene(5);
         }
         else
         {
